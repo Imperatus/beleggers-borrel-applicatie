@@ -1,0 +1,42 @@
+{% extends 'MopaBootstrapBundle::layout.html.twig' %}
+{% block head_style %}
+    {% stylesheets
+    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock head_style %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title 'ShotStock Market' %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-message">
+            <em>Notice</em>: {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% block content_header %}
+        <ul id="menu">
+            {% block content_header_more %}
+                <li><a href="{{ path('_demo') }}">Demo Home</a></li>
+            {% endblock %}
+        </ul>
+
+        <div style="clear: both"></div>
+    {% endblock %}
+
+    <div class="block">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% if code is defined %}
+        <h2>Code behind this page</h2>
+        <div class="block">
+            <div class="symfony-content">{{ code|raw }}</div>
+        </div>
+    {% endif %}
+{% endblock %}

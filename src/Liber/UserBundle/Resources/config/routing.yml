@@ -1,0 +1,3 @@
+liber_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LiberUserBundle:Default:index }

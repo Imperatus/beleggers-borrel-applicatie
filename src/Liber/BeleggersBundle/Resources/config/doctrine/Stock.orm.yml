@@ -1,0 +1,42 @@
+# src/Liber/BeleggersBundle/Resources/config/doctrine/Stock.orm.yml
+Liber\BeleggersBundle\Entity\Stock:
+    type:  entity
+    table: stock
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        name:
+            type: string
+            length: 255
+        startingPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+        currentPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+        maxPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+            nullable: true
+        minPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+            nullable: true
+        startingStock:
+            type: integer
+        currentStock:
+            type: integer
+
+    manyToOne:
+        stockTypes:
+            targetEntity: StockType
+            inversedBy: stock
