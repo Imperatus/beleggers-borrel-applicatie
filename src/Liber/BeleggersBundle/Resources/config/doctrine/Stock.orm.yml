@@ -37,6 +37,6 @@ Liber\BeleggersBundle\Entity\Stock:
             type: integer
 
     manyToOne:
-        stockTypes:
+        stockType:
             targetEntity: StockType
             inversedBy: stock

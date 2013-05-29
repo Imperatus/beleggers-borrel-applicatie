@@ -10,14 +10,14 @@
 
         {% endstylesheets %}
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% javascripts
             "../app/Resources/public/bootstrap/js/bootstrap.js"
+            "../src/Liber/BeleggersBundle/Resources/public/js/*"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
     </head>
     <body>
         {% block body %}{% endblock %}

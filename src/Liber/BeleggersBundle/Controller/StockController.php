@@ -8,6 +8,12 @@ class StockController extends Controller
 {
     public function overviewAction()
     {
-        return $this->render('LiberBeleggersBundle:Stock:index.html.twig', array());
+        $stock = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findAll();
+        $activeTab = 'tabOverview';
+
+        return $this->render('LiberBeleggersBundle:Stock:overview.html.twig', array(
+            'stock' => $stock,
+            'activeTab' => $activeTab,
+        ));
     }
 }

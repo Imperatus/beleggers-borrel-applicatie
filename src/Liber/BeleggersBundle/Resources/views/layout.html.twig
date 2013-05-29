@@ -28,7 +28,23 @@
         </div>
     {% endblock %}
 
-    <div class="block">
-        {% block content %}{% endblock %}
+        <div class="row-fluid">
+            <div class="span9">
+                <div class="well">
+                    <ul class="nav nav-tabs">
+                        <li id="tabOverview"><a href="#home" data-toggle="tab">Overview</a></li>
+                        <li id="tabEdit"><a href="#profile" data-toggle="tab">Edit</a></li>
+                    </ul>
+                     {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var tabControl = new Liber.Tabs();
+            tabControl.setActiveTab("{{ activeTab }}");
+        });
+    </script>
 {% endblock %}

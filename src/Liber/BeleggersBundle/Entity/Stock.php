@@ -248,4 +248,32 @@ class Stock
     {
         return $this->stockTypes;
     }
+    /**
+     * @var \Liber\BeleggersBundle\Entity\StockType
+     */
+    private $stockType;
+
+
+    /**
+     * Set stockType
+     *
+     * @param \Liber\BeleggersBundle\Entity\StockType $stockType
+     * @return Stock
+     */
+    public function setStockType(\Liber\BeleggersBundle\Entity\StockType $stockType = null)
+    {
+        $this->stockType = $stockType;
+    
+        return $this;
+    }
+
+    /**
+     * Get stockType
+     *
+     * @return \Liber\BeleggersBundle\Entity\StockType 
+     */
+    public function getStockType()
+    {
+        return $this->stockType;
+    }
 }
