@@ -1,5 +1,5 @@
 liber_beleggers_homepage:
-    pattern:  /hello/{name}
+    pattern:  /{name}
     defaults: { _controller: LiberBeleggersBundle:Default:index }
 
 liber_beleggers_stock_overview:
