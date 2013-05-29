@@ -1,12 +1,4 @@
-{% extends 'MopaBootstrapBundle::layout.html.twig' %}
-{% block head_style %}
-    {% stylesheets
-    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
-    %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
-    {% endstylesheets %}
-{% endblock head_style %}
-
+{% extends 'base.html.twig' %}
 {% block head %}
 
 {% endblock %}
@@ -20,23 +12,23 @@
         </div>
     {% endfor %}
     {% block content_header %}
-        <ul id="menu">
-            {% block content_header_more %}
-                <li><a href="{{ path('_demo') }}">Demo Home</a></li>
-            {% endblock %}
-        </ul>
-
-        <div style="clear: both"></div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <a class="brand" href="#">Beleggers App</a>
+                        <ul class="nav">
+                            <li class="active"><a href="#">Stock</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Cashier</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endblock %}
 
     <div class="block">
         {% block content %}{% endblock %}
     </div>
-
-    {% if code is defined %}
-        <h2>Code behind this page</h2>
-        <div class="block">
-            <div class="symfony-content">{{ code|raw }}</div>
-        </div>
-    {% endif %}
 {% endblock %}

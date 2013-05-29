@@ -8,6 +8,10 @@ vendor/*
 web/uploads/*
 web/bundles/*
 
+# Assetic
+web/css/*
+web/js/*
+
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
