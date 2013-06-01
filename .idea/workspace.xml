@@ -2,28 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e87eecc-f291-49de-9143-2faf4939af12" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/helpbar.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/ijay.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Entity/Stock.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.fr.xlf" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/DataStructure/StockCollection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/form_tablerow_layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/liber/css/default.css" afterPath="$PROJECT_DIR$/app/Resources/public/liber/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/overview.html.twig" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/overview.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="symfony2-latest-test.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370035821897" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370093554438" ignored="false" />
     <file path="/parameters.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369839352751" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/twig/twig/phpunit.xml.dist" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775191835" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/doctrine/annotations/phpunit.xml.dist" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775191835" ignored="false" />
@@ -32,7 +23,7 @@
     <file path="$PROJECT_DIR$/vendor/doctrine/orm/doctrine-mapping.xsd" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775559910" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/build.xml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775559910" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/monolog/monolog/phpunit.xml.dist" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775559910" ignored="false" />
-    <file path="/a.dummy" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370043918168" ignored="false" />
+    <file path="/a.dummy" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370094162665" ignored="false" />
     <file path="/config.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370038364407" ignored="false" />
     <file path="$PROJECT_DIR$/app/cache/dev/annotations/597877fc1359850fa8786ead82dcc8f6f491d628$debug.cache.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369776482945" ignored="false" />
     <file path="$PROJECT_DIR$/app/cache/dev/annotations/597877fc1359850fa8786ead82dcc8f6f491d628$twig.cache.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369776482945" ignored="false" />
@@ -141,7 +132,7 @@
     <file path="/routing.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370036676735" ignored="false" />
     <file path="/Stock.orm.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369779953333" ignored="false" />
     <file path="/StockType.orm.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369779929406" ignored="false" />
-    <file path="/StockController.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370084085760" ignored="false" />
+    <file path="/StockController.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370100356974" ignored="false" />
     <file path="/index.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369847980278" ignored="false" />
     <file path="/layout.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370037243406" ignored="false" />
     <file path="/composer.json" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369845384022" ignored="false" />
@@ -155,11 +146,15 @@
     <file path="/tab.js" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369864033504" ignored="false" />
     <file path="/helpbar.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370037815543" ignored="false" />
     <file path="/messages.en.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370038138119" ignored="false" />
-    <file path="/StockType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370044366887" ignored="false" />
-    <file path="/StockTypeType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370039092872" ignored="false" />
-    <file path="/edit.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370090518951" ignored="false" />
-    <file path="/StockCollectionType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370089224797" ignored="false" />
-    <file path="/stockForm.js" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370090472860" ignored="false" />
+    <file path="/StockType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370095231396" ignored="false" />
+    <file path="/StockTypeType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370094687747" ignored="false" />
+    <file path="/edit.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370100952238" ignored="false" />
+    <file path="/StockCollectionType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370097352239" ignored="false" />
+    <file path="/stockForm.js" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370101128470" ignored="false" />
+    <file path="$PROJECT_DIR$/app/logs/dev.log" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370091073984" ignored="false" />
+    <file path="/form_tablerow_layout.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370094762861" ignored="false" />
+    <file path="$PROJECT_DIR$/app/cache/dev/twig/72/de/092cdb2a31037ca5a477fbf6892a.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370094580662" ignored="false" />
+    <file path="/StockCollection.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370098187559" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,10 +183,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig">
+      <file leaf-file-name="ContainerAware.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="14" selection-start="1822" selection-end="1822" vertical-scroll-proportion="-14.916667">
+            <state line="20" column="53" selection-start="467" selection-end="467" vertical-scroll-proportion="-3.4583333">
               <folding />
             </state>
           </provider>
@@ -200,41 +195,7 @@
       <file leaf-file-name="StockType.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="1.9583334">
-              <folding>
-                <element signature="e#50#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockTypeType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="64" selection-start="616" selection-end="616" vertical-scroll-proportion="-12.5">
-              <folding>
-                <element signature="e#50#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockCollectionType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="1" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-15.541667">
-              <folding>
-                <element signature="e#6#160#0" expanded="true" />
-                <element signature="e#206#246#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContainerAware.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="53" selection-start="467" selection-end="467" vertical-scroll-proportion="-2.4166667">
+            <state line="28" column="82" selection-start="965" selection-end="965" vertical-scroll-proportion="-11.583333">
               <folding />
             </state>
           </provider>
@@ -249,22 +210,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="8" selection-start="1256" selection-end="1311" vertical-scroll-proportion="0.5183585">
+            <state line="45" column="69" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-2.8333333">
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stockForm.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="50" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.765625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stockForm.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js">
+      <file leaf-file-name="StockController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="49" selection-start="1951" selection-end="1951" vertical-scroll-proportion="-10.178572">
-              <folding>
-                <element signature="e#0#155#0" expanded="false" />
-              </folding>
+            <state line="52" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="-28.125">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -287,9 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/tab.js" />
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/public/liber/css/default.css" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/overview.html.twig" />
@@ -297,12 +264,15 @@
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Entity/Stock.php" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Layout/form_tablerow_layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/form_tablerow_layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php" />
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php" />
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/DataStructure/StockCollection.php" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" />
       </list>
     </option>
   </component>
@@ -391,7 +361,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -493,6 +462,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BeleggersBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony2-latest-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beleggers-borrel-applicatie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Liber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeleggersBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -638,7 +637,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="DataStructure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony2-latest-test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beleggers-borrel-applicatie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Liber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BeleggersBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -658,6 +683,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -678,6 +704,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="272" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="268" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -691,6 +718,8 @@
       <recent name="$PROJECT_DIR$/web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Liber/BeleggersBundle" />
+      <recent name="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views" />
       <recent name="$PROJECT_DIR$/app/Resources/public/liber/css" />
     </key>
   </component>
@@ -743,7 +772,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22519083" sideWeight="0.675485" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23282443" sideWeight="0.675485" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -818,49 +847,80 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml">
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+        <state line="55" column="14" selection-start="1822" selection-end="1822" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/FormBuilderInterface.php">
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/tab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="20" selection-start="956" selection-end="956" vertical-scroll-proportion="0.34836066">
+        <state line="15" column="1" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/a1ad7cd_part_2_stockForm_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="189" selection-end="189" vertical-scroll-proportion="0.2772074" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/form_table_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="30" selection-start="554" selection-end="554" vertical-scroll-proportion="-3.0416667">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/form_tablerow_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="15" selection-start="387" selection-end="387" vertical-scroll-proportion="-10.0">
+          <folding>
+            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Entity/Stock.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="7" selection-start="693" selection-end="693" vertical-scroll-proportion="-3.75">
+        <state line="57" column="7" selection-start="693" selection-end="693" vertical-scroll-proportion="-30.625">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/Stock.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1493902">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="77" selection-start="1512" selection-end="1528" vertical-scroll-proportion="-9.708333">
-          <folding>
-            <element signature="e#52#83#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockTypeType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="64" selection-start="616" selection-end="616" vertical-scroll-proportion="-12.5">
+        <state line="10" column="41" selection-start="369" selection-end="369" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="683" selection-end="683" vertical-scroll-proportion="0.43032786">
           <folding>
-            <element signature="e#50#90#0" expanded="true" />
+            <element signature="e#206#246#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/DataStructure/StockCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="386" selection-end="386" vertical-scroll-proportion="0.73770493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="53" selection-start="467" selection-end="467" vertical-scroll-proportion="-3.4583333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="82" selection-start="965" selection-end="965" vertical-scroll-proportion="-11.583333">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -871,39 +931,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockType.php">
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/StockController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="1.9583334">
-          <folding>
-            <element signature="e#50#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="14" selection-start="1822" selection-end="1822" vertical-scroll-proportion="-14.916667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="53" selection-start="467" selection-end="467" vertical-scroll-proportion="-2.4166667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/tab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="1" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/a1ad7cd_part_2_stockForm_1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="6" selection-start="189" selection-end="189" vertical-scroll-proportion="0.2772074">
+        <state line="52" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="-28.125">
           <folding />
         </state>
       </provider>
@@ -915,28 +945,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Form/Type/StockCollectionType.php">
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="1" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-15.541667">
+        <state line="45" column="69" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-2.8333333">
           <folding>
-            <element signature="e#6#160#0" expanded="true" />
-            <element signature="e#206#246#0" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="49" selection-start="1951" selection-end="1951" vertical-scroll-proportion="-10.178572">
-          <folding>
-            <element signature="e#0#155#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Stock/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="8" selection-start="1256" selection-end="1311" vertical-scroll-proportion="0.5183585">
+        <state line="36" column="50" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.765625">
           <folding />
         </state>
       </provider>

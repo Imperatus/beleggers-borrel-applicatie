@@ -9,7 +9,7 @@ var Liber =  Liber || {};
 
 Liber.StockForm = function() {
     "use strict";
-    var collectionHolder, addStockLink, removeStockLink, newLinkLiAdd, addStockForm, remStockForm;
+    var collectionHolder, addStockLink, removeStockLink, removeExisting, newLinkLiAdd, addStockForm, remStockForm;
 
     this.init = function() {
         collectionHolder = $('tbody.stockCollection');
@@ -17,6 +17,18 @@ Liber.StockForm = function() {
         // TODO - Change to bootstrap + / -
         addStockLink = $('.add_stock_link');
         removeStockLink = $('<a href="#" class="remove_stock_link">Remove stock</a>');
+        removeExisting = $('.stock_remove_existing');
+
+        removeExisting.each(function() {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                var message = confirm('Are you sure?');
+                if(message) {
+                    // add a new tag form (see next code block)
+                    $(this).closest('tr').remove();
+                }
+            });
+        });
 
         // add the "add a tag" anchor and li to the tags ul
         collectionHolder.append(newLinkLiAdd);
@@ -29,7 +41,6 @@ Liber.StockForm = function() {
             // prevent the link from creating a "#" on the URL
             e.preventDefault();
 
-            // add a new tag form (see next code block)
             addStockForm(collectionHolder);
 
         });
@@ -56,14 +67,15 @@ Liber.StockForm = function() {
          $('.stockCollection').append(newFormLi);
 
          // Add the remove link to remove mistakes
-         newFormLi.append(newRemLink);
+         var dingen = $('<td></td>').append(newRemLink);
+         newFormLi.append(dingen);
 
          newRemLink.on('click', function(e) {
              // prevent the link from creating a "#" on the URL
              e.preventDefault();
 
              // add a new tag form (see next code block)
-             $(this).parent('li').remove();
+             $(this).closest('tr').remove();
          });
     };
 };

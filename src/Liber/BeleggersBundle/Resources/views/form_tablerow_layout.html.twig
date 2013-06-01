@@ -1,0 +1,41 @@
+{% use "form_div_layout.html.twig" %}
+
+{% block form_row %}
+    {% spaceless %}
+            {#<td>#}
+                {#{{ form_label(form) }}#}
+            {#</td>#}
+            <td>
+                {{ form_errors(form) }}
+                {{ form_widget(form) }}
+            </td>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block button_row %}
+    {% spaceless %}
+            <td>
+                {{ form_widget(form) }}
+            </td>
+    {% endspaceless %}
+{% endblock button_row %}
+
+{% block hidden_row %}
+    {% spaceless %}
+            <td colspan="2" style="display:none">
+                {{ form_widget(form) }}
+            </td>
+    {% endspaceless %}
+{% endblock hidden_row %}
+
+{% block form_widget_compound %}
+    {% spaceless %}
+            {% if form.parent is empty and errors|length > 0 %}
+                <td colspan="2">
+                    {{ form_errors(form) }}
+                </td>
+            {% endif %}
+            {{ block('form_rows') }}
+            {{ form_rest(form) }}
+    {% endspaceless %}
+{% endblock form_widget_compound %}
