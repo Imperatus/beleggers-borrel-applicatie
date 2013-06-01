@@ -52,7 +52,7 @@ class Stock
     /**
      * @var \Liber\BeleggersBundle\Entity\StockType
      */
-    private $stockTypes;
+    private $stockType;
 
 
     /**
@@ -74,7 +74,7 @@ class Stock
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -97,7 +97,7 @@ class Stock
     public function setStartingPrice($startingPrice)
     {
         $this->startingPrice = $startingPrice;
-
+    
         return $this;
     }
 
@@ -120,7 +120,7 @@ class Stock
     public function setCurrentPrice($currentPrice)
     {
         $this->currentPrice = $currentPrice;
-
+    
         return $this;
     }
 
@@ -143,7 +143,7 @@ class Stock
     public function setMaxPrice($maxPrice)
     {
         $this->maxPrice = $maxPrice;
-
+    
         return $this;
     }
 
@@ -166,7 +166,7 @@ class Stock
     public function setMinPrice($minPrice)
     {
         $this->minPrice = $minPrice;
-
+    
         return $this;
     }
 
@@ -189,7 +189,7 @@ class Stock
     public function setStartingStock($startingStock)
     {
         $this->startingStock = $startingStock;
-
+    
         return $this;
     }
 
@@ -212,7 +212,7 @@ class Stock
     public function setCurrentStock($currentStock)
     {
         $this->currentStock = $currentStock;
-
+    
         return $this;
     }
 
@@ -225,34 +225,6 @@ class Stock
     {
         return $this->currentStock;
     }
-
-    /**
-     * Set stockTypes
-     *
-     * @param \Liber\BeleggersBundle\Entity\StockType $stockTypes
-     * @return Stock
-     */
-    public function setStockTypes(\Liber\BeleggersBundle\Entity\StockType $stockTypes = null)
-    {
-        $this->stockTypes = $stockTypes;
-
-        return $this;
-    }
-
-    /**
-     * Get stockTypes
-     *
-     * @return \Liber\BeleggersBundle\Entity\StockType 
-     */
-    public function getStockTypes()
-    {
-        return $this->stockTypes;
-    }
-    /**
-     * @var \Liber\BeleggersBundle\Entity\StockType
-     */
-    private $stockType;
-
 
     /**
      * Set stockType

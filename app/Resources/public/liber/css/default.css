@@ -1,3 +1,9 @@
 body {
     background: #333;
 }
+
+#mainContainer {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}

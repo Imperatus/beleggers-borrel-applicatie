@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+
 {% block head %}
 
 {% endblock %}
@@ -32,10 +33,15 @@
             <div class="span9">
                 <div class="well">
                     <ul class="nav nav-tabs">
-                        <li id="tabOverview"><a href="#home" data-toggle="tab">Overview</a></li>
-                        <li id="tabEdit"><a href="#profile" data-toggle="tab">Edit</a></li>
+                        <li id="tabOverview"><a href="{{ path('liber_beleggers_stock_overview') }}">Overview</a></li>
+                        <li id="tabEdit"><a href="{{ path('liber_beleggers_stock_edit') }}">Edit</a></li>
                     </ul>
                      {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div class="span3">
+                <div class="well">
+                    {% block helpbar %}{% endblock %}
                 </div>
             </div>
         </div>

@@ -1,0 +1,56 @@
+{% extends "LiberBeleggersBundle::layout.html.twig" %}
+{% use 'LiberBeleggersBundle::helpbar.html.twig' %}
+
+{% block title "Stock Overview" %}
+
+{% block content %}
+    <form action="" method="post" {{ form_enctype(form) }}>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Starting &euro;</td>
+            <td>Current &euro;</td>
+            <td>Maximum &euro;</td>
+            <td>Minimum &euro;</td>
+            <td>Starting stock</td>
+            <td>Current stock</td>
+            <td>Type</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in stock %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.startingPrice }}</td>
+                <td>{{ row.currentPrice }}</td>
+                <td>{{ row.maxPrice }}</td>
+                <td>{{ row.minPrice }}</td>
+                <td>{{ row.startingStock }}</td>
+                <td>{{ row.currentStock }}</td>
+                <td>{{ row.stockType.name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tbody class="stockCollection" data-prototype="{{ form_widget(form.stockCollection.vars.prototype)|e }}">
+
+        </tbody>
+    </table>
+
+        {#{{ form_label(form) }}#}
+        {#{{ form_row(form) }}#}
+        <input type="submit" />
+
+        <a href="#" class="add_stock_link">Add stock</a>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var stockForm = new Liber.StockForm();
+            stockForm.init();
+        });
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,5 @@
+help:
+  headers:
+    overview: Overview
+  texts:
+    overview: This is an overview of all the stock entered into the system. To make changes or add stock to the system, please click on the "Edit" tab.
