@@ -18,6 +18,9 @@ class CashierController extends Controller {
 
     private $user;
 
+    const INCREASE = 'increase';
+    const DECREASE = 'decrease';
+
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
@@ -42,12 +45,17 @@ class CashierController extends Controller {
         if($request->getMethod() === 'POST') {
             $stocks = $request->request->all();
 
+            $stockIds = array();
+
             foreach($stocks as $stockId => $amount) {
                 $stock = $this->em->getRepository('LiberBeleggersBundle:Stock')->findOneById($stockId);
 
+                array_push($stockIds, $stockId);
+
                 if($this->updateStockAmount($stock, $amount)) {
                     $this->updateHistory($stock, $amount, $now);
-                    $this->updateStockPrice($stock);
+                    $this->updateIncreasedStockPrice($stock);
+                    $this->updateDecreasedStockPrice($stockIds);
                 } else {
                     //SCREAM!!!
                 }
@@ -81,7 +89,7 @@ class CashierController extends Controller {
         return $voodoo;
     }
 
-    private function updateStockPrice(Stock $stock) {
+    private function updateIncreasedStockPrice(Stock $stock) {
         $currentPrice = $stock->getCurrentPrice();
 
         $voodoo = $this->calculateIncrease($stock);
@@ -90,6 +98,56 @@ class CashierController extends Controller {
 
         $stock->setCurrentPrice($newPrice);
         $this->em->persist($stock);
+    }
+
+    private function calculateDecrease(Stock $stock) {
+        $type = $stock->getStockType();
+
+        $currentPrice = $stock->getCurrentPrice();
+        $startingPrice = $stock->getStartingPrice();
+        $startingStock = $stock->getStartingStock();
+        $currentStock = $stock->getCurrentStock();
+        $minPrice = $stock->getMinPrice();
+        $updated = $stock->getUpdated();
+
+        $timeToMin = $type->getStartToMinimum();
+
+        $priceDifference = $startingPrice - $minPrice;
+
+        $now = new \DateTime();
+        $now = strtotime($now->format('Y-m-d H:i:s'));
+        $updated = strtotime($updated->format('Y-m-d H:i:s'));
+
+        $interval = $now - $updated;
+        $interval = round(abs($interval/60));
+
+        if($interval > 5) {
+            $divider = $timeToMin / $interval;
+            $voodoo = $priceDifference / $divider;
+        } else {
+            $voodoo = 0;
+        }
+
+        return $voodoo;
+    }
+
+    private function updateDecreasedStockPrice($stockIds) {
+        $notOrdered = $this->em->getRepository('LiberBeleggersBundle:Stock')->inverseFindToBeUpdatedByIds($stockIds);
+
+        /** @var Stock $stock */
+        foreach($notOrdered as $stock) {
+            $currentPrice = $stock->getCurrentPrice();
+
+            $this->updateHistory($stock, null, new \DateTime(), self::DECREASE);
+
+            $voodoo = $this->calculateDecrease($stock);
+
+            $newPrice = $currentPrice - $voodoo;
+
+            $stock->setCurrentPrice($newPrice);
+            $this->em->persist($stock);
+        }
+
     }
 
     /**
@@ -111,8 +169,12 @@ class CashierController extends Controller {
         return true;
     }
 
-    private function updateHistory(Stock $stock, $amount, \DateTime $now) {
-        $voodoo = $this->calculateIncrease($stock);
+    private function updateHistory(Stock $stock, $amount, \DateTime $now, $type = self::INCREASE) {
+        if($type === self::INCREASE) {
+            $voodoo = $this->calculateIncrease($stock);
+        } else if ($type === self::DECREASE) {
+            $voodoo = $this->calculateDecrease($stock);
+        }
 
         $history = new OrderHistory();
 

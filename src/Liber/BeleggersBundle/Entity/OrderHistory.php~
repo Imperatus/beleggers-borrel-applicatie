@@ -164,4 +164,32 @@ class OrderHistory
     {
         return $this->user;
     }
+    /**
+     * @var float
+     */
+    private $increase;
+
+
+    /**
+     * Set increase
+     *
+     * @param float $increase
+     * @return OrderHistory
+     */
+    public function setIncrease($increase)
+    {
+        $this->increase = $increase;
+    
+        return $this;
+    }
+
+    /**
+     * Get increase
+     *
+     * @return float 
+     */
+    public function getIncrease()
+    {
+        return $this->increase;
+    }
 }

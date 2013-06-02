@@ -16,6 +16,7 @@ Liber\BeleggersBundle\Entity\OrderHistory:
             scale: 2
         amount:
             type: integer
+            nullable: true
         time:
             type: datetime
         increase:
