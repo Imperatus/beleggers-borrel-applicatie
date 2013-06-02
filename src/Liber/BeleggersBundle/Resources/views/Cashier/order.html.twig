@@ -1,0 +1,63 @@
+{% extends "LiberBeleggersBundle::Cashier\\register.html.twig" %}
+
+{% use 'LiberBeleggersBundle::Cashier\\orderform.html.twig' %}
+
+{%  block content %}
+    <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
+    {% for type in types %}
+        {% if loop.first %}
+            <div class="container-fluid">
+        {% endif %}
+
+            <div class="span4">
+                <div class="well">
+                    <h5>{{ type.name }}</h5>
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            {% for item in type.stock %}
+                            <tr id="{{ item.name }}-{{ item.id }}">
+                                <td class="itemName">{{ item.name }}</td>
+                                <td class="itemStock">{{ item.currentStock }}</td>
+
+                                {% if settings.unitPrice is defined %}
+                                    {% set unitInt = settings.unitPrice * 100 %}
+                                    {% set currentInt =  (item.currentPrice*100) %}
+                                    {% set remainer = currentInt % unitInt  %}
+                                    {%  if remainer < (unitInt / 2) %}
+                                        {% set rounded = (currentInt - remainer) / 100  %}
+                                    {% else %}
+                                        {% set rounded = ((currentInt - remainer + unitInt) / 100) %}
+                                    {% endif %}
+                                    <td class="itemPrice" data-price="{{ rounded|number_format(2)  }}" style="text-align: right;">&euro; {{ rounded|number_format(2)  }}</td>
+                                {% else %}
+                                    <td class="itemPrice" data-price="{{ item.currentPrice }}" style="text-align: right;">&euro; {{ item.currentPrice }}</td>
+                                {% endif %}
+
+                                <td style="text-align: center;">
+                                    <a href="#" data-stocktype="{{ type.id }}" data-item="{{ item.id }}">
+                                        <span class="icon-plus-sign" style="margin-top: 2px;"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        {% if loop.index is divisibleby(3) %}
+            </div>
+            <div class="container-fluid">
+        {% elseif loop.last %}
+            </div>
+        {% endif %}
+
+    {% endfor %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var register = new Liber.Register();
+            register.init();
+        });
+    </script>
+{% endblock %}

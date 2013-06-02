@@ -50,9 +50,24 @@ class Stock
     private $currentStock;
 
     /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
      * @var \Liber\BeleggersBundle\Entity\StockType
      */
-    private $stockTypes;
+    private $stockType;
+
+    /**
+     * @var \Liber\UserBundle\Entity\User
+     */
+    private $user;
 
 
     /**
@@ -74,7 +89,7 @@ class Stock
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -97,7 +112,7 @@ class Stock
     public function setStartingPrice($startingPrice)
     {
         $this->startingPrice = $startingPrice;
-
+    
         return $this;
     }
 
@@ -120,7 +135,7 @@ class Stock
     public function setCurrentPrice($currentPrice)
     {
         $this->currentPrice = $currentPrice;
-
+    
         return $this;
     }
 
@@ -143,7 +158,7 @@ class Stock
     public function setMaxPrice($maxPrice)
     {
         $this->maxPrice = $maxPrice;
-
+    
         return $this;
     }
 
@@ -166,7 +181,7 @@ class Stock
     public function setMinPrice($minPrice)
     {
         $this->minPrice = $minPrice;
-
+    
         return $this;
     }
 
@@ -189,7 +204,7 @@ class Stock
     public function setStartingStock($startingStock)
     {
         $this->startingStock = $startingStock;
-
+    
         return $this;
     }
 
@@ -212,7 +227,7 @@ class Stock
     public function setCurrentStock($currentStock)
     {
         $this->currentStock = $currentStock;
-
+    
         return $this;
     }
 
@@ -227,25 +242,109 @@ class Stock
     }
 
     /**
-     * Set stockTypes
+     * Set created
      *
-     * @param \Liber\BeleggersBundle\Entity\StockType $stockTypes
+     * @param \DateTime $created
      * @return Stock
      */
-    public function setStockTypes(\Liber\BeleggersBundle\Entity\StockType $stockTypes = null)
+    public function setCreated($created)
     {
-        $this->stockTypes = $stockTypes;
-
+        $this->created = $created;
+    
         return $this;
     }
 
     /**
-     * Get stockTypes
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Stock
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set stockType
+     *
+     * @param \Liber\BeleggersBundle\Entity\StockType $stockType
+     * @return Stock
+     */
+    public function setStockType(\Liber\BeleggersBundle\Entity\StockType $stockType = null)
+    {
+        $this->stockType = $stockType;
+    
+        return $this;
+    }
+
+    /**
+     * Get stockType
      *
      * @return \Liber\BeleggersBundle\Entity\StockType 
      */
-    public function getStockTypes()
+    public function getStockType()
     {
-        return $this->stockTypes;
+        return $this->stockType;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Liber\UserBundle\Entity\User $user
+     * @return Stock
+     */
+    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Liber\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setInitialTimestamp()
+    {
+        $this->created = $this->updated = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->updated = new \DateTime();
     }
 }

@@ -1,3 +1,7 @@
+# Bazinga expose translations routing
+_bazinga_exposetranslation:
+    resource: "@BazingaExposeTranslationBundle/Resources/config/routing/routing.yml"
+
 # FOS UserBundle Routing
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -18,6 +22,7 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+# App routing
 liber_user:
     resource: "@LiberUserBundle/Resources/config/routing.yml"
     prefix:   /
@@ -25,4 +30,5 @@ liber_user:
 liber_beleggers:
     resource: "@LiberBeleggersBundle/Resources/config/routing.yml"
     prefix:   /
+
 

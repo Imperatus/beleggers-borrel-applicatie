@@ -1,3 +1,14 @@
 body {
     background: #333;
 }
+
+#mainContainer {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+form td.form_control {
+    text-align: center;
+    line-height: 40px;
+}

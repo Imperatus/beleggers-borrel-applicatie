@@ -3,6 +3,7 @@
 namespace Liber\BeleggersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * StockType
@@ -22,16 +23,21 @@ class StockType
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $stocks;
+    private $stock;
+
+    /**
+     * @var \Liber\UserBundle\Entity\User
+     */
+    private $user;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->stocks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->stock = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Get id
      *
@@ -51,7 +57,7 @@ class StockType
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -66,35 +72,114 @@ class StockType
     }
 
     /**
-     * Add stocks
+     * Add stock
      *
-     * @param \Liber\BeleggersBundle\Entity\Stock $stocks
+     * @param \Liber\BeleggersBundle\Entity\Stock $stock
      * @return StockType
      */
-    public function addStock(\Liber\BeleggersBundle\Entity\Stock $stocks)
+    public function addStock(\Liber\BeleggersBundle\Entity\Stock $stock)
     {
-        $this->stocks[] = $stocks;
-
+        $this->stock[] = $stock;
+    
         return $this;
     }
 
     /**
-     * Remove stocks
+     * Remove stock
      *
-     * @param \Liber\BeleggersBundle\Entity\Stock $stocks
+     * @param \Liber\BeleggersBundle\Entity\Stock $stock
      */
-    public function removeStock(\Liber\BeleggersBundle\Entity\Stock $stocks)
+    public function removeStock(\Liber\BeleggersBundle\Entity\Stock $stock)
     {
-        $this->stocks->removeElement($stocks);
+        $this->stock->removeElement($stock);
     }
 
     /**
-     * Get stocks
+     * Get stock
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStocks()
+    public function getStock()
     {
-        return $this->stocks;
+        return $this->stock;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Liber\UserBundle\Entity\User $user
+     * @return StockType
+     */
+    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Liber\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * @var integer
+     */
+    private $startToMinimum;
+
+    /**
+     * @var integer
+     */
+    private $magicToMaximum;
+
+
+    /**
+     * Set startToMinimum
+     *
+     * @param integer $startToMinimum
+     * @return StockType
+     */
+    public function setStartToMinimum($startToMinimum)
+    {
+        $this->startToMinimum = $startToMinimum;
+    
+        return $this;
+    }
+
+    /**
+     * Get startToMinimum
+     *
+     * @return integer 
+     */
+    public function getStartToMinimum()
+    {
+        return $this->startToMinimum;
+    }
+
+    /**
+     * Set magicToMaximum
+     *
+     * @param integer $magicToMaximum
+     * @return StockType
+     */
+    public function setMagicToMaximum($magicToMaximum)
+    {
+        $this->magicToMaximum = $magicToMaximum;
+    
+        return $this;
+    }
+
+    /**
+     * Get magicToMaximum
+     *
+     * @return integer 
+     */
+    public function getMagicToMaximum()
+    {
+        return $this->magicToMaximum;
     }
 }

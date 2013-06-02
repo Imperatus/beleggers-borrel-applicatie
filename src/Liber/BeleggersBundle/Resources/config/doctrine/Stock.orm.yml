@@ -2,6 +2,7 @@
 Liber\BeleggersBundle\Entity\Stock:
     type:  entity
     table: stock
+    repositoryClass: Liber\BeleggersBundle\Repository\StockRepository
 
     id:
         id:
@@ -35,8 +36,19 @@ Liber\BeleggersBundle\Entity\Stock:
             type: integer
         currentStock:
             type: integer
+        created:
+            type: datetime
+        updated:
+            type: datetime
+
+    lifecycleCallbacks:
+        prePersist: [setInitialTimestamp]
+        preUpdate:  [setUpdatedValue]
 
     manyToOne:
-        stockTypes:
+        stockType:
             targetEntity: StockType
             inversedBy: stock
+        user:
+            targetEntity: Liber\UserBundle\Entity\User
+

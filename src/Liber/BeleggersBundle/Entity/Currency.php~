@@ -1,0 +1,126 @@
+<?php
+
+namespace Liber\BeleggersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Currency
+ */
+class Currency
+{
+    /**
+     * @var integer
+     */
+    private $currency_id;
+
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $symbol;
+
+
+    /**
+     * Get currency_id
+     *
+     * @return integer 
+     */
+    public function getCurrencyId()
+    {
+        return $this->currency_id;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Currency
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Currency
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set symbol
+     *
+     * @param string $symbol
+     * @return Currency
+     */
+    public function setSymbol($symbol)
+    {
+        $this->symbol = $symbol;
+    
+        return $this;
+    }
+
+    /**
+     * Get symbol
+     *
+     * @return string 
+     */
+    public function getSymbol()
+    {
+        return $this->symbol;
+    }
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

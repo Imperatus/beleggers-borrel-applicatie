@@ -1,0 +1,32 @@
+# src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml
+Liber\BeleggersBundle\Entity\OrderHistory:
+    type:  entity
+    table: orderHistory
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        price:
+            type: decimal
+            precision: 4
+            scale: 2
+        amount:
+            type: integer
+            nullable: true
+        time:
+            type: datetime
+        increase:
+            type: decimal
+            precision: 4
+            scale: 2
+
+    manyToOne:
+        stock:
+            targetEntity: Stock
+            inversedBy: orderHistory
+        user:
+            targetEntity: Liber\UserBundle\Entity\User

@@ -8,13 +8,22 @@ Liber\BeleggersBundle\Entity\StockType:
             type: integer
             generator:
                 strategy: AUTO
-
     fields:
         name:
             type: string
             length: 255
+        startToMinimum:
+            type: integer
+            length: 11
+        magicToMaximum:
+            type: decimal
+            precision: 4
+            scale: 2
 
     oneToMany:
-        stocks:
+        stock:
             targetEntity: Stock
             mappedBy: stockType
+    manyToOne:
+        user:
+            targetEntity: Liber\UserBundle\Entity\User

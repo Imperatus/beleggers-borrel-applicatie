@@ -1,3 +1,6 @@
 liber_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: LiberUserBundle:Default:index }
+    pattern:  /
+    defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: fos_user_security_login
+      permanent: true
