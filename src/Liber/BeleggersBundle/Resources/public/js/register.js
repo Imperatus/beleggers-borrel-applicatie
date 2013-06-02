@@ -9,14 +9,16 @@ var Liber =  Liber || {};
 
 Liber.Register = function() {
     "use strict";
-    var stockItems, addToOrderList, findItemRow, addItemRow, updateItemRow, calculateTotal, container, formContainer, submitButton;
+    var stockItems, addToOrderList, findItemRow, addItemRow, updateItemRow, calculateTotal, container, formContainer, submitButton, clearButton;
 
     this.init = function() {
         var addLink;
-            stockItems = $('tr');
-            container = $('#orderContainer');
-            formContainer = $('#formContainer'),
-            submitButton = $('#submitButton');
+
+        stockItems = $('tr');
+        container = $('#orderContainer');
+        formContainer = $('#formContainer');
+        submitButton = $('#submitButton');
+        clearButton = $('#clearOrderButton');
 
         stockItems.each(function() {
             var data = [];
@@ -30,6 +32,17 @@ Liber.Register = function() {
                 addToOrderList($(this).attr('data-stocktype'), $(this).attr('data-item'), data);
             })
         });
+
+        clearButton.on('click', function(e) {
+            e.preventDefault();
+
+            if(confirm(Translator.get('form.confirm.cashier.order'))) {
+
+                formContainer.empty();
+                container.empty();
+                calculateTotal();
+            }
+        })
     };
 
     addToOrderList = function(stockType, item, data) {
@@ -37,8 +50,9 @@ Liber.Register = function() {
             updateItemRow(stockType, item);
         } else {
             addItemRow(stockType, item, data);
-            if(submitButton.hasClass('disabled')) {
+            if(submitButton.hasClass('disabled') || clearButton.hasClass('disabled')) {
                 submitButton.removeClass('disabled');
+                clearButton.removeClass('disabled')
             }
         }
 
@@ -55,8 +69,46 @@ Liber.Register = function() {
     };
 
     addItemRow = function(stockType, item, data) {
-        var row = $('<tr id="list-'+stockType+'-'+item+'"><td>'+ data[0] +'</td><td class="itemPrice" data-price="'+ data[1] +'">'+ data[1] +'</td><td class="orderAmount" data-amount="1">x 1</td></tr>'),
+        var row = $('' +
+                '<tr id="list-'+stockType+'-'+item+'">' +
+                    '<td>'+ data[0] +'</td>' +
+                    '<td class="itemPrice" data-price="'+ data[1] +'">'+ data[1] +'</td>' +
+                    '<td class="orderAmount" data-amount="1">x 1</td>' +
+                    '<td style="line-height: 23px; text-align: center">' +
+                        '<a href="#"><span class="icon-minus-sign"></span></a>' +
+                    '</td>' +
+                '</tr>'),
             formRow = $('<input name="'+item+'" id="item-'+stockType+'-'+item+'" type="text" value="1" />');
+
+        var removeButton = row.find('a');
+
+        // TODO - refactor to use updateItemRow
+        removeButton.on('click', function(e) {
+            e.preventDefault();
+            var amount = row.find('.orderAmount').attr('data-amount'),
+                updateFormRow = formContainer.find('#item-'+stockType+'-'+item),
+                totalRows;
+
+            amount = parseInt(amount);
+            if(amount > 1) {
+                amount--;
+                row.find('.orderAmount').attr('data-amount', amount);
+                row.find('.orderAmount').text('x '+ amount);
+                updateFormRow.val(amount);
+            } else {
+                row.remove();
+                updateFormRow.remove();
+                totalRows = formContainer.find('tr');
+
+                if(totalRows.length <= 0) {
+                    if(!submitButton.hasClass('disabled') || clearButton.hasClass('disabled')) {
+                        submitButton.addClass('disabled');
+                        clearButton.addClass('disabled');
+                    }
+                }
+            }
+            calculateTotal();
+        });
 
         container.append(row);
         formContainer.append(formRow);
@@ -85,7 +137,6 @@ Liber.Register = function() {
             units = 0,
             unitPrice = parseFloat(unitContainer.attr('data-units')),
             amount,price;
-        console.log(rows);
 
         rows.each(function() {
             price = $(this).find(".itemPrice").attr('data-price');

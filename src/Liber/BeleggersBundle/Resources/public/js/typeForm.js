@@ -32,7 +32,7 @@ Liber.StockForm = function() {
 
         $('.remove_entire_stock').on('click', function(e) {
             e.preventDefault();
-            var message = confirm('Are you sure? This will delete the entire stock!');
+            var message = confirm(Translator.get('form.confirm.stock.remove'));
             if(message) {
                 // add a new tag form (see next code block)
                 $('tbody').remove();

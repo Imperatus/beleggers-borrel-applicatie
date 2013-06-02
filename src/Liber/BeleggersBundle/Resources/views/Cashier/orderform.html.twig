@@ -23,8 +23,10 @@
             <div id="formContainer" class="hidden">
 
             </div>
-
-            <input id='submitButton' type="submit" value="{{ 'form.button.cashier.order.checkOut'|trans }}" class=" disabled pull-right btn btn-primary" />
+            <div class="clearfix">
+                <a href="#" id="clearOrderButton" class="btn btn-danger pull-left disabled">{{ 'form.button.cashier.order.clearAll'|trans }}</a>
+                <input id='submitButton' type="submit" value="{{ 'form.button.cashier.order.checkOut'|trans }}" class=" disabled pull-right btn btn-primary" />
+            </div>
         </form>
 
     </div>

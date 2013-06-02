@@ -132,8 +132,8 @@ class SettingsController extends Controller
             'activeTab' => $activeTab,
             'form' => $form->createView(),
             'help' => array(
-                'pageName' => $this->get('translator')->trans('help.headers.types'),
-                'helpText' => $this->get('translator')->trans('help.texts.types'),
+                'pageName' => $this->get('translator')->trans('help.headers.global'),
+                'helpText' => $this->get('translator')->trans('help.texts.global'),
             ),
         ));
     }

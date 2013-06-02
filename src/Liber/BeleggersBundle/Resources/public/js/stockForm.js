@@ -15,7 +15,6 @@ Liber.StockForm = function() {
         collectionHolder = $('tbody.stockCollection');
         pageType = $('#jPageType').val();
 
-        // TODO - Change to bootstrap + / -
         addStockLink = $('.add_stock_link');
         removeStockLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="'+ Translator.get('form.control.general.remove') + pageType + Translator.get('form.control.general.addition') + '"><span class="icon-remove"></spam></a>');
         removeExisting = $('.stock_remove_existing');
@@ -36,9 +35,9 @@ Liber.StockForm = function() {
 
             e.preventDefault();
             if(pageType == 'stock') {
-                message = confirm('Are you sure? This will delete the entire stock!');
+                message = confirm(Translator.get('form.confirm.type.remove'));
             } else {
-                message = confirm('Are you sure? This will delete all types!');
+                message = confirm(Translator.get('form.confirm.stock.remove'));
             }
             if(message) {
                 // add a new tag form (see next code block)
