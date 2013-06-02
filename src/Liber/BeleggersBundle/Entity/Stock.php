@@ -50,6 +50,16 @@ class Stock
     private $currentStock;
 
     /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
      * @var \Liber\BeleggersBundle\Entity\StockType
      */
     private $stockType;
@@ -232,6 +242,52 @@ class Stock
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Stock
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Stock
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
      * Set stockType
      *
      * @param \Liber\BeleggersBundle\Entity\StockType $stockType
@@ -275,5 +331,20 @@ class Stock
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setInitialTimestamp()
+    {
+        $this->created = $this->updated = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->updated = new \DateTime();
     }
 }
