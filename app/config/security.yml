@@ -55,9 +55,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/settings/edit, role: ROLE_USER }
-        - { path: ^/settings/overview, role: ROLE_USER }
-        - { path: ^/settings/editTypes, role: ROLE_USER }
-        - { path: ^/cashier/register, role: ROLE_USER }
+        - { path: ^/settings.*, role: ROLE_USER }
+        - { path: ^/cashier.*, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
 

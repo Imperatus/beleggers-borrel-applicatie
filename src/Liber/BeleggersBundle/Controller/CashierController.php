@@ -21,9 +21,11 @@ class CashierController extends Controller {
     }
 
     public function orderAction() {
+        $settings = $this->em->getRepository('LiberBeleggersBundle:GlobalSettings')->findOneByUser($this->user);
         $types = $this->em->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
         return $this->render('LiberBeleggersBundle:Cashier:order.html.twig', array(
+            'settings' => $settings,
             'types' => $types,
         ));
     }

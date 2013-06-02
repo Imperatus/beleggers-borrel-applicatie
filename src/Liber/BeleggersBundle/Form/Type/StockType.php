@@ -10,7 +10,6 @@ use Liber\BeleggersBundle\Form\Type\StockTypeType as Type;
 class StockType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        //  name startingPrice currentPrice maxPrice minPrice startingStock currentStock stockType_id
         $floatStyle = array(
             'precision' => 2,
             'label' => false,

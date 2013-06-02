@@ -6,13 +6,17 @@ liber_beleggers_settings_overview:
     pattern: /settings/overview
     defaults: { _controller: LiberBeleggersBundle:Settings:overview }
 
-liber_beleggers_settings_edit:
-    pattern: /settings/edit
-    defaults: { _controller: LiberBeleggersBundle:Settings:edit }
+liber_beleggers_settings_stock:
+    pattern: /settings/stock
+    defaults: { _controller: LiberBeleggersBundle:Settings:editStock }
 
-liber_beleggers_settings_edit_types:
-    pattern: /settings/editTypes
+liber_beleggers_settings_types:
+    pattern: /settings/types
     defaults: { _controller: LiberBeleggersBundle:Settings:editTypes }
+
+liber_beleggers_settings_global:
+    pattern: /settings/global
+    defaults: { _controller: LiberBeleggersBundle:Settings:editGlobal }
 
 liber_beleggers_cashier_register:
     pattern: /cashier/register

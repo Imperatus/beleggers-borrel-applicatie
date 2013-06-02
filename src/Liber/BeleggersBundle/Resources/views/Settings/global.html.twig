@@ -1,0 +1,30 @@
+{% extends "LiberBeleggersBundle::layout.html.twig" %}
+{% use 'LiberBeleggersBundle::helpbar.html.twig' %}
+
+{% block title "Global - Settings" %}
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-error">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <form action="" method="post" {{ form_enctype(form) }}>
+
+        {{ form_widget(form) }}
+
+
+        <div class="clearfix">
+            <input class="btn btn-primary" type="submit" value="Confirm Changes" />
+            <a href="#" class="pull-right btn btn-info add_stock_link">Add Type</a>
+        </div>
+
+    </form>
+{% endblock %}
+

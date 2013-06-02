@@ -5,6 +5,8 @@ namespace Liber\BeleggersBundle\Controller;
 use Doctrine\ORM\EntityManager;
 
 use Liber\BeleggersBundle\DataStructure\StockCollection;
+use Liber\BeleggersBundle\Entity\GlobalSettings;
+use Liber\BeleggersBundle\Form\Type\GlobalSettingsType;
 use Liber\BeleggersBundle\Form\Type\StockCollectionType;
 use Liber\BeleggersBundle\Form\Type\StockTypeCollectionType;
 use Liber\BeleggersBundle\Entity\Stock;
@@ -33,12 +35,14 @@ class SettingsController extends Controller
 
     public function overviewAction()
     {
+        $settings = $this->getDoctrine()->getRepository('LiberBeleggersBundle:GlobalSettings')->findOneByUser($this->user);
         $stock = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
         $types = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
         $activeTab = 'tabOverview';
 
         return $this->render('LiberBeleggersBundle:Settings:overview.html.twig', array(
+            'settings' => $settings,
             'stock' => $stock,
             'types' => $types,
             'activeTab' => $activeTab,
@@ -49,10 +53,10 @@ class SettingsController extends Controller
         ));
     }
 
-    public function editAction() {
+    public function editStockAction() {
         $stocks = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
 
-        $activeTab = 'tabEdit';
+        $activeTab = 'tabStock';
 
         // Mock collection object to get the form working... TODO - Fix this so it does it correctly
         $stockCollection = new StockCollection();
@@ -75,8 +79,7 @@ class SettingsController extends Controller
     }
 
     public function editTypesAction() {
-        $activeTab = 'tabEditTypes';
-
+        $activeTab = 'tabTypes';
 
         $stockTypes = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
@@ -89,6 +92,43 @@ class SettingsController extends Controller
         $this->processForm($form, 'stockTypes', 'LiberBeleggersBundle:StockType');
 
         return $this->render('LiberBeleggersBundle:Settings:types.html.twig', array(
+            'activeTab' => $activeTab,
+            'form' => $form->createView(),
+            'help' => array(
+                'pageName' => $this->get('translator')->trans('help.headers.types'),
+                'helpText' => $this->get('translator')->trans('help.texts.types'),
+            ),
+        ));
+    }
+
+    public function editGlobalAction() {
+        $activeTab = 'tabGlobal';
+        $settings = $this->em->getRepository('LiberBeleggersBundle:GlobalSettings')->findOneByUser($this->user);
+
+        if(empty($settings)) {
+            $settings = new GlobalSettings();
+            $settings->setCurrency('&euro;');
+        }
+
+        $form = $this->createForm(new GlobalSettingsType(), $settings);
+
+        $request = $this->getRequest();
+
+        if($request->getMethod() === 'POST') {
+            $form->submit($request);
+
+            if($form->isValid()) {
+                $settings->setUser($this->user);
+
+                $this->em->persist($settings);
+                $this->em->flush();
+                $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));
+            } else {
+                $this->get('session')->getFlashBag()->add('error', $this->get('translator')->trans('form.submit.error'));
+            }
+        }
+
+        return $this->render('LiberBeleggersBundle:Settings:global.html.twig', array(
             'activeTab' => $activeTab,
             'form' => $form->createView(),
             'help' => array(

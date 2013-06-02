@@ -4,6 +4,20 @@
 {% block title "Overview - Settings" %}
 
 {% block content %}
+    <h3>{{ 'headers.overview.global'|trans }}</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <td>Currency</td>
+            <td>Unit price</td>
+        </tr>
+        </thead>
+            <tr>
+                <td>{{ settings.currency }}</td>
+                <td>{{ settings.unitPrice }}</td>
+            </tr>
+    </table>
+
     <h3>{{ 'headers.overview.stock'|trans }}</h3>
     <table class="table table-striped table-bordered">
         <thead>

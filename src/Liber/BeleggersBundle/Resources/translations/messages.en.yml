@@ -16,6 +16,7 @@ headers:
   overview:
     stock: Stock
     types: Types
+    global: Global
 
 tabs:
   overview: Overview
