@@ -51,6 +51,7 @@ Liber.Register = function() {
 
     addItemRow = function(stockType, item, data) {
         var row = $('<tr id="list-'+stockType+'-'+item+'"><td>'+ data[0] +'</td><td class="itemPrice" data-price="'+ data[1] +'">'+ data[1] +'</td><td class="orderAmount" data-amount="1">x 1</td></tr>');
+
         container.append(row);
     };
 
