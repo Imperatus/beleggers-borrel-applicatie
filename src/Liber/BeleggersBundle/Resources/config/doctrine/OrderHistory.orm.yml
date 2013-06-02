@@ -18,6 +18,10 @@ Liber\BeleggersBundle\Entity\OrderHistory:
             type: integer
         time:
             type: datetime
+        increase:
+            type: decimal
+            precision: 4
+            scale: 2
 
     manyToOne:
         stock:

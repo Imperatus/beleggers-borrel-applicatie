@@ -60,7 +60,7 @@ class CashierController extends Controller {
         return $this->redirect($url);
     }
 
-    private function updateStockPrice(Stock $stock) {
+    private function calculateIncrease(Stock $stock) {
         $type = $stock->getStockType();
 
         $currentPrice = $stock->getCurrentPrice();
@@ -76,14 +76,15 @@ class CashierController extends Controller {
         $priceMultiplier =  1 - ($currentPrice / $maxPrice);
         $multiplier = $magicNumber * $stockMultiplier * $priceMultiplier;
 
-        var_dump($maxPrice, $currentPrice);
-        var_dump($stockMultiplier, $priceMultiplier);
-        var_dump($multiplier);
-
         $voodoo = $multiplier * $startingPrice * 4;
 
-        var_dump($voodoo);
+        return $voodoo;
+    }
 
+    private function updateStockPrice(Stock $stock) {
+        $currentPrice = $stock->getCurrentPrice();
+
+        $voodoo = $this->calculateIncrease($stock);
 
         $newPrice = $currentPrice + $voodoo;
 
@@ -111,6 +112,8 @@ class CashierController extends Controller {
     }
 
     private function updateHistory(Stock $stock, $amount, \DateTime $now) {
+        $voodoo = $this->calculateIncrease($stock);
+
         $history = new OrderHistory();
 
         $history->setStock($stock);
@@ -118,6 +121,7 @@ class CashierController extends Controller {
         $history->setPrice($stock->getCurrentPrice());
         $history->setAmount($amount);
         $history->setTime($now);
+        $history->setIncrease($voodoo);
 
         $this->em->persist($history);
     }

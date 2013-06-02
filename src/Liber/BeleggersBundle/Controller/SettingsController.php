@@ -152,6 +152,8 @@ class SettingsController extends Controller
             $this->em->remove($entry);
         }
 
+
+        $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.reset'));
         $this->em->flush();
 
         $url = $this->generateUrl('liber_beleggers_settings_global');

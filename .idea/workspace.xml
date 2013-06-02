@@ -3,15 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0e87eecc-f291-49de-9143-2faf4939af12" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Entity/OrderHistory.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Entity/OrderHistory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/SettingsController.php" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/SettingsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig" afterPath="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="symfony2-latest-test.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370173916934" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370205833153" ignored="false" />
     <file path="/parameters.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369839352751" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/twig/twig/phpunit.xml.dist" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775191835" ignored="false" />
     <file path="$PROJECT_DIR$/vendor/doctrine/annotations/phpunit.xml.dist" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1369775191835" ignored="false" />
@@ -157,10 +157,10 @@
     <file path="/typeForm.js" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370199777156" ignored="false" />
     <file path="/validation.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370121720393" ignored="false" />
     <file path="/SettingsController.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370205588357" ignored="false" />
-    <file path="/CashierController.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370204068241" ignored="false" />
-    <file path="/order.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370200087516" ignored="false" />
+    <file path="/CashierController.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370207092825" ignored="false" />
+    <file path="/order.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370206703986" ignored="false" />
     <file path="/register.js" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370200111283" ignored="false" />
-    <file path="/OrderHistory.orm.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370131736817" ignored="false" />
+    <file path="/OrderHistory.orm.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370206885743" ignored="false" />
     <file path="/Global.orm.yml" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370181372234" ignored="false" />
     <file path="/GlobalSettingsType.php" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370192989350" ignored="false" />
     <file path="/global.html.twig" changelist="0e87eecc-f291-49de-9143-2faf4939af12" time="1370205410442" ignored="false" />
@@ -197,7 +197,7 @@
       <file leaf-file-name="SettingsController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/SettingsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="28" selection-start="5831" selection-end="5831" vertical-scroll-proportion="0.4742268">
+            <state line="150" column="37" selection-start="5802" selection-end="5802" vertical-scroll-proportion="0.55737704">
               <folding>
                 <element signature="e#52#83#0" expanded="true" />
               </folding>
@@ -214,19 +214,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig">
+      <file leaf-file-name="CashierController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="16" selection-start="579" selection-end="579" vertical-scroll-proportion="-9.5">
+            <state line="101" column="34" selection-start="3490" selection-end="3490" vertical-scroll-proportion="-5.0">
+              <folding>
+                <element signature="e#51#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderHistory.orm.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml">
+      <file leaf-file-name="global.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="30" selection-start="662" selection-end="692" vertical-scroll-proportion="0.0">
+            <state line="17" column="16" selection-start="579" selection-end="579" vertical-scroll-proportion="-10.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="78" selection-start="1142" selection-end="1142" vertical-scroll-proportion="-6.923077">
+              <folding>
+                <element signature="e#1605#1631#0" expanded="true" />
+                <element signature="e#1814#1840#0" expanded="true" />
+                <element signature="e#1958#1985#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orderform.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/orderform.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="12" selection-start="577" selection-end="615" vertical-scroll-proportion="-3.2115386">
               <folding />
             </state>
           </provider>
@@ -250,7 +292,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/edit.html.twig" />
@@ -259,12 +300,13 @@
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/orderform.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/stockForm.js" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/typeForm.js" />
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/register.js" />
-        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php" />
         <option value="$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/SettingsController.php" />
       </list>
     </option>
@@ -354,6 +396,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -568,75 +611,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony2-latest-test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beleggers-borrel-applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Liber" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BeleggersBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony2-latest-test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beleggers-borrel-applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="symfony2-latest-test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beleggers-borrel-applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -644,14 +624,14 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="268" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="252" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="252" />
+    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="272" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1052" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1052" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="272" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -692,14 +672,14 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="1">
@@ -726,11 +706,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329806" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14503817" sideWeight="0.67019403" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14732824" sideWeight="0.67019403" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -739,6 +718,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329806" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -805,25 +785,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="178" selection-end="178" vertical-scroll-proportion="-6.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/types.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="100" selection-start="2053" selection-end="2053" vertical-scroll-proportion="-11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/typeForm.js">
@@ -840,28 +804,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="61" selection-start="1042" selection-end="1042" vertical-scroll-proportion="-8.75">
-          <folding>
-            <element signature="e#1221#1245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/orderform.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.24">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/public/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="106" column="21" selection-start="3749" selection-end="3749" vertical-scroll-proportion="0.6777996">
-          <folding>
-            <marker date="1370200111449" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -874,31 +820,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/helpbar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="197" selection-end="197" vertical-scroll-proportion="0.14619882">
-          <folding />
-        </state>
+        <state line="5" column="14" selection-start="197" selection-end="197" vertical-scroll-proportion="0.14619882" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date_c.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="109" selection-end="109" vertical-scroll-proportion="0.15">
-          <folding />
-        </state>
+        <state line="5" column="6" selection-start="109" selection-end="109" vertical-scroll-proportion="0.15" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="30" selection-start="662" selection-end="692" vertical-scroll-proportion="0.0">
+        <state line="20" column="30" selection-start="662" selection-end="692" vertical-scroll-proportion="0.49720672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/orderform.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="12" selection-start="577" selection-end="615" vertical-scroll-proportion="-3.2115386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Cashier/order.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="78" selection-start="1142" selection-end="1142" vertical-scroll-proportion="-6.923077">
+          <folding>
+            <element signature="e#1605#1631#0" expanded="true" />
+            <element signature="e#1814#1840#0" expanded="true" />
+            <element signature="e#1958#1985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/config/doctrine/OrderHistory.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/CashierController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="31" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.556701">
+        <state line="101" column="34" selection-start="3490" selection-end="3490" vertical-scroll-proportion="-5.0">
           <folding>
             <element signature="e#51#82#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="579" selection-end="579" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -909,16 +890,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Resources/views/Settings/global.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="16" selection-start="579" selection-end="579" vertical-scroll-proportion="-9.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Liber/BeleggersBundle/Controller/SettingsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="28" selection-start="5831" selection-end="5831" vertical-scroll-proportion="0.4742268">
+        <state line="150" column="37" selection-start="5802" selection-end="5802" vertical-scroll-proportion="0.55737704">
           <folding>
             <element signature="e#52#83#0" expanded="true" />
           </folding>
