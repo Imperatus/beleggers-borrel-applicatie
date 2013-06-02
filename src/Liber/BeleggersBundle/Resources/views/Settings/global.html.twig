@@ -1,7 +1,9 @@
 {% extends "LiberBeleggersBundle::layout.html.twig" %}
 {% use 'LiberBeleggersBundle::helpbar.html.twig' %}
 
-{% block title "Global - Settings" %}
+{% block title %}
+    {{ 'titles.settings.global'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
 
 {% block content %}
     {% for flashMessage in app.session.flashbag.get('notice') %}
@@ -21,8 +23,7 @@
 
 
         <div class="clearfix">
-            <input class="btn btn-primary" type="submit" value="Confirm Changes" />
-            <a href="#" class="pull-right btn btn-info add_stock_link">Add Type</a>
+            <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
         </div>
 
     </form>

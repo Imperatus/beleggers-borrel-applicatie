@@ -17,7 +17,7 @@ Liber.StockForm = function() {
 
         // TODO - Change to bootstrap + / -
         addStockLink = $('.add_stock_link');
-        removeStockLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="Remove '+ pageType + ' addition"><span class="icon-remove"></spam></a>');
+        removeStockLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="'+ Translator.get('form.control.general.remove') + pageType + Translator.get('form.control.general.addition') + '"><span class="icon-remove"></spam></a>');
         removeExisting = $('.stock_remove_existing');
 
         removeExisting.each(function() {

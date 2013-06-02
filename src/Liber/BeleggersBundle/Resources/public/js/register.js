@@ -9,12 +9,14 @@ var Liber =  Liber || {};
 
 Liber.Register = function() {
     "use strict";
-    var stockItems, addToOrderList, findItemRow, addItemRow, updateItemRow, calculateTotal, container;
+    var stockItems, addToOrderList, findItemRow, addItemRow, updateItemRow, calculateTotal, container, formContainer, submitButton;
 
     this.init = function() {
         var addLink;
-        stockItems = $('tr');
-        container = $('#orderContainer');
+            stockItems = $('tr');
+            container = $('#orderContainer');
+            formContainer = $('#formContainer'),
+            submitButton = $('#submitButton');
 
         stockItems.each(function() {
             var data = [];
@@ -35,6 +37,9 @@ Liber.Register = function() {
             updateItemRow(stockType, item);
         } else {
             addItemRow(stockType, item, data);
+            if(submitButton.hasClass('disabled')) {
+                submitButton.removeClass('disabled');
+            }
         }
 
         calculateTotal();
@@ -50,36 +55,48 @@ Liber.Register = function() {
     };
 
     addItemRow = function(stockType, item, data) {
-        var row = $('<tr id="list-'+stockType+'-'+item+'"><td>'+ data[0] +'</td><td class="itemPrice" data-price="'+ data[1] +'">'+ data[1] +'</td><td class="orderAmount" data-amount="1">x 1</td></tr>');
+        var row = $('<tr id="list-'+stockType+'-'+item+'"><td>'+ data[0] +'</td><td class="itemPrice" data-price="'+ data[1] +'">'+ data[1] +'</td><td class="orderAmount" data-amount="1">x 1</td></tr>'),
+            formRow = $('<input name="'+item+'" id="item-'+stockType+'-'+item+'" type="text" value="1" />');
 
         container.append(row);
+        formContainer.append(formRow);
     };
 
     updateItemRow = function(stockType, item) {
-        var cell, amount;
-        var updateRow = $('#list-'+stockType+'-'+item);
+        var cell, amount, newAmount,
+            updateRow = $('#list-'+stockType+'-'+item),
+            updateFormRow = formContainer.find('#item-'+stockType+'-'+item);
+
+        amount = updateFormRow.val();
+        newAmount = parseInt(amount) + 1;
+
+        updateFormRow.val(newAmount);
 
         cell = updateRow.find('.orderAmount')
-        amount = cell.attr('data-amount');
-
-        var newAmount = parseInt(amount)+1;
-
         cell.attr('data-amount', newAmount);
         cell.text('x ' + newAmount);
     };
 
     calculateTotal = function() {
-        var rows = container.find('tr');
-        var totalContainer = $('#totalPrice');
-        var total = 0.00;
+        var rows = container.find('tr'),
+            totalContainer = $('#totalPrice'),
+            unitContainer = $('#totalUnits'),
+            total = 0.00,
+            units = 0,
+            unitPrice = parseFloat(unitContainer.attr('data-units')),
+            amount,price;
+        console.log(rows);
 
         rows.each(function() {
-            var price = $(this).find(".itemPrice").attr('data-price');
-            var amount = $(this).find('.orderAmount').attr('data-amount');
+            price = $(this).find(".itemPrice").attr('data-price');
+            amount = $(this).find('.orderAmount').attr('data-amount');
 
             total = total + (parseFloat(price) * parseInt(amount));
         });
+
+        units = total / unitPrice;
         totalContainer.text(total.toFixed(2));
+        unitContainer.text(Math.ceil(units));
     };
 
 };

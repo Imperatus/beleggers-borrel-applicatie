@@ -7,11 +7,6 @@
 {% block title 'SpiritStock' %}
 
     {% block body %}
-    {#{% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-message">
-            <em>Notice</em>: {{ flashMessage }}
-        </div>
-    {% endfor %}#}
 
     {% block content_header %}
         <div class="row-fluid">
@@ -21,7 +16,7 @@
                         <a class="brand" href="#">SpiritStock v0.1a</a>
                         <ul class="nav">
                             <li><a href="{{ path('liber_beleggers_settings') }}">{{ 'menu.settings'|trans }}</a></li>
-                            <li class="active"><a href="#">{{ 'menu.cashier'|trans }}</a></li>
+                            <li class="active"><a href="{{ path('liber_beleggers_cashier_register') }}">{{ 'menu.cashier'|trans }}</a></li>
                         </ul>
                     </div>
                 </div>

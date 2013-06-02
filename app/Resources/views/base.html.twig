@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="{{ asset_url }}">
 
         {% endstylesheets %}
-
+        <script type="text/javascript" src="{{ asset('bundles/bazingaexposetranslation/js/translator.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url('bazinga_exposetranslation_js') }}"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% javascripts
             "../app/Resources/public/bootstrap/js/bootstrap.js"

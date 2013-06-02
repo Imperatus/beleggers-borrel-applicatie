@@ -1,15 +1,17 @@
 {% extends "LiberBeleggersBundle::layout.html.twig" %}
 {% use 'LiberBeleggersBundle::helpbar.html.twig' %}
 
-{% block title "Overview - Settings" %}
+{% block title %}
+    {{ 'titles.settings.overview'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
 
 {% block content %}
     <h3>{{ 'headers.overview.global'|trans }}</h3>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <td>Currency</td>
-            <td>Unit price</td>
+            <td>{{ 'table.global.header.currency'|trans }}</td>
+            <td>{{ 'table.global.header.unitPrice'|trans }}</td>
         </tr>
         </thead>
             <tr>
@@ -22,14 +24,14 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Starting &euro;</td>
-                <td>Current &euro;</td>
-                <td>Maximum &euro;</td>
-                <td>Minimum &euro;</td>
-                <td>Starting stock</td>
-                <td>Current stock</td>
-                <td>Type</td>
+                <td>{{ 'table.header.name'|trans }}</td>
+                <td>{{ 'table.stock.header.startingPrice'|trans }} &euro;</td>
+                <td>{{ 'table.stock.header.currentPrice'|trans }} &euro;</td>
+                <td>{{ 'table.stock.header.max'|trans }} &euro;</td>
+                <td>{{ 'table.stock.header.min'|trans }} &euro;</td>
+                <td>{{ 'table.stock.header.startingStock'|trans }}</td>
+                <td>{{ 'table.stock.header.currentStock'|trans }}</td>
+                <td>{{ 'table.stock.header.stockType'|trans }}</td>
             </tr>
         </thead>
         {% for row in stock %}
@@ -50,16 +52,35 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <td>Name</td>
-            <td>Time to minimum price</td>
-            <td>Magic increase number</td>
+            <td>{{ 'table.header.name'|trans }}</td>
+            <td>{{ 'table.stockType.header.timeToMinimum'|trans }}</td>
+            <td>{{ 'table.stockType.header.magicToMaximum'|trans }}</td>
         </tr>
         </thead>
         {% for row in types %}
             <tr>
                 <td>{{ row.name }}</td>
                 <td>{{ row.startToMinimum//60 }}h {{ row.startToMinimum%60 }}m </td>
-                <td>{{ row.magicToMaximum }}</td>
+
+                {% if row.magicToMaximum > 0 and row.magicToMaximum < 0.3 %}
+                    <td style="text-align:center;">
+                        <span class="label label-warning" data-toggle="tooltip" title="{{ row.magicToMaximum }}" style="cursor: default;">
+                            {{ 'table.stockType.indicator.slow'|trans }}
+                        </span>
+                    </td>
+                {% elseif row.magicToMaximum >= 0.3 and row.magicToMaximum < 0.6 %}
+                    <td style="text-align:center;">
+                        <span class="label label-success" data-toggle="tooltip" title="{{ row.magicToMaximum }}" style="cursor: default;">
+                            {{ 'table.stockType.indicator.medium'|trans }}
+                        </span>
+                    </td>
+                {% else %}
+                    <td style="text-align:center;">
+                        <span class="label label-important" data-toggle="tooltip" title="{{ row.magicToMaximum }}" style="cursor: default;">
+                            {{ 'table.stockType.indicator.fast'|trans }}
+                        </span>
+                    </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>

@@ -108,4 +108,32 @@ class GlobalSettings
     {
         return $this->user;
     }
+    /**
+     * @var string
+     */
+    private $unitName;
+
+
+    /**
+     * Set unitName
+     *
+     * @param string $unitName
+     * @return GlobalSettings
+     */
+    public function setUnitName($unitName)
+    {
+        $this->unitName = $unitName;
+    
+        return $this;
+    }
+
+    /**
+     * Get unitName
+     *
+     * @return string 
+     */
+    public function getUnitName()
+    {
+        return $this->unitName;
+    }
 }

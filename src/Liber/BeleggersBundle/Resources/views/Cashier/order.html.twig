@@ -1,7 +1,9 @@
 {% extends "LiberBeleggersBundle::Cashier\\register.html.twig" %}
 
+{% use 'LiberBeleggersBundle::Cashier\\orderform.html.twig' %}
+
 {%  block content %}
-    <h4>Price List</h4>
+    <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
     {% for type in types %}
         {% if loop.first %}
             <div class="container-fluid">
@@ -44,16 +46,4 @@
             register.init();
         });
     </script>
-{% endblock %}
-
-{%  block orderbar %}
-    <h5>Current Order</h5>
-    <table id="orderContainer" class="table table-striped table-bordered">
-
-    </table>
-    <div class="clearfix">
-        <div class="pull-right">
-            <span>Total: <b>&euro; </b></span><span style="font-weight: bold;" id="totalPrice">0.00</span>
-        </div>
-    </div>
 {% endblock %}

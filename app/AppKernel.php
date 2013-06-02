@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Liber\BeleggersBundle\LiberBeleggersBundle(),
             new Liber\UserBundle\LiberUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

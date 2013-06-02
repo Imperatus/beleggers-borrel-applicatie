@@ -18,14 +18,20 @@ class GlobalSettingsType extends AbstractType {
         $floatStyle = array(
             'precision' => 2,
             'required' => false,
+            'label' => 'form.label.global.unitPrice',
             'attr' => array(
                 'maxLength' => '5',
-                'style'      => 'width:45px;'
+                'style'      => 'width:45px;',
             ));
 
         $builder
             ->add('currency', 'currency', array(
                 'data' => 'EUR',
+                'label' => 'form.label.global.currency',
+            ))
+            ->add('unitName', null,  array(
+                'required' => false,
+                'label' => 'form.label.global.unitName',
             ))
             ->add('unitPrice', 'number', $floatStyle)
         ;

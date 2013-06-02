@@ -1,3 +1,4 @@
+### All help related information
 help:
   headers:
     overview: Overview
@@ -8,21 +9,100 @@ help:
     edit: Here you can add, remove or edit items, or clear your entire stock. The Name field is for the name of the product. The Starting Price is the price for which you want to sell the item initially. The current price is the price the system currently calculated for the item depending on demand and voodoo. The maximum price is the price the item will be sold of at most, whereas the minimum price is the price it will be sold at the least. The starting stock is the amount of items you have to begin with, and the current stock currently the amount at the moment. The type is the kind of item it is. Types can be added or edited in the Types tab.
     types: Here you can add types to your items, for instance define 'Beer' for item 'Heineken'. Types have a few properties that influence how prices adjust to demand, so think carefully about what types you define! Time to minimum price defines the time it takes on average for an item at starting price to reach the minimum price. So if it is set at 30, the item will reach the bottom price after 30 minutes of no sales. The magic number influences how long it takes for an item to reach its maximum price. Because it fully depends on how popular an item is, there's no time factor here... To make prices rise VERY fast, set it to 1, else set it near 0. This all works because of black magic voodo code.
 
+### All form related business
 form:
   submit:
     success: Successfully saves all changes!
     error: Error submitting form! Please check all fields for errors.
+  order:
+    success: Order succesfully placed!
+  control:
+    general:
+      remove: Remove
+      addition: addition
+    stock:
+      removeExisting: Remove existing stock
+    stockType:
+      removeExisting: Remove existing type
+      type: Type
+  button:
+    general:
+      confirm: Confirm changes
+      clearAll: Clear all
+    stock:
+      add: Add stock
+    stockType:
+      add: Add type
+    cashier:
+      order:
+        checkOut: Check out
+  label:
+    global:
+      currency: Currency
+      unitPrice: Unit price
+      unitName: Unit name
+
+### All page titles
+titles:
+  settings:
+    overview: Overview
+    stock: Stock
+    types: Types
+    global: Global
+    general: Settings
+
+### All page headersS
 headers:
   overview:
     stock: Stock
     types: Types
     global: Global
+  cashier:
+    order:
+      currentOrder: Current order
+      priceList: Price list
 
+### All tabs
 tabs:
   overview: Overview
   stock: Stock
   types: Types
+  global: Global
 
+### All menu items (not to be confused with tabs)
 menu:
   settings: Settings
   cashier: Cashier
+
+### All table related stuff
+table:
+  header:
+    name: Name
+    control: Control
+  global:
+    header:
+      currency: Currency
+      unitPrice: Unit Price
+  stock:
+    header:
+      startingPrice: Starting
+      currentPrice: Current
+      max: Maximum
+      min: Minimum
+      startingStock: Starting Stock
+      currentStock: Current Stock
+      stockType: Type
+  stockType:
+    general:
+      minutes: (Minutes)
+    header:
+      timeToMinimum: Time to reach minimum price
+      magicToMaximum: Price increase indicator
+    indicator:
+      slow: Slow
+      fast: Fast
+      medium: Medium
+
+### General terms
+general:
+  total: Total

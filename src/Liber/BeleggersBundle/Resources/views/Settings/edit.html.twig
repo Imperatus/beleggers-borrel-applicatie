@@ -1,7 +1,9 @@
 {% extends "LiberBeleggersBundle::layout.html.twig" %}
 {% use 'LiberBeleggersBundle::helpbar.html.twig' %}
 
-{% block title "Stock - Settings" %}
+{% block title %}
+    {{ 'titles.settings.stock'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
 
 {% form_theme form 'LiberBeleggersBundle::form_tablerow_layout.html.twig' %}
 
@@ -25,15 +27,15 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <td>Name</td>
-            <td>Starting &euro;</td>
-            <td>Current &euro;</td>
-            <td>Maximum &euro;</td>
-            <td>Minimum &euro;</td>
-            <td>Starting stock</td>
-            <td>Current stock</td>
-            <td>Type</td>
-            <td>Control</td>
+            <td>{{ 'table.header.name'|trans }}</td>
+            <td>{{ 'table.stock.header.startingPrice'|trans }} &euro;</td>
+            <td>{{ 'table.stock.header.currentPrice'|trans }} &euro;</td>
+            <td>{{ 'table.stock.header.max'|trans }} &euro;</td>
+            <td>{{ 'table.stock.header.min'|trans }} &euro;</td>
+            <td>{{ 'table.stock.header.startingStock'|trans }}</td>
+            <td>{{ 'table.stock.header.currentStock'|trans }}</td>
+            <td>{{ 'table.stock.header.stockType'|trans }}</td>
+            <td>{{ 'table.header.control'|trans }}</td>
         </tr>
         </thead>
          <tbody class="stockCollection" data-prototype="{{ form_widget(form.stocks.vars.prototype)|e }}">
@@ -41,7 +43,7 @@
                 <tr>
                     {{ form_widget(stock) }}
                     <td class="form_control">
-                        <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="Remove existing stock">
+                        <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="{{ 'form.control.stock.removeExisting'|trans }}">
                             <span class="icon-trash"></span>
                         </a>
                     </td>
@@ -52,9 +54,9 @@
     </table>
 
     <div class="clearfix">
-        <input class="btn btn-primary" type="submit" value="Confirm Changes" />
-        <a href="#" class="pull-right btn btn-info add_stock_link">Add Stock</a>
-        <a href="#" class="pull-right btn btn-danger remove_entire_stock" style="margin-right: 15px;">Clear All</a>
+        <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
+        <a href="#" class="pull-right btn btn-info add_stock_link">{{ 'form.button.stock.add'|trans }}</a>
+        <a href="#" class="pull-right btn btn-danger remove_entire_stock" style="margin-right: 15px;">{{ 'form.button.general.clearAll'|trans }}</a>
     </div>
 
     {{ form_end(form) }}

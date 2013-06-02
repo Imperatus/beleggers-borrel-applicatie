@@ -21,3 +21,8 @@ liber_beleggers_settings_global:
 liber_beleggers_cashier_register:
     pattern: /cashier/register
     defaults: { _controller: LiberBeleggersBundle:Cashier:order }
+
+liber_beleggers_cashier_handleOrder:
+    pattern: /cashier/handleOrder
+    defaults: { _controller: LiberBeleggersBundle:Cashier:handleOrder }
+    methods: [POST]

@@ -1,7 +1,9 @@
 {% extends "LiberBeleggersBundle::layout.html.twig" %}
 {% use 'LiberBeleggersBundle::helpbar.html.twig' %}
 
-{% block title "Types - Settings" %}
+{% block title %}
+    {{ 'titles.settings.types'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
 
 {% form_theme form 'LiberBeleggersBundle::form_tablerow_layout.html.twig' %}
 
@@ -24,9 +26,9 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <td>Name</td>
-                <td>Time (minutes) to minimum price</td>
-                <td>Magic increase number</td>
+                <td>{{ 'table.header.name'|trans }}</td>
+                <td>{{ 'table.stockType.header.timeToMinimum'|trans }} {{ 'table.stockType.general.minutes'|trans }}</td>
+                <td>{{ 'table.stockType.header.magicToMaximum'|trans }}</td>
             </tr>
             </thead>
             <tbody class="stockCollection" data-prototype="{{ form_widget(form.stockTypes.vars.prototype)|e }}">
@@ -34,7 +36,7 @@
                 <tr>
                     {{ form_widget(type) }}
                     <td class="form_control">
-                        <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="Remove existing stock">
+                        <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="{{ 'form.control.stockType.removeExisting'|trans }}">
                             <span class="icon-trash"></span>
                         </a>
                     </td>
@@ -44,8 +46,8 @@
         </table>
 
         <div class="clearfix">
-            <input class="btn btn-primary" type="submit" value="Confirm Changes" />
-            <a href="#" class="pull-right btn btn-info add_stock_link">Add Type</a>
+            <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
+            <a href="#" class="pull-right btn btn-info add_stock_link">{{ 'form.button.stockType.add'|trans }}</a>
             {#<a href="#" class="pull-right btn btn-danger remove_entire_stock" style="margin-right: 15px;">Clear All</a>#}
         </div>
 

@@ -3,10 +3,12 @@ namespace Liber\BeleggersBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
 
+use Liber\BeleggersBundle\Entity\Stock;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
 class CashierController extends Controller {
+    /** @var  EntityManager */
     private $em;
 
     protected $container;
@@ -30,15 +32,43 @@ class CashierController extends Controller {
         ));
     }
 
-    private function updateStock() {
+    public function handleOrderAction() {
+        $request = $this->getRequest();
+        if($request->getMethod() === 'POST') {
+            $stocks = $request->request->all();
 
+            foreach($stocks as $stockId => $amount) {
+                $stock = $this->em->getRepository('LiberBeleggersBundle:Stock')->findOneById($stockId);
+
+                if($this->updateStockAmount($stock, $amount)) {
+
+                } else {
+                    //SCREAM!!!
+                }
+            }
+            $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.order.success'));
+            $this->em->flush();
+        }
+
+        $url = $this->generateUrl('liber_beleggers_cashier_register');
+        return $this->redirect($url);
     }
 
     private function updateStockPrice($stock) {
 
     }
 
-    private function updateStockAmount($stock, $amount) {
+    /**
+     * @param Stock $stock
+     * @param $amount
+     * @return bool
+     */
+    private function updateStockAmount(Stock $stock, $amount) {
+        $current = $stock->getCurrentStock();
+        $new = $current - $amount;
+        $stock->setCurrentStock($new);
 
+        $this->em->persist($stock);
+        return true;
     }
 }
