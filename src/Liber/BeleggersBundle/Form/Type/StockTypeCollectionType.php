@@ -12,11 +12,11 @@ namespace Liber\BeleggersBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class StockCollectionType extends AbstractType {
+class StockTypeCollectionType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         //  name startingPrice currentPrice maxPrice minPrice startingStock currentStock stockType_id
-        $builder->add('stocks', 'collection', array(
-            'type' => new StockType(),
+        $builder->add('stockTypes', 'collection', array(
+            'type' => new StockTypeType(),
             'allow_add' => true,
             'allow_delete' => true,
             'label' => false,
@@ -25,6 +25,6 @@ class StockCollectionType extends AbstractType {
     }
 
     public function getName() {
-        return 'stockCollection';
+        return 'stockTypeCollection';
     }
 }

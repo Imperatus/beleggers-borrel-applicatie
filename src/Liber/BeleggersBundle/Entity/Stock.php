@@ -54,6 +54,11 @@ class Stock
      */
     private $stockType;
 
+    /**
+     * @var \Liber\UserBundle\Entity\User
+     */
+    private $user;
+
 
     /**
      * Get id
@@ -247,5 +252,28 @@ class Stock
     public function getStockType()
     {
         return $this->stockType;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Liber\UserBundle\Entity\User $user
+     * @return Stock
+     */
+    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Liber\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

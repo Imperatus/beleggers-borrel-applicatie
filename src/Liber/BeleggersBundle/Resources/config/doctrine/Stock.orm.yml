@@ -40,3 +40,5 @@ Liber\BeleggersBundle\Entity\Stock:
         stockType:
             targetEntity: StockType
             inversedBy: stock
+        user:
+            targetEntity: Liber\UserBundle\Entity\User

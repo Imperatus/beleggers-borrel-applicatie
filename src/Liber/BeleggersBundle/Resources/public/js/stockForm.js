@@ -9,14 +9,15 @@ var Liber =  Liber || {};
 
 Liber.StockForm = function() {
     "use strict";
-    var collectionHolder, addStockLink, removeStockLink, removeExisting, newLinkLiAdd, addStockForm, remStockForm;
+    var collectionHolder, addStockLink, removeStockLink, removeExisting, newLinkLiAdd, addStockForm, remStockForm, pageType;
 
     this.init = function() {
         collectionHolder = $('tbody.stockCollection');
+        pageType = $('#jPageType').val();
 
         // TODO - Change to bootstrap + / -
         addStockLink = $('.add_stock_link');
-        removeStockLink = $('<a href="#" class="remove_stock_link">Remove stock</a>');
+        removeStockLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="Remove '+ pageType + ' addition"><span class="icon-remove"></spam></a>');
         removeExisting = $('.stock_remove_existing');
 
         removeExisting.each(function() {
@@ -28,6 +29,22 @@ Liber.StockForm = function() {
                     $(this).closest('tr').remove();
                 }
             });
+        });
+
+        $('.remove_entire_stock').on('click', function(e) {
+            var message;
+
+            e.preventDefault();
+            if(pageType == 'stock') {
+                message = confirm('Are you sure? This will delete the entire stock!');
+            } else {
+                message = confirm('Are you sure? This will delete all types!');
+            }
+            if(message) {
+                // add a new tag form (see next code block)
+                $('tbody').remove();
+                $("form").submit();
+            }
         });
 
         // add the "add a tag" anchor and li to the tags ul
@@ -67,7 +84,7 @@ Liber.StockForm = function() {
          $('.stockCollection').append(newFormLi);
 
          // Add the remove link to remove mistakes
-         var dingen = $('<td></td>').append(newRemLink);
+         var dingen = $('<td class="form_control"></td>').append(newRemLink);
          newFormLi.append(dingen);
 
          newRemLink.on('click', function(e) {

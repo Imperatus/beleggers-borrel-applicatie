@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "07cff30ada3b4e23340971a2c1f36dc2",
+    "hash": "88658bd21ce5c7bcb5985e3f5f72b7c0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1115,6 +1115,30 @@
             "type": "library"
         },
         {
+            "name": "kraksoft/jquery-ui",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kraksoft/jquery-ui.git",
+                "reference": "768ede8d8014bc4959d79694edeb0c7847e4bbff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kraksoft/jquery-ui/zipball/768ede8d8014bc4959d79694edeb0c7847e4bbff",
+                "reference": "768ede8d8014bc4959d79694edeb0c7847e4bbff",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "jQuery UI fork",
+            "homepage": "http://jqueryui.com/",
+            "keywords": [
+                "jquery",
+                "ui"
+            ],
+            "time": "2012-10-21 20:48:14"
+        },
+        {
             "name": "kriswallsmith/assetic",
             "version": "dev-master",
             "source": {
@@ -1753,12 +1777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d14db588f5a0aedfa7decfe31a57578e89252b89"
+                "reference": "b5c9bb8e032be23007d9fa54bf7e7ed230420ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d14db588f5a0aedfa7decfe31a57578e89252b89",
-                "reference": "d14db588f5a0aedfa7decfe31a57578e89252b89",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b5c9bb8e032be23007d9fa54bf7e7ed230420ee8",
+                "reference": "b5c9bb8e032be23007d9fa54bf7e7ed230420ee8",
                 "shasum": ""
             },
             "require": {
@@ -1853,7 +1877,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-05-29 08:49:10"
+            "time": "2013-05-30 05:11:26"
         },
         {
             "name": "twig/extensions",
@@ -1960,6 +1984,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "kraksoft/jquery-ui": 20,
         "friendsofsymfony/user-bundle": 20
     },
     "platform": {

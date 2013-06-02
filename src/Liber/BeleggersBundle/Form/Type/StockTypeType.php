@@ -8,9 +8,10 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class StockTypeType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name',null, array(
-            'label' => false,
-        ));
+        $builder
+            ->add('name',null, array('label' => false))
+            ->add('startToMinimum',null, array('label' => false))
+            ->add('magicToMaximum',null, array('label' => false));
      }
 
     public function getName() {

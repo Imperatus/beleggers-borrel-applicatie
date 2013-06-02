@@ -39,3 +39,21 @@
             {{ form_rest(form) }}
     {% endspaceless %}
 {% endblock form_widget_compound %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <div class="pull-right">
+                {% for error in errors %}
+                    <span class="icon-exclamation-sign" style="margin-top: 7px;"></span>
+                    {#{{
+                        error.messagePluralization is null
+                        ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                        : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+                        }}#}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+

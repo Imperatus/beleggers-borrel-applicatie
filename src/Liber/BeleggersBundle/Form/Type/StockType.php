@@ -36,6 +36,9 @@ class StockType extends AbstractType {
         $builder->add('stockType', 'entity', array(
             'class' => 'LiberBeleggersBundle:StockType',
             'property' => 'name',
+            'attr' => array(
+                'style' => 'width: 125px;',
+            ),
         ));
     }
 

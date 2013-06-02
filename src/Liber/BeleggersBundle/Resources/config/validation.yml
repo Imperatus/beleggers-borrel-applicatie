@@ -1,0 +1,14 @@
+Liber\BeleggersBundle\Entity\StockType:
+    properties:
+        magicToMaximum:
+            - Range:
+                min: 0.00
+                max: 1.00
+                minMessage: Must be greater than 0
+                maxMessage: Must be smaller than 1
+        startToMinimum:
+            - Range:
+                min: 1
+                max: 3600
+                minMessage: dinge
+                maxMessage: dange
