@@ -3,10 +3,13 @@ namespace Liber\BeleggersBundle\Controller;
 
 use Doctrine\ORM\EntityManager;
 
+use Liber\BeleggersBundle\Entity\OrderHistory;
 use Liber\BeleggersBundle\Entity\Stock;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints\DateTime;
+
 class CashierController extends Controller {
     /** @var  EntityManager */
     private $em;
@@ -33,6 +36,8 @@ class CashierController extends Controller {
     }
 
     public function handleOrderAction() {
+        $now = new \DateTime();
+
         $request = $this->getRequest();
         if($request->getMethod() === 'POST') {
             $stocks = $request->request->all();
@@ -41,7 +46,8 @@ class CashierController extends Controller {
                 $stock = $this->em->getRepository('LiberBeleggersBundle:Stock')->findOneById($stockId);
 
                 if($this->updateStockAmount($stock, $amount)) {
-
+                    $this->updateHistory($stock, $amount, $now);
+                    $this->updateStockPrice($stock);
                 } else {
                     //SCREAM!!!
                 }
@@ -54,8 +60,35 @@ class CashierController extends Controller {
         return $this->redirect($url);
     }
 
-    private function updateStockPrice($stock) {
+    private function updateStockPrice(Stock $stock) {
+        $type = $stock->getStockType();
 
+        $currentPrice = $stock->getCurrentPrice();
+        $startingPrice = $stock->getStartingPrice();
+        $startingStock = $stock->getStartingStock();
+        $currentStock = $stock->getCurrentStock();
+        $maxPrice = $stock->getMaxPrice();
+
+        $magicNumber = $type->getMagicToMaximum();
+
+        // Calculate number between 1 and 0 for stock amount. Inverse as you want prices to rise quicker when there's less stock
+        $stockMultiplier = 1 - ($currentStock / $startingStock);
+        $priceMultiplier =  1 - ($currentPrice / $maxPrice);
+        $multiplier = $magicNumber * $stockMultiplier * $priceMultiplier;
+
+        var_dump($maxPrice, $currentPrice);
+        var_dump($stockMultiplier, $priceMultiplier);
+        var_dump($multiplier);
+
+        $voodoo = $multiplier * $startingPrice * 4;
+
+        var_dump($voodoo);
+
+
+        $newPrice = $currentPrice + $voodoo;
+
+        $stock->setCurrentPrice($newPrice);
+        $this->em->persist($stock);
     }
 
     /**
@@ -66,9 +99,26 @@ class CashierController extends Controller {
     private function updateStockAmount(Stock $stock, $amount) {
         $current = $stock->getCurrentStock();
         $new = $current - $amount;
+
+        if($new < 0) {
+            $new = 0;
+        }
+
         $stock->setCurrentStock($new);
 
         $this->em->persist($stock);
         return true;
+    }
+
+    private function updateHistory(Stock $stock, $amount, \DateTime $now) {
+        $history = new OrderHistory();
+
+        $history->setStock($stock);
+        $history->setUser($this->user);
+        $history->setPrice($stock->getCurrentPrice());
+        $history->setAmount($amount);
+        $history->setTime($now);
+
+        $this->em->persist($history);
     }
 }

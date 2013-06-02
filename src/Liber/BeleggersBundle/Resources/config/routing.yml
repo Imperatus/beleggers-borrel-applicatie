@@ -18,6 +18,10 @@ liber_beleggers_settings_global:
     pattern: /settings/global
     defaults: { _controller: LiberBeleggersBundle:Settings:editGlobal }
 
+liber_beleggers_settings_reset:
+    pattern: /settings/reset
+    defaults: { _controller: LiberBeleggersBundle:Settings:reset }
+
 liber_beleggers_cashier_register:
     pattern: /cashier/register
     defaults: { _controller: LiberBeleggersBundle:Cashier:order }

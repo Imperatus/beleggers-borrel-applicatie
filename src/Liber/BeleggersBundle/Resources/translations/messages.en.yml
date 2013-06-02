@@ -16,6 +16,7 @@ form:
   submit:
     success: Successfully saves all changes!
     error: Error submitting form! Please check all fields for errors.
+    reset: Successfully reset to starting values!
   order:
     success: Order succesfully placed!
   control:
@@ -39,12 +40,16 @@ form:
       order:
         checkOut: Check out
         clearAll: Clear order
+    global:
+      reset: Reset to start values
   label:
     global:
       currency: Currency
       unitPrice: Unit price
       unitName: Unit name
   confirm:
+    global:
+      reset: Are you sure you want to reset?
     stock:
       remove: Are you sure you want to remove your entire stock?
     type:
