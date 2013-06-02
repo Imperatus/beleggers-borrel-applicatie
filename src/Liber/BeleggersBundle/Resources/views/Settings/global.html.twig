@@ -24,6 +24,7 @@
 
         <div class="clearfix">
             <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
+            <a href="{{ path('liber_beleggers_settings_reset') }}" class="btn btn-danger pull-right" onclick="return confirm('{{ 'form.confirm.global.reset'|trans }}');">{{ 'form.button.global.reset'|trans }}</a>
         </div>
 
     </form>

@@ -138,6 +138,26 @@ class SettingsController extends Controller
         ));
     }
 
+    public function resetAction() {
+        /** @var Stock $stock */
+        $stocks = $this->em->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
+        foreach($stocks as $stock) {
+            $stock->setCurrentStock($stock->getStartingStock());
+            $stock->setCurrentPrice($stock->getStartingPrice());
+            $this->em->persist($stock);
+        }
+
+        $history = $this->em->getRepository('LiberBeleggersBundle:OrderHistory')->findByUser($this->user);
+        foreach($history as $entry) {
+            $this->em->remove($entry);
+        }
+
+        $this->em->flush();
+
+        $url = $this->generateUrl('liber_beleggers_settings_global');
+        return $this->redirect($url);
+    }
+
     private function processForm($form, $entityName, $entityNamespace) {
         $request = $this->getRequest();
         if($request->getMethod() === 'POST') {
