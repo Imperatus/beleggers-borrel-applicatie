@@ -12,7 +12,7 @@
             <div class="span12">
                 <div class="navbar">
                     <div class="navbar-inner">
-                        <a class="brand" href="#">SpiritStock v0.3a</a>
+                        <a class="brand" href="#">SpiritStock v0.4a</a>
                         <ul class="nav">
                             <li class="active"><a href="{{ path('liber_beleggers_settings') }}">{{ 'menu.settings'|trans }}</a></li>
                             <li><a href="{{ path('liber_beleggers_cashier_register' ) }}">{{ 'menu.cashier'|trans }}</a></li>
@@ -32,7 +32,7 @@
                     <li id="tabTypes"><a href="{{ path('liber_beleggers_settings_types') }}">{{ "tabs.types"|trans }}</a></li>
                     <li id="tabGlobal"><a href="{{ path('liber_beleggers_settings_global') }}">{{ "tabs.global"|trans }}</a></li>
                 </ul>
-                 {% block content %}{% endblock %}
+                {% block content %}{% endblock %}
             </div>
         </div>
         <div class="span3">

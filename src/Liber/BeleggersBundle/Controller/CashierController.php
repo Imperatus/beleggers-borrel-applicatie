@@ -91,10 +91,15 @@ class CashierController extends Controller {
 
     private function updateIncreasedStockPrice(Stock $stock) {
         $currentPrice = $stock->getCurrentPrice();
+        $maxPrice = $stock->getMaxPrice();
 
         $voodoo = $this->calculateIncrease($stock);
 
         $newPrice = $currentPrice + $voodoo;
+
+        if($newPrice > $maxPrice) {
+            $newPrice = $maxPrice;
+        }
 
         $stock->setCurrentPrice($newPrice);
         $this->em->persist($stock);
@@ -137,12 +142,17 @@ class CashierController extends Controller {
         /** @var Stock $stock */
         foreach($notOrdered as $stock) {
             $currentPrice = $stock->getCurrentPrice();
+            $minPrice = $stock->getMinPrice();
 
             $this->updateHistory($stock, null, new \DateTime(), self::DECREASE);
 
             $voodoo = $this->calculateDecrease($stock);
 
             $newPrice = $currentPrice - $voodoo;
+
+            if($newPrice < $minPrice) {
+                $newPrice = $minPrice;
+            }
 
             $stock->setCurrentPrice($newPrice);
             $this->em->persist($stock);

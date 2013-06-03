@@ -30,3 +30,7 @@ liber_beleggers_cashier_handleOrder:
     pattern: /cashier/handleOrder
     defaults: { _controller: LiberBeleggersBundle:Cashier:handleOrder }
     methods: [POST]
+
+liber_beleggers_history_test:
+    pattern: /history/test
+    defaults: { _controller: LiberBeleggersBundle:History:testGraph }
