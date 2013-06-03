@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f7803ebf1f9cd9f9e75b69b64ce07a06",
+    "hash": "90ca2ef3fb3ab8224f4034ccde354b29",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1385,6 +1385,53 @@
             "time": "2013-05-28 12:09:06"
         },
         {
+            "name": "ob/highcharts-bundle",
+            "version": "dev-master",
+            "target-dir": "Ob/HighchartsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marcaube/ObHighchartsBundle.git",
+                "reference": "93b90e25b9ad732b686733a7eb9c701a2e7a23f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marcaube/ObHighchartsBundle/zipball/93b90e25b9ad732b686733a7eb9c701a2e7a23f2",
+                "reference": "93b90e25b9ad732b686733a7eb9c701a2e7a23f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/symfony": "2.*",
+                "zendframework/zend-json": "2.1.*@dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Ob\\HighchartsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Marc Aubé"
+                }
+            ],
+            "description": "Symfony2 Bundle that ease the use of highcharts to display rich graph and charts in your app",
+            "homepage": "https://github.com/marcaube/ObHighchartsBundle",
+            "keywords": [
+                "Symfony2",
+                "chart",
+                "charting",
+                "charts",
+                "graph",
+                "graphs",
+                "highcharts",
+                "marcaube",
+                "ob"
+            ],
+            "time": "2013-05-26 22:21:58"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "dev-master",
             "source": {
@@ -2141,6 +2188,94 @@
                 "translation"
             ],
             "time": "2013-05-24 09:08:10"
+        },
+        {
+            "name": "zendframework/zend-json",
+            "version": "2.1.5",
+            "target-dir": "Zend/Json",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendJson.git",
+                "reference": "release-2.1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendJson/zipball/release-2.1.5",
+                "reference": "release-2.1.5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-server": "Zend\\Server component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev",
+                    "dev-develop": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Json\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides convenience methods for serializing native PHP to JSON and decoding JSON to native PHP",
+            "keywords": [
+                "json",
+                "zf2"
+            ],
+            "time": "2013-04-16 21:18:18"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.1.5",
+            "target-dir": "Zend/Stdlib",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendStdlib.git",
+                "reference": "release-2.1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/release-2.1.5",
+                "reference": "release-2.1.5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "pecl-weakref": "Implementation of weak references for Stdlib\\CallbackHandler"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev",
+                    "dev-develop": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Stdlib\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "stdlib",
+                "zf2"
+            ],
+            "time": "2013-04-15 11:43:47"
         }
     ],
     "packages-dev": [
@@ -2154,7 +2289,8 @@
         "doctrine/doctrine-fixtures-bundle": 20,
         "kraksoft/jquery-ui": 20,
         "friendsofsymfony/user-bundle": 20,
-        "willdurand/expose-translation-bundle": 20
+        "willdurand/expose-translation-bundle": 20,
+        "ob/highcharts-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

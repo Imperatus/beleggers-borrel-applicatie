@@ -23,7 +23,8 @@
         "jquery/jquery": "1.8.1",
         "kraksoft/jquery-ui": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "willdurand/expose-translation-bundle": "dev-master"
+        "willdurand/expose-translation-bundle": "dev-master",
+        "ob/highcharts-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
