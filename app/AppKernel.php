@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Liber\UserBundle\LiberUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
+            new Ob\HighchartsBundle\ObHighchartsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
