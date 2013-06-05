@@ -36,5 +36,12 @@ liber_beleggers_history_test:
     defaults: { _controller: LiberBeleggersBundle:History:testGraph }
 
 liber_beleggers_dashboard:
-    pattern: /
+    pattern: /dashboard
     defaults: { _controller: LiberBeleggersBundle:Dashboard:home }
+
+liber_user_homepage:
+    pattern:  /
+    defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: liber_beleggers_dashboard
+      permanent: true
