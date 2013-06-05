@@ -93,6 +93,7 @@ tabs:
 menu:
   settings: Settings
   cashier: Cashier
+  history: History
 
 ### All table related stuff
 table:

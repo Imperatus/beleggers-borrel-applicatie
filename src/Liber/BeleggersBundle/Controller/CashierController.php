@@ -55,6 +55,9 @@ class CashierController extends Controller {
                 if($this->updateStockAmount($stock, $amount)) {
                     $this->updateHistory($stock, $amount, $now);
                     $this->updateIncreasedStockPrice($stock);
+
+                    // Flush all increased prices before we check for decrease candidates
+                    $this->em->flush();
                     $this->updateDecreasedStockPrice($stockIds);
                 } else {
                     //SCREAM!!!
@@ -141,6 +144,8 @@ class CashierController extends Controller {
 
         /** @var Stock $stock */
         foreach($notOrdered as $stock) {
+            // Refresh because ordered products just got commited and we don't want to decrease these again...
+            $this->em->refresh($stock);
             $currentPrice = $stock->getCurrentPrice();
             $minPrice = $stock->getMinPrice();
 

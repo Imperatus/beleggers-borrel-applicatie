@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "90ca2ef3fb3ab8224f4034ccde354b29",
+    "hash": "78820d82a3d92366ef3e11f26b6c5be3",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1152,12 +1152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle.git",
-                "reference": "f2a345dc468eb0ba9ce50211b289422c82082db0"
+                "reference": "1.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/f2a345dc468eb0ba9ce50211b289422c82082db0",
-                "reference": "f2a345dc468eb0ba9ce50211b289422c82082db0",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/1.5.0",
+                "reference": "1.5.0",
                 "shasum": ""
             },
             "require": {
@@ -1253,16 +1253,16 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "014f83418c1c790303e7d803dae873ae6b2a4f61"
+                "reference": "426d4cf7d980a6563a58a1f6aa2351225fbaef77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/014f83418c1c790303e7d803dae873ae6b2a4f61",
-                "reference": "014f83418c1c790303e7d803dae873ae6b2a4f61",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/426d4cf7d980a6563a58a1f6aa2351225fbaef77",
+                "reference": "426d4cf7d980a6563a58a1f6aa2351225fbaef77",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1291,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1320,7 +1320,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-06-01 22:07:54"
+            "time": "2013-06-05 16:37:34"
         },
         {
             "name": "monolog/monolog",
@@ -1710,21 +1710,21 @@
         },
         {
             "name": "symfony/assetic-bundle",
-            "version": "dev-master",
+            "version": "2.3.x-dev",
             "target-dir": "Symfony/Bundle/AsseticBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle.git",
-                "reference": "v2.3.0"
+                "reference": "65bd076341ac54ebfcd845d8471044fc4afa73d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/v2.3.0",
-                "reference": "v2.3.0",
+                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/65bd076341ac54ebfcd845d8471044fc4afa73d2",
+                "reference": "65bd076341ac54ebfcd845d8471044fc4afa73d2",
                 "shasum": ""
             },
             "require": {
-                "kriswallsmith/assetic": ">=1.1,<2.0",
+                "kriswallsmith/assetic": "1.1.x",
                 "php": ">=5.3.0",
                 "symfony/framework-bundle": ">=2.1,<3.0"
             },
@@ -1743,7 +1743,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -1769,27 +1769,26 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-05-16 05:32:23"
+            "time": "2013-06-04 14:18:43"
         },
         {
             "name": "symfony/icu",
-            "version": "1.2.x-dev",
+            "version": "1.0.x-dev",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.2.0-RC1"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0-RC1",
-                "reference": "v1.2.0-RC1",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
-                "symfony/intl": ">=2.3-RC,<3.0"
+                "symfony/intl": ">=2.3,<3.0"
             },
             "type": "library",
             "autoload": {
@@ -1817,21 +1816,21 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-05-16 08:18:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "dev-master",
+            "version": "2.2.x-dev",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "03ed73bc11367b3156cc21f22ac37c7f70fcd10a"
+                "reference": "3c4b4c43933f93e6f887df201bdbbb10a1bf5b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/03ed73bc11367b3156cc21f22ac37c7f70fcd10a",
-                "reference": "03ed73bc11367b3156cc21f22ac37c7f70fcd10a",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/3c4b4c43933f93e6f887df201bdbbb10a1bf5b97",
+                "reference": "3c4b4c43933f93e6f887df201bdbbb10a1bf5b97",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1874,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2013-05-27 18:06:55"
+            "time": "2013-06-05 09:21:54"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -1938,12 +1937,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6b25213e230399f9b25e7fe7b846b0be5975a5c2"
+                "reference": "df0a02dc1049585add28ecca7a58ae21fbb23ecd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6b25213e230399f9b25e7fe7b846b0be5975a5c2",
-                "reference": "6b25213e230399f9b25e7fe7b846b0be5975a5c2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/df0a02dc1049585add28ecca7a58ae21fbb23ecd",
+                "reference": "df0a02dc1049585add28ecca7a58ae21fbb23ecd",
                 "shasum": ""
             },
             "require": {
@@ -2038,7 +2037,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-06-02 16:04:08"
+            "time": "2013-06-05 17:12:01"
         },
         {
             "name": "twig/extensions",

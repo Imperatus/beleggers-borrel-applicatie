@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Zend\Json\Expr;
+use Zend\Json\Json;
 
 class HistoryController extends Controller {
 
@@ -17,6 +19,9 @@ class HistoryController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $history = $em->getRepository('LiberBeleggersBundle:OrderHistory')->findByUser($user);
+
+        $lowest = $em->getRepository('LiberBeleggersBundle:OrderHistory')->findOneByUser($user, array('time' => 'ASC'));
+        $highest = $em->getRepository('LiberBeleggersBundle:OrderHistory')->findOneByUser($user, array('time' => 'DESC'));
 
         $sorted = array();
 
@@ -28,42 +33,56 @@ class HistoryController extends Controller {
 
         foreach($sorted as $group) {
             $data = array();
+            $startPrice = 0;
+            $currPrice = 0;
             /** @var OrderHistory $item */
             foreach($group as $item) {
+                $startPrice = $item->getStock()->getStartingPrice() * 100;
+                $currPrice = $item->getStock()->getCurrentPrice() * 100;
+                $utcTime = $this->getUtcTime($item);
 
-                //$dataItem = array(strtotime($item->getTime()->format('H:i:s')), $item->getPrice());
-                $dataItem = array($item->getTime()->format('H:i:s'), $item->getPrice()*100);
+                $dataItem = array($utcTime, $item->getPrice()*100);
                 array_push($data, $dataItem);
             }
+//            $utcTime = $this->getUtcTime($lowest);
+//            array_unshift($data, array($utcTime, $startPrice));
+//            $utcTime = $this->getUtcTime($highest);
+//            array_push($data, array($utcTime, $currPrice));
+
             $serie = array(
                 "name" => $item->getStock()->getName().' ('.$item->getStock()->getStockType()->getName().')', "data" => $data,
             );
             array_push($series,$serie);
         }
 
-//        var_dump($series);die;
-        // Chart
-        /*$series = array(
-            array(
-                "name" => "Stock item 1", "data" => array(1,2,4,5,6,3,8),
-            ),
-            array(
-                "name" => "Stock item 2", "data" => array(2,3,4,5,6,4,9),
-            ),
-            array(
-                "name" => "Stock item 3", "data" => array(5,1,5,1,5,1,5),
-            ),
-        );*/
+        $func = new Expr("function() {
+            return '<b>'+ this.series.name +'</b><br/>'+
+            Highcharts.dateFormat('%e %b %H:%M:%S', this.x) +' --- Price:'+ this.y;
+        }");
 
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
         $ob->title->text('History');
         $ob->xAxis->title(array('text'  => "Time"));
+        $ob->xAxis->type('datetime');
+        $ob->xAxis->dateTimeLabelFormats(array(
+            'second' => '%H:%M:%S '
+
+        ));
         $ob->yAxis->title(array('text'  => "Price"));
+        $ob->tooltip->formatter($func);
         $ob->series($series);
 
         return $this->render('LiberBeleggersBundle:History:testChart.html.twig', array(
             'chart' => $ob
         ));
+    }
+
+    private function getUtcTime($item) {
+        $time = $item->getTime();
+
+        $ts = mktime($time->format('H'), $time->format('i'), $time->format('s'), $time->format('m'), $time->format('d'), $time->format('Y'));
+
+        return $ts *1000;
     }
 }
