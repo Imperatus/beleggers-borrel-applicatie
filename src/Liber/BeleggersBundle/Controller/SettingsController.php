@@ -109,7 +109,16 @@ class SettingsController extends Controller
         if(empty($settings)) {
             $settings = new GlobalSettings();
             $settings->setCurrency('&euro;');
+        } else {
+            $currency = $settings->getCurrency();
         }
+
+        if(empty($settings) || empty($currency)) {
+            $missingSettings = true;
+        } else {
+            $missingSettings = false;
+        }
+
 
         $form = $this->createForm(new GlobalSettingsType(), $settings);
 
@@ -136,6 +145,7 @@ class SettingsController extends Controller
                 'pageName' => $this->get('translator')->trans('help.headers.global'),
                 'helpText' => $this->get('translator')->trans('help.texts.global'),
             ),
+            'missingSettings' => $missingSettings,
         ));
     }
 

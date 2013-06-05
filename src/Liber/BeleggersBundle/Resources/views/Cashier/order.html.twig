@@ -4,6 +4,12 @@
 
 {%  block content %}
     <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-error">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     {% for type in types %}
         {% if loop.first %}
             <div class="container-fluid">
@@ -53,7 +59,10 @@
             </div>
         {% endif %}
 
+
+
     {% endfor %}
+
     <script type="text/javascript">
         $(document).ready(function() {
             var register = new Liber.Register();
@@ -61,3 +70,4 @@
         });
     </script>
 {% endblock %}
+

@@ -34,3 +34,7 @@ liber_beleggers_cashier_handleOrder:
 liber_beleggers_history_test:
     pattern: /history/test
     defaults: { _controller: LiberBeleggersBundle:History:testGraph }
+
+liber_beleggers_dashboard:
+    pattern: /
+    defaults: { _controller: LiberBeleggersBundle:Dashboard:home }
