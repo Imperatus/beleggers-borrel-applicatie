@@ -55,6 +55,7 @@ class SettingsController extends Controller
 
     public function editStockAction() {
         $stocks = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
+        $types = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
         $activeTab = 'tabStock';
 
@@ -62,7 +63,7 @@ class SettingsController extends Controller
         $stockCollection = new StockCollection();
         $stockCollection->setStocks($stocks);
 
-        $form = $this->createForm(new StockCollectionType(), $stockCollection);
+        $form = $this->createForm(new StockCollectionType($types), $stockCollection);
 
         $this->processForm($form, 'stocks', 'LiberBeleggersBundle:Stock');
 
