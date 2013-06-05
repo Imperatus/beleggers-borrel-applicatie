@@ -1,8 +1,17 @@
 {% extends "LiberBeleggersBundle::layout.html.twig" %}
+
+{% use 'LiberBeleggersBundle::Settings/tabs.html.twig' %}
 {% use 'LiberBeleggersBundle::helpbar.html.twig' %}
 
 {% block title %}
     {{ 'titles.settings.global'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
+
+{# Remove links if no settings are found so settings must be set#}
+{% block content_header %}
+    {% if not missingSettings %}
+        {{ parent() }}
+    {% endif %}
 {% endblock %}
 
 {% block content %}

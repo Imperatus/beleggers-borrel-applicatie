@@ -8,6 +8,11 @@ use Liber\BeleggersBundle\Form\Type\StockTypeType as Type;
 
 
 class StockType extends AbstractType {
+    private $typeChoices;
+
+    public function __construct($typeChoices = null) {
+        $this->typeChoices = $typeChoices;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $floatStyle = array(
@@ -25,6 +30,15 @@ class StockType extends AbstractType {
                 'style'      => 'width:25px;'
         ));
 
+        $typeOptions = array(
+            'class' => 'LiberBeleggersBundle:StockType',
+            'choices' => $this->typeChoices,
+            'property' => 'name',
+            'attr' => array(
+                'style' => 'width: 125px;',
+            ),
+        );
+
         $builder->add('name', null, array('attr' => array('style' => 'width: 75px;')));
         $builder->add('startingPrice', 'number', $floatStyle);
         $builder->add('currentPrice', 'number', $floatStyle);
@@ -32,13 +46,7 @@ class StockType extends AbstractType {
         $builder->add('minPrice', 'number', $floatStyle);
         $builder->add('startingStock', 'number', $numberStyle);
         $builder->add('currentStock', 'number', $numberStyle);
-        $builder->add('stockType', 'entity', array(
-            'class' => 'LiberBeleggersBundle:StockType',
-            'property' => 'name',
-            'attr' => array(
-                'style' => 'width: 125px;',
-            ),
-        ));
+        $builder->add('stockType', 'entity', $typeOptions);
     }
 
     public function getName() {

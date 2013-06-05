@@ -1,0 +1,15 @@
+{% block navtabs %}
+    <ul class="nav nav-tabs">
+        <li id="tabOverview"><a href="{{ path('liber_beleggers_settings_overview') }}">{{ "tabs.overview"|trans }}</a></li>
+        <li id="tabStock"><a href="{{ path('liber_beleggers_settings_stock') }}">{{ "tabs.stock"|trans }}</a></li>
+        <li id="tabTypes"><a href="{{ path('liber_beleggers_settings_types') }}">{{ "tabs.types"|trans }}</a></li>
+        <li id="tabGlobal"><a href="{{ path('liber_beleggers_settings_global') }}">{{ "tabs.global"|trans }}</a></li>
+    </ul>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var tabControl = new Liber.Tabs();
+            tabControl.setActiveTab("{{ activeTab }}");
+        });
+    </script>
+{% endblock %}

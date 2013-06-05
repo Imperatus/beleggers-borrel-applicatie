@@ -55,6 +55,7 @@ class SettingsController extends Controller
 
     public function editStockAction() {
         $stocks = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
+        $types = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
         $activeTab = 'tabStock';
 
@@ -62,7 +63,7 @@ class SettingsController extends Controller
         $stockCollection = new StockCollection();
         $stockCollection->setStocks($stocks);
 
-        $form = $this->createForm(new StockCollectionType(), $stockCollection);
+        $form = $this->createForm(new StockCollectionType($types), $stockCollection);
 
         $this->processForm($form, 'stocks', 'LiberBeleggersBundle:Stock');
 
@@ -108,7 +109,16 @@ class SettingsController extends Controller
         if(empty($settings)) {
             $settings = new GlobalSettings();
             $settings->setCurrency('&euro;');
+        } else {
+            $currency = $settings->getCurrency();
         }
+
+        if(empty($settings) || empty($currency)) {
+            $missingSettings = true;
+        } else {
+            $missingSettings = false;
+        }
+
 
         $form = $this->createForm(new GlobalSettingsType(), $settings);
 
@@ -135,6 +145,7 @@ class SettingsController extends Controller
                 'pageName' => $this->get('translator')->trans('help.headers.global'),
                 'helpText' => $this->get('translator')->trans('help.texts.global'),
             ),
+            'missingSettings' => $missingSettings,
         ));
     }
 
