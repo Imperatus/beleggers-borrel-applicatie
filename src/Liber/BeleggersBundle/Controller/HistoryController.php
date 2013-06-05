@@ -37,8 +37,6 @@ class HistoryController extends Controller {
             $currPrice = 0;
             /** @var OrderHistory $item */
             foreach($group as $item) {
-                $startPrice = $item->getStock()->getStartingPrice() * 100;
-                $currPrice = $item->getStock()->getCurrentPrice() * 100;
                 $utcTime = $this->getUtcTime($item);
 
                 $dataItem = array($utcTime, $item->getPrice()*100);
