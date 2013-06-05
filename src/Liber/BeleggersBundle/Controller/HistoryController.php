@@ -44,10 +44,6 @@ class HistoryController extends Controller {
                 $dataItem = array($utcTime, $item->getPrice()*100);
                 array_push($data, $dataItem);
             }
-//            $utcTime = $this->getUtcTime($lowest);
-//            array_unshift($data, array($utcTime, $startPrice));
-//            $utcTime = $this->getUtcTime($highest);
-//            array_push($data, array($utcTime, $currPrice));
 
             $serie = array(
                 "name" => $item->getStock()->getName().' ('.$item->getStock()->getStockType()->getName().')', "data" => $data,
