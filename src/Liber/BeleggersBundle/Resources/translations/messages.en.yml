@@ -10,6 +10,7 @@ help:
     edit: Here you can add, remove or edit items, or clear your entire stock. The Name field is for the name of the product. The Starting Price is the price for which you want to sell the item initially. The current price is the price the system currently calculated for the item depending on demand and voodoo. The maximum price is the price the item will be sold of at most, whereas the minimum price is the price it will be sold at the least. The starting stock is the amount of items you have to begin with, and the current stock currently the amount at the moment. The type is the kind of item it is. Types can be added or edited in the Types tab.
     types: Here you can add types to your items, for instance define 'Beer' for item 'Heineken'. Types have a few properties that influence how prices adjust to demand, so think carefully about what types you define! Time to minimum price defines the time it takes on average for an item at starting price to reach the minimum price. So if it is set at 30, the item will reach the bottom price after 30 minutes of no sales. The magic number influences how long it takes for an item to reach its maximum price. Because it fully depends on how popular an item is, there's no time factor here... To make prices rise VERY fast, set it to 1, else set it near 0. This all works because of black magic voodo code.
     global: On this page you can set your currency. In future releases, the application will display the correct symbol app-wide. Furthermore, if you work with Coins of Barslips, you can define their price and give them a name here. For instance, if you sell coins of a worth of 1 euro, just enter Coin for unit name and 1.00 for unit price. At the Cashier part, prices get shown in your currency as well as the unit you define.
+    dashboard: <h4>Our rabid spider monkeys have detected you have no settings yet!</h4> Either you're new or just lazy. In the former case, welcome! In the latter case, go get set up already! <p>Whatever the cause, you can get yourself set up at the following page:</p>
 
 ### All form related business
 form:
@@ -59,6 +60,8 @@ form:
 
 ### All page titles
 titles:
+  general:
+    appName: SpiritStock
   settings:
     overview: Overview
     stock: Stock
@@ -68,6 +71,8 @@ titles:
 
 ### All page headersS
 headers:
+  dashboard:
+    welcome: Welcome to SpiritStock
   overview:
     stock: Stock
     types: Types
@@ -121,3 +126,8 @@ table:
 ### General terms
 general:
   total: Total
+
+### Links
+link:
+  dashboard:
+    globalSettings: Global Settings

@@ -1,33 +1,37 @@
-{%  block orderbar %}
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-    <h5>{{ 'headers.cashier.order.currentOrder'|trans }}</h5>
-    <table id="orderContainer" class="table table-striped table-bordered">
-
-    </table>
-    <div class="clearfix">
-        <div class="pull-right" style="text-align: right;">
-            <span>{{ 'general.total'|trans }}: <b>&euro; </b></span><span style="font-weight: bold;" id="totalPrice">0.00</span><br />
-            {% if settings.unitPrice is defined %}
-                <span>{{ 'general.total'|trans }} {{ settings.unitName|default('Units') }}: </span><span style="font-weight: bold;" data-units="{{ settings.unitPrice }}" id="totalUnits">0</span>
-            {% endif %}
-        </div>
-    </div>
-
-    <div class="clearfix" style="margin-top: 8px;">
-
-        <form action="{{ path('liber_beleggers_cashier_handleOrder' ) }}" method="post">
-            <div id="formContainer" class="hidden">
-
+{%  block helpbar %}
+<div class="span3">
+    <div class="well">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                {{ flashMessage }}
             </div>
-            <div class="clearfix">
-                <a href="#" id="clearOrderButton" class="btn btn-danger pull-left disabled">{{ 'form.button.cashier.order.clearAll'|trans }}</a>
-                <input id='submitButton' type="submit" value="{{ 'form.button.cashier.order.checkOut'|trans }}" class=" disabled pull-right btn btn-primary" />
-            </div>
-        </form>
+        {% endfor %}
+        <h5>{{ 'headers.cashier.order.currentOrder'|trans }}</h5>
+        <table id="orderContainer" class="table table-striped table-bordered">
 
+        </table>
+        <div class="clearfix">
+            <div class="pull-right" style="text-align: right;">
+                <span>{{ 'general.total'|trans }}: <b>&euro; </b></span><span style="font-weight: bold;" id="totalPrice">0.00</span><br />
+                {% if settings.unitPrice is defined %}
+                    <span>{{ 'general.total'|trans }} {{ settings.unitName|default('Units') }}: </span><span style="font-weight: bold;" data-units="{{ settings.unitPrice }}" id="totalUnits">0</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="clearfix" style="margin-top: 8px;">
+
+            <form action="{{ path('liber_beleggers_cashier_handleOrder' ) }}" method="post">
+                <div id="formContainer" class="hidden">
+
+                </div>
+                <div class="clearfix">
+                    <a href="#" id="clearOrderButton" class="btn btn-danger pull-left disabled">{{ 'form.button.cashier.order.clearAll'|trans }}</a>
+                    <input id='submitButton' type="submit" value="{{ 'form.button.cashier.order.checkOut'|trans }}" class=" disabled pull-right btn btn-primary" />
+                </div>
+            </form>
+
+        </div>
+        </div>
     </div>
 {% endblock %}
