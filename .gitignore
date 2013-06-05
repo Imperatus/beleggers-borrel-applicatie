@@ -12,6 +12,9 @@ web/bundles/*
 web/css/*
 web/js/*
 
+web/app_dev.php
+web/app.php
+
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
