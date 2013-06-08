@@ -14,6 +14,8 @@ help:
 
 ### All form related business
 form:
+  warning:
+    noTypes: Warning - No Types found! Create one first from the Types tab!
   submit:
     success: Successfully saves all changes!
     error: Error submitting form! Please check all fields for errors.

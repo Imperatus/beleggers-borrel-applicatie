@@ -57,6 +57,10 @@ class SettingsController extends Controller
         $stocks = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
         $types = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
+        if(empty($types)) {
+            $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));
+        }
+
         $activeTab = 'tabStock';
 
         // Mock collection object to get the form working... TODO - Fix this so it does it correctly
