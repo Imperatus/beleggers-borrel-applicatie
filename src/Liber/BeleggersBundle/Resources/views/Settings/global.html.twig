@@ -26,10 +26,24 @@
         </div>
     {% endfor %}
 
+
+
     <form action="" method="post" {{ form_enctype(form) }}>
 
-        {{ form_widget(form) }}
+        {{ form_row(form.currency) }}
+        {{ form_row(form.unitName) }}
+        {{ form_label(form.unitPrice) }}
 
+        <div class="hidden">{{ form_widget(form.unitPrice) }}</div>
+
+        <div class="clearfix">
+            <div id="unitPriceSlider" class="pull-left" style="width: 25% !important;"></div>
+            <div id="unitPriceResult" class="sliderValueContainer pull-left"></div>
+        </div>
+
+        <br />
+
+        {{ form_rest(form) }}
 
         <div class="clearfix">
             <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
@@ -37,5 +51,37 @@
         </div>
 
     </form>
+
+
+    <script>
+        $(function() {
+            var initial = $('#globalSettings_unitPrice').val();
+            if(initial.length <= 0) {
+                initial = 0;
+            }
+
+            if(initial === 0) {
+                $('#unitPriceResult').text('Off');
+            } else {
+                $('#unitPriceResult').text(initial);
+            }
+
+            $( "#unitPriceSlider" ).slider({
+                min: 0,
+                max: 5,
+                step: 0.1,
+                value:initial,
+                slide: function(e, ui) {
+                    if(ui.value != 0) {
+                        $('#unitPriceResult').text(ui.value);
+                        $('#globalSettings_unitPrice').val(ui.value);
+                    } else {
+                        $('#unitPriceResult').text('Off');
+                        $('#globalSettings_unitPrice').val(null);
+                    }
+                }
+            });
+        });
+    </script>
 {% endblock %}
 

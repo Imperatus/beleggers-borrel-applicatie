@@ -57,6 +57,9 @@ form:
       remove: Are you sure you want to remove all types?
     cashier:
       order: Clear the whole order?
+  placeholder:
+    stock:
+      name: Name (e.g. Beer)
 
 ### All page titles
 titles:

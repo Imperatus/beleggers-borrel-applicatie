@@ -28,6 +28,26 @@
     {% endspaceless %}
 {% endblock hidden_row %}
 
+{% block minutes_slider_widget %}
+    {% spaceless %}
+        <div class="clearfix" style="margin-top: 12px;">
+            <div class="formMinutesSlider pull-left" style="width: 65%"></div>
+            <div class="sliderValueContainer pull-left"></div>
+        </div>
+        <div class="hidden pull-right">{{ form_widget(form) }}</div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block multiplier_slider_widget %}
+    {% spaceless %}
+        <div class="clearfix" style="margin-top: 12px;">
+            <div class="formMultiplierSlider pull-left" style="width: 60%;"></div>
+            <div class="sliderValueContainer pull-right"></div>
+        </div>
+        <div class="hidden">{{ form_widget(form) }}</div>
+    {% endspaceless %}
+{% endblock %}
+
 {% block form_widget_compound %}
     {% spaceless %}
             {% if form.parent is empty and errors|length > 0 %}
@@ -46,12 +66,7 @@
             <div class="pull-right">
                 {% for error in errors %}
                     <span class="icon-exclamation-sign" style="margin-top: 7px;"></span>
-                    {#{{
-                        error.messagePluralization is null
-                        ? error.messageTemplate|trans(error.messageParameters, 'validators')
-                        : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
-                        }}#}
-                {% endfor %}
+                         {% endfor %}
             </div>
         {% endif %}
     {% endspaceless %}

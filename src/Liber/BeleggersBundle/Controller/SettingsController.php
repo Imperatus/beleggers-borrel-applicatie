@@ -69,7 +69,7 @@ class SettingsController extends Controller
 
         $formView = $form->createView();
 
-        return $this->render('LiberBeleggersBundle:Settings:edit.html.twig', array(
+        return $this->render('LiberBeleggersBundle:Settings:stock.html.twig', array(
             'form' => $formView,
             'activeTab' => $activeTab,
             'help' => array(

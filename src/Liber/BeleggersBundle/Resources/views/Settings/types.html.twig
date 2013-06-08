@@ -28,14 +28,16 @@
             <thead>
             <tr>
                 <td>{{ 'table.header.name'|trans }}</td>
-                <td>{{ 'table.stockType.header.timeToMinimum'|trans }} {{ 'table.stockType.general.minutes'|trans }}</td>
+                <td>{{ 'table.stockType.header.timeToMinimum'|trans }}</td>
                 <td>{{ 'table.stockType.header.magicToMaximum'|trans }}</td>
             </tr>
             </thead>
             <tbody class="stockCollection" data-prototype="{{ form_widget(form.stockTypes.vars.prototype)|e }}">
             {% for type in form.stockTypes %}
                 <tr>
-                    {{ form_widget(type) }}
+                    {{ form_row(type.name) }}
+                    {{ form_row(type.startToMinimum) }}
+                    {{ form_row(type.magicToMaximum) }}
                     <td class="form_control">
                         <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="{{ 'form.control.stockType.removeExisting'|trans }}">
                             <span class="icon-trash"></span>
@@ -49,7 +51,6 @@
         <div class="clearfix">
             <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
             <a href="#" class="pull-right btn btn-info add_stock_link">{{ 'form.button.stockType.add'|trans }}</a>
-            {#<a href="#" class="pull-right btn btn-danger remove_entire_stock" style="margin-right: 15px;">Clear All</a>#}
         </div>
 
         {{ form_end(form) }}
@@ -57,8 +58,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var stockForm = new Liber.StockForm();
-            stockForm.init();
+            var tableForm = new Liber.TableForm();
+            tableForm.init();
         });
     </script>
 

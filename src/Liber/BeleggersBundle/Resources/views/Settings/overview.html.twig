@@ -63,13 +63,13 @@
                 <td>{{ row.name }}</td>
                 <td>{{ row.startToMinimum//60 }}h {{ row.startToMinimum%60 }}m </td>
 
-                {% if row.magicToMaximum > 0 and row.magicToMaximum < 0.3 %}
+                {% if row.magicToMaximum > 0 and row.magicToMaximum < 0.4 %}
                     <td style="text-align:center;">
                         <span class="label label-warning" data-toggle="tooltip" title="{{ row.magicToMaximum }}" style="cursor: default;">
                             {{ 'table.stockType.indicator.slow'|trans }}
                         </span>
                     </td>
-                {% elseif row.magicToMaximum >= 0.3 and row.magicToMaximum < 0.6 %}
+                {% elseif row.magicToMaximum >= 0.4 and row.magicToMaximum < 0.7 %}
                     <td style="text-align:center;">
                         <span class="label label-success" data-toggle="tooltip" title="{{ row.magicToMaximum }}" style="cursor: default;">
                             {{ 'table.stockType.indicator.medium'|trans }}
