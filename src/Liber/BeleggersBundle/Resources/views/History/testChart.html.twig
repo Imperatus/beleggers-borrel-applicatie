@@ -1,12 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends "LiberBeleggersBundle::layout.html.twig" %}
 
 {% block head %}
 
 {% endblock %}
 
+{% block spanOverride %}
+    <div class="span12">
+{% endblock %}
+
+{% block content_header %}
+<ul class="nav">
+        <li><a href="{{ path('liber_beleggers_settings') }}">{{ 'menu.settings'|trans }}</a></li>
+        <li><a href="{{ path('liber_beleggers_cashier_register') }}">{{ 'menu.cashier'|trans }}</a></li>
+        <li class="active"><a href="{{ path('liber_beleggers_history_test') }}">{{ 'menu.history'|trans }}</a></li>
+</ul>
+{% endblock %}
+
 {% block title 'SpiritStock' %}
 
-{% block body %}
 
 {% block content %}
     <div class="row-fluid">
@@ -21,4 +32,3 @@
     </div>
 {% endblock %}
 
-{% endblock %}

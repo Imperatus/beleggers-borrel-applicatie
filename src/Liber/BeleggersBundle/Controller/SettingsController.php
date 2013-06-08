@@ -57,6 +57,10 @@ class SettingsController extends Controller
         $stocks = $this->getDoctrine()->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
         $types = $this->getDoctrine()->getRepository('LiberBeleggersBundle:StockType')->findByUser($this->user);
 
+        if(empty($types)) {
+            $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));
+        }
+
         $activeTab = 'tabStock';
 
         // Mock collection object to get the form working... TODO - Fix this so it does it correctly
@@ -69,7 +73,7 @@ class SettingsController extends Controller
 
         $formView = $form->createView();
 
-        return $this->render('LiberBeleggersBundle:Settings:edit.html.twig', array(
+        return $this->render('LiberBeleggersBundle:Settings:stock.html.twig', array(
             'form' => $formView,
             'activeTab' => $activeTab,
             'help' => array(

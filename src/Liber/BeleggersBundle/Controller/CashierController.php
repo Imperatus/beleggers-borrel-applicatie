@@ -55,11 +55,12 @@ class CashierController extends Controller {
                 if($this->updateStockAmount($stock, $amount)) {
                     $this->updateHistory($stock, $amount, $now);
                     $this->updateIncreasedStockPrice($stock);
-                    $this->updateDecreasedStockPrice($stockIds);
+
                 } else {
                     //SCREAM!!!
                 }
             }
+            $this->updateDecreasedStockPrice($stockIds);
             $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.order.success'));
             $this->em->flush();
         }
@@ -137,10 +138,11 @@ class CashierController extends Controller {
     }
 
     private function updateDecreasedStockPrice($stockIds) {
-        $notOrdered = $this->em->getRepository('LiberBeleggersBundle:Stock')->inverseFindToBeUpdatedByIds($stockIds);
+        $notOrdered = $this->em->getRepository('LiberBeleggersBundle:Stock')->inverseFindToBeUpdatedByIdsAndUser($stockIds, $this->user);
 
         /** @var Stock $stock */
         foreach($notOrdered as $stock) {
+            // Refresh because ordered products just got commited and we don't want to decrease these again...
             $currentPrice = $stock->getCurrentPrice();
             $minPrice = $stock->getMinPrice();
 

@@ -58,5 +58,6 @@ security:
         - { path: ^/settings.*, role: ROLE_USER }
         - { path: ^/dashboard.*, role: ROLE_USER }
         - { path: ^/cashier.*, role: ROLE_USER }
+        - { path: ^/history.*, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
 
