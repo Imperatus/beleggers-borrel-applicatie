@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class StockRepository extends EntityRepository
 {
-    public function inverseFindToBeUpdatedByIds($ids) {
+    public function inverseFindToBeUpdatedByIdsAndUser($ids, $user) {
         $time = new \DateTime('-5 minutes');
         $time->format('c');
 
@@ -23,9 +23,11 @@ class StockRepository extends EntityRepository
            ->from('Liber\BeleggersBundle\Entity\Stock', 's')
            ->andWhere($qb->expr()->notIn('s.id', ':ids'))
            ->andWhere('s.updated <= :time')
+           ->andWhere('s.user = :user')
            ->setParameters(array(
                     'ids' => $ids,
                     'time'=> $time,
+                    'user'=> $user,
                 )
             );
         return $qb->getQuery()->execute();

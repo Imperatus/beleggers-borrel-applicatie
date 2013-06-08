@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "78820d82a3d92366ef3e11f26b6c5be3",
+    "hash": "be40265b236c80adbb9a41dda38a1e97",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1228,41 +1228,17 @@
             "type": "library"
         },
         {
-            "name": "kraksoft/jquery-ui",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kraksoft/jquery-ui.git",
-                "reference": "768ede8d8014bc4959d79694edeb0c7847e4bbff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kraksoft/jquery-ui/zipball/768ede8d8014bc4959d79694edeb0c7847e4bbff",
-                "reference": "768ede8d8014bc4959d79694edeb0c7847e4bbff",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "jQuery UI fork",
-            "homepage": "http://jqueryui.com/",
-            "keywords": [
-                "jquery",
-                "ui"
-            ],
-            "time": "2012-10-21 20:48:14"
-        },
-        {
             "name": "kriswallsmith/assetic",
             "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "426d4cf7d980a6563a58a1f6aa2351225fbaef77"
+                "reference": "6378f10e0c43b9066bb102445a0c5b5f9fe775c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/426d4cf7d980a6563a58a1f6aa2351225fbaef77",
-                "reference": "426d4cf7d980a6563a58a1f6aa2351225fbaef77",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/6378f10e0c43b9066bb102445a0c5b5f9fe775c7",
+                "reference": "6378f10e0c43b9066bb102445a0c5b5f9fe775c7",
                 "shasum": ""
             },
             "require": {
@@ -1320,7 +1296,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-06-05 16:37:34"
+            "time": "2013-06-06 21:26:26"
         },
         {
             "name": "monolog/monolog",
@@ -2092,12 +2068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "fca6a9562dc032a7ba3ab8278b731b72efa8bd9c"
+                "reference": "a14bcf6a4950a98f678f568a7b24d9c308e3a1a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/fca6a9562dc032a7ba3ab8278b731b72efa8bd9c",
-                "reference": "fca6a9562dc032a7ba3ab8278b731b72efa8bd9c",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/a14bcf6a4950a98f678f568a7b24d9c308e3a1a8",
+                "reference": "a14bcf6a4950a98f678f568a7b24d9c308e3a1a8",
                 "shasum": ""
             },
             "require": {
@@ -2133,7 +2109,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-05-29 14:58:12"
+            "time": "2013-06-06 08:57:56"
         },
         {
             "name": "willdurand/expose-translation-bundle",
@@ -2286,7 +2262,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "doctrine/doctrine-fixtures-bundle": 20,
-        "kraksoft/jquery-ui": 20,
         "friendsofsymfony/user-bundle": 20,
         "willdurand/expose-translation-bundle": 20,
         "ob/highcharts-bundle": 20

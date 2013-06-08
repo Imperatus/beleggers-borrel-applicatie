@@ -13,3 +13,13 @@ form td.form_control {
     text-align: center;
     line-height: 40px;
 }
+
+.sliderValueContainer {
+    text-align: center;
+    font-weight: bold;
+    width: 50px;
+    margin-top: -6px;
+    /*border: 1px solid silver;*/
+    margin-left: 16px;
+    padding: 3px;
+}

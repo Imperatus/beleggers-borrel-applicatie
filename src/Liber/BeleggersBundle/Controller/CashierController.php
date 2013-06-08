@@ -138,7 +138,7 @@ class CashierController extends Controller {
     }
 
     private function updateDecreasedStockPrice($stockIds) {
-        $notOrdered = $this->em->getRepository('LiberBeleggersBundle:Stock')->inverseFindToBeUpdatedByIds($stockIds);
+        $notOrdered = $this->em->getRepository('LiberBeleggersBundle:Stock')->inverseFindToBeUpdatedByIdsAndUser($stockIds, $this->user);
 
         /** @var Stock $stock */
         foreach($notOrdered as $stock) {

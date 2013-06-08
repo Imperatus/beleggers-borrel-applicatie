@@ -20,14 +20,16 @@ class StockType extends AbstractType {
             'label' => false,
             'attr' => array(
                 'maxLength' => '5',
-                'style'      => 'width:45px;'
+                'style'      => 'width:45px;',
+                'placeholder' => '1.00'
         ));
 
         $numberStyle = array(
             'label' => false,
             'attr' => array(
                 'maxLength' => '3',
-                'style'      => 'width:25px;'
+                'style'      => 'width:25px;',
+                'placeholder' => '0'
         ));
 
         $typeOptions = array(
@@ -39,12 +41,26 @@ class StockType extends AbstractType {
             ),
         );
 
-        $builder->add('name', null, array('attr' => array('style' => 'width: 75px;')));
+        $builder->add('name', null, array('attr' => array(
+            'style' => 'width: 150px;',
+            'placeholder' => 'form.placeholder.stock.name'
+        )));
+
+        $floatStyle['attr']['class'] = 'startingPrice';
         $builder->add('startingPrice', 'number', $floatStyle);
+
+        $floatStyle['attr']['class'] = 'currentPrice';
         $builder->add('currentPrice', 'number', $floatStyle);
+
+        unset($floatStyle['attr']['class']);
         $builder->add('maxPrice', 'number',$floatStyle);
         $builder->add('minPrice', 'number', $floatStyle);
+
+
+        $numberStyle['attr']['class'] = 'startingStock';
         $builder->add('startingStock', 'number', $numberStyle);
+
+        $numberStyle['attr']['class'] = 'currentStock';
         $builder->add('currentStock', 'number', $numberStyle);
         $builder->add('stockType', 'entity', $typeOptions);
     }
