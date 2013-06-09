@@ -65,6 +65,13 @@ form:
 
 ### All page titles
 titles:
+  users:
+    login: Log in
+    register: Register
+  history:
+    graph: History Graph
+  cashier:
+    register: Cash Register
   general:
     appName: SpiritStock
   settings:

@@ -52,15 +52,12 @@
                 </div>
             </div>
 
-        {% if loop.index is divisibleby(3) %}
+        {% if loop.index is divisibleby(3) and not loop.last %}
             </div>
             <div class="container-fluid">
         {% elseif loop.last %}
             </div>
         {% endif %}
-
-
-
     {% endfor %}
 
     <script type="text/javascript">

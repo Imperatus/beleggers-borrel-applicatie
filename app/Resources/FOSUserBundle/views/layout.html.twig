@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'titles.users.login'|trans }} - {{ 'titles.general.appName'|trans }} {{ version }}{% endblock %}
+
+{% block body %}
+    {% block content %}
+        <div class="row-fluid" style="float: none !important; margin: 0px auto !important;">
+            <div class="span6">
+                <div class="well">
+                    {% block fos_user_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
