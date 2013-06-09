@@ -147,53 +147,61 @@ Liber.TableForm = function() {
         // SLIDERS
 
         // Init sliders if present
-        var newMinuteSlider = newFormTr.find('.formMinutesSlider'),
-            minuteInputField = newMinuteSlider.parent().parent().find('input'),
-            minuteResultContainer =  newMinuteSlider.parent().find('.sliderValueContainer'),
-            minuteInitial = minuteInputField.val();
+        var newMinuteSlider = newFormTr.find('.formMinutesSlider');
 
-        if(minuteInitial.length <= 0) {
-            minuteInitial = 10;
+        if(newMinuteSlider.length > 0) {
+
+            var minuteInputField = newMinuteSlider.parent().parent().find('input'),
+                minuteResultContainer =  newMinuteSlider.parent().find('.sliderValueContainer'),
+                minuteInitial = minuteInputField.val();
+
+            if(minuteInitial.length <= 0) {
+                minuteInitial = 10;
+            }
+
+            minuteResultContainer.text(Math.floor(minuteInitial/60)+'h '+minuteInitial%60+'m');
+
+            newMinuteSlider.slider({
+                min: 10,
+                max: 180,
+                step: 10,
+                value: minuteInitial,
+                slide: function(e, ui) {
+                    minuteResultContainer.text(Math.floor(ui.value/60)+'h '+ui.value%60+'m');
+                    minuteInputField.val(ui.value);
+                }
+            });
         }
 
-        minuteResultContainer.text(Math.floor(minuteInitial/60)+'h '+minuteInitial%60+'m');
+        var newSlider = newFormTr.find('.formMultiplierSlider');
 
-        newMinuteSlider.slider({
-            min: 10,
-            max: 180,
-            step: 10,
-            value: minuteInitial,
-            slide: function(e, ui) {
-                minuteResultContainer.text(Math.floor(ui.value/60)+'h '+ui.value%60+'m');
-                minuteInputField.val(ui.value);
+        if(newSlider.length > 0) {
+
+            var inputField = newSlider.parent().parent().find('input'),
+                resultContainer =  newSlider.parent().find('.sliderValueContainer'),
+                initial = inputField.val();
+            var resultHtml;
+
+            if(initial.length <= 0) {
+                initial = 0.1;
             }
-        });
 
-        var newSlider = newFormTr.find('.formMultiplierSlider'),
-            inputField = newSlider.parent().parent().find('input'),
-            resultContainer =  newSlider.parent().find('.sliderValueContainer'),
-            initial = inputField.val();
-        var resultHtml;
+            resultHtml = getIntensityLabel(initial);
 
-        if(initial.length <= 0) {
-            initial = 0.1;
+            resultContainer.html(resultHtml);
+
+            newSlider.slider({
+                min: 0.1,
+                max: 1,
+                step: 0.1,
+                value: initial,
+                slide: function(e, ui) {
+                    resultHtml = getIntensityLabel(ui.value);
+                    resultContainer.html(resultHtml);
+                    inputField.val(ui.value);
+                }
+            });
         }
-
-        resultHtml = getIntensityLabel(initial);
-
-        resultContainer.html(resultHtml);
-
-        newSlider.slider({
-            min: 0.1,
-            max: 1,
-            step: 0.1,
-            value: initial,
-            slide: function(e, ui) {
-                resultHtml = getIntensityLabel(ui.value);
-                resultContainer.html(resultHtml);
-                inputField.val(ui.value);
-            }
-        });
 
         // If it is a new field, preset current price and stock to starting price and stock
         var startingPrice = newFormTr.find('.startingPrice');
