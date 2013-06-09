@@ -1,8 +1,10 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
+{% block title %}{{ 'titles.users.login'|trans({}, 'messages') }}{% endblock %}
 
 {% block fos_user_content %}
+    <h3>{{ 'titles.users.login'|trans({}, 'messages') }}</h3>
     {% if error %}
         <div class="alert alert-danger">{{ error|trans }}</div>
     {% endif %}
