@@ -14,10 +14,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->locale = 'en';
     }
-
-
 
     /**
      * Get id
@@ -27,5 +25,33 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $locale;
+
+
+    /**
+     * Set locale
+     *
+     * @param string $locale
+     * @return User
+     */
+    public function setLocale($locale)
+    {
+        $this->locale = $locale;
+    
+        return $this;
+    }
+
+    /**
+     * Get locale
+     *
+     * @return string 
+     */
+    public function getLocale()
+    {
+        return $this->locale;
     }
 }

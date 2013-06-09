@@ -25,16 +25,15 @@ class GlobalSettingsType extends AbstractType {
             ));
 
         $builder
-            ->add('currency', 'currency', array(
-                'data' => 'EUR',
+            ->add('currency', 'choice', array(
+                'choices' => array('EUR' => 'Euro'),
                 'label' => 'form.label.global.currency',
             ))
             ->add('unitName', null,  array(
                 'required' => false,
                 'label' => 'form.label.global.unitName',
             ))
-            ->add('unitPrice', 'number', $floatStyle)
-        ;
+            ->add('unitPrice', 'number', $floatStyle);
 
     }
 

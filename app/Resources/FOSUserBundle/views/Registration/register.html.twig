@@ -1,0 +1,15 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}{{ 'titles.users.register'|trans({}, 'messages') }}{% endblock %}
+
+{% block bigleft %}
+    <h3>{{ 'titles.users.register'|trans({}, 'messages') }}</h3>
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    {% endblock %}
+{% endblock %}
+
+{% block smallright %}
+    <h4>{{ 'titles.users.disclaimer'|trans({}, 'messages') }}</h4>
+{% endblock %}

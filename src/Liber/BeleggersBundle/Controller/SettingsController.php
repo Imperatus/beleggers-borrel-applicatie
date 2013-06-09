@@ -11,28 +11,14 @@ use Liber\BeleggersBundle\Form\Type\StockCollectionType;
 use Liber\BeleggersBundle\Form\Type\StockTypeCollectionType;
 use Liber\BeleggersBundle\Entity\Stock;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Liber\BeleggersBundle\Controller\LocaleController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Validator\Constraints\Collection;
 
-class SettingsController extends Controller
+class SettingsController extends LocaleController
 {
-    /** @var  EntityManager */
-    private $em;
-
-    protected $container;
-
-    private $user;
-
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-        $this->em = $this->container->get('doctrine')->getManager();
-        $this->user = $this->get('security.context')->getToken()->getUser();
-    }
-
     public function overviewAction()
     {
         $settings = $this->getDoctrine()->getRepository('LiberBeleggersBundle:GlobalSettings')->findOneByUser($this->user);

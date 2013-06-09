@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block content %}
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <a class="brand" href="{{ path('liber_beleggers_dashboard') }}">{{ 'titles.general.appName'|trans }} {{ version }}</a>
+                        {% block content_header %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid" style="float: none !important; margin: 0px auto !important;">
+            <div class="span9">
+                <div class="well">
+                    {% block bigleft %}
+                        <h3>{{ 'titles.users.info'|trans }} {{ version }}!</h3>
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div class="span3">
+                <div class="well">
+                    {% block smallright %}
+                        {% block fos_user_content %}{% endblock %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

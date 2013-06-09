@@ -4,15 +4,14 @@ namespace Liber\BeleggersBundle\Controller;
 use Doctrine\ORM\EntityManager;
 
 use Liber\BeleggersBundle\Entity\OrderHistory;
+use Liber\BeleggersBundle\Controller\LocaleController;
 use Ob\HighchartsBundle\Highcharts\Highchart;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Zend\Json\Expr;
 use Zend\Json\Json;
 
-class HistoryController extends Controller {
+class HistoryController extends LocaleController {
 
     public function testGraphAction() {
         $user = $this->get('security.context')->getToken()->getUser();
