@@ -1,32 +1,16 @@
 <?php
 namespace Liber\BeleggersBundle\Controller;
 
-use Doctrine\ORM\EntityManager;
-
 use Liber\BeleggersBundle\Entity\OrderHistory;
 use Liber\BeleggersBundle\Entity\Stock;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Liber\BeleggersBundle\Controller\LocaleController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\DateTime;
 
-class CashierController extends Controller {
-    /** @var  EntityManager */
-    private $em;
-
-    protected $container;
-
-    private $user;
+class CashierController extends LocaleController {
 
     const INCREASE = 'increase';
     const DECREASE = 'decrease';
-
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-        $this->em = $this->container->get('doctrine')->getManager();
-        $this->user = $this->get('security.context')->getToken()->getUser();
-    }
 
     public function orderAction() {
         $settings = $this->em->getRepository('LiberBeleggersBundle:GlobalSettings')->findOneByUser($this->user);

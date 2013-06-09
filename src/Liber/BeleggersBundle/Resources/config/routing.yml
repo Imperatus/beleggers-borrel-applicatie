@@ -45,3 +45,8 @@ liber_user_homepage:
       _controller: FrameworkBundle:Redirect:redirect
       route: liber_beleggers_dashboard
       permanent: true
+
+liber_beleggers_locale_languageSelect:
+    pattern: /locale/languageSelect/{locale}
+    defaults: { _controller: LiberBeleggersBundle:Locale:setLanguage, locale: en}
+    methods: [GET]

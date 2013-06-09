@@ -1,10 +1,10 @@
 ### All help related information
 help:
   headers:
-    overview: Overview
-    edit: Stock Settings
-    types: Type Settings
-    global: Global Settings
+    overview: Overzicht
+    edit: Voorraad Instellingen
+    types: Type Instellingen
+    global: Globale Instellingen
   texts:
     overview: This is an overview of all the stock entered into the system. To make changes or add stock to the system, please click on the "Edit" tab.
     edit: Here you can add, remove or edit items, or clear your entire stock. The Name field is for the name of the product. The Starting Price is the price for which you want to sell the item initially. The current price is the price the system currently calculated for the item depending on demand and voodoo. The maximum price is the price the item will be sold of at most, whereas the minimum price is the price it will be sold at the least. The starting stock is the amount of items you have to begin with, and the current stock currently the amount at the moment. The type is the kind of item it is. Types can be added or edited in the Types tab.
@@ -15,134 +15,134 @@ help:
 ### All form related business
 form:
   warning:
-    noTypes: Warning - No Types found! Create one first from the Types tab!
+    noTypes: Waarschuwing! - Geen Types gevonden! Creeer eerst een Type via het gelijknamige tabblad!
   submit:
-    success: Successfully saves all changes!
-    error: Error submitting form! Please check all fields for errors.
-    reset: Successfully reset to starting values!
+    success: Alle veranderingen succesvol opgeslagen!
+    error: Er is een fout opgetreden! Controleer alle velden op eventuele fouten.
+    reset: Succesvol terruggezet naar de beginwaardes!
   order:
-    success: Order succesfully placed!
+    success: Bestellig succesvol geplaatst!
   control:
     general:
-      remove: Remove
-      addition: addition
+      remove: Verwijder
+      addition: toevoeging
     stock:
-      removeExisting: Remove existing stock
+      removeExisting: Verwijder bestaande voorraad
     stockType:
-      removeExisting: Remove existing type
+      removeExisting: Verwijder bestaande type
       type: Type
   button:
     general:
-      confirm: Confirm changes
-      clearAll: Clear all
+      confirm: Bevestig
+      clearAll: Wis alles
     stock:
-      add: Add stock
+      add: Voeg voorraad toe
     stockType:
-      add: Add type
+      add: Voeg type toe
     cashier:
       order:
-        checkOut: Check out
-        clearAll: Clear order
+        checkOut: Plaats bestelling
+        clearAll: Wis bestelling
     global:
-      reset: Reset to start values
+      reset: Zet terug naar beginwaardes
   label:
     global:
-      currency: Currency
-      unitPrice: Unit price
-      unitName: Unit name
+      currency: Valuta
+      unitPrice: Prijs eenheid
+      unitName: Naam eenheid
   confirm:
     global:
-      reset: Are you sure you want to reset?
+      reset: Terugzetten naar beginwaardes?
     stock:
-      remove: Are you sure you want to remove your entire stock?
+      remove: Alle voorraad verwijderen?
     type:
-      remove: Are you sure you want to remove all types?
+      remove: Alle types verwijderen??
     cashier:
-      order: Clear the whole order?
+      order: Verwijder de hele bestelling?
   placeholder:
     stock:
-      name: Name (e.g. Beer)
+      name: Naam (bijv. Bier)
 
 ### All page titles
 titles:
   users:
-    login: Log in
-    register: Register
-    info: Welcome to SpiritStock
+    login: Inloggen
+    register: Registreren
+    info: Welkom bok SpiritStock
     disclaimer: Disclaimer
   history:
-    graph: History Graph
+    graph: Grafiek Geschiedenis
   cashier:
-    register: Cash Register
+    register: Kassa
   general:
     appName: SpiritStock
   settings:
-    overview: Overview
-    stock: Stock
+    overview: Overzicht
+    stock: Voorraad
     types: Types
-    global: Global
-    general: Settings
+    global: Globaal
+    general: Instellingen
 
 ### All page headersS
 headers:
   dashboard:
-    welcome: Welcome to SpiritStock
+    welcome: Welkom bij SpiritStock
   overview:
-    stock: Stock
+    stock: Voorraad
     types: Types
-    global: Global
+    global: Globaal
   cashier:
     order:
-      currentOrder: Current order
-      priceList: Price list
+      currentOrder: Huidige bestelling
+      priceList: Prijslijst
 
 ### All tabs
 tabs:
-  overview: Overview
-  stock: Stock
+  overview: Overzicht
+  stock: Voorraad
   types: Types
-  global: Global
+  global: Globaal
 
 ### All menu items (not to be confused with tabs)
 menu:
-  settings: Settings
-  cashier: Cashier
-  history: History
+  settings: Instellingen
+  cashier: Kassa
+  history: Geschiedenis
 
 ### All table related stuff
 table:
   header:
-    name: Name
-    control: Control
+    name: Naam
+    control: Bewerken
   global:
     header:
-      currency: Currency
-      unitPrice: Unit Price
+      currency: Valuta
+      unitPrice: Prijs eenheid
   stock:
     header:
-      startingPrice: Starting
-      currentPrice: Current
+      startingPrice: Start
+      currentPrice: Huidige
       max: Maximum
       min: Minimum
-      startingStock: Starting Stock
-      currentStock: Current Stock
+      startingStock: Start voorraad
+      currentStock: Huidige voorraad
       stockType: Type
   stockType:
     general:
-      minutes: (Minutes)
+      minutes: (Minuten)
     header:
-      timeToMinimum: Time to reach minimum price
-      magicToMaximum: Price increase indicator
+      timeToMinimum: Tijd van start naar minimumprijs
+      magicToMaximum: Toenamesnelheidsindicator
     indicator:
-      slow: Slow
-      fast: Fast
-      medium: Medium
+      slow: Langzaam
+      fast: Snel
+      medium: Gemiddeld
 
 ### General terms
 general:
-  total: Total
+  total: Totaal
 
 ### Links
 link:
   dashboard:
-    globalSettings: Global Settings
+    globalSettings: Globale instellingen
