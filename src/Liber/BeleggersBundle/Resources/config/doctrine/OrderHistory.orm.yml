@@ -21,6 +21,6 @@ Liber\BeleggersBundle\Entity\OrderHistory:
     manyToOne:
         stock:
             targetEntity: Stock
-#            inversedBy: orderHistory
+            inversedBy: orderHistory
         user:
             targetEntity: Liber\UserBundle\Entity\User

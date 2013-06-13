@@ -24,6 +24,7 @@ Liber\BeleggersBundle\Entity\StockType:
         stock:
             targetEntity: Stock
             mappedBy: stockType
+            cascade: [remove]
     manyToOne:
         user:
             targetEntity: Liber\UserBundle\Entity\User

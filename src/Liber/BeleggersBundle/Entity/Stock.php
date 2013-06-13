@@ -347,4 +347,62 @@ class Stock
     {
         $this->updated = new \DateTime();
     }
+    /**
+     * @var \Liber\BeleggersBundle\Entity\OrderHistory
+     */
+    private $orderHistory;
+
+
+    /**
+     * Set orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @return Stock
+     */
+    public function setOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory = null)
+    {
+        $this->orderHistory = $orderHistory;
+    
+        return $this;
+    }
+
+    /**
+     * Get orderHistory
+     *
+     * @return \Liber\BeleggersBundle\Entity\OrderHistory 
+     */
+    public function getOrderHistory()
+    {
+        return $this->orderHistory;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orderHistory = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @return Stock
+     */
+    public function addOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory[] = $orderHistory;
+    
+        return $this;
+    }
+
+    /**
+     * Remove orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     */
+    public function removeOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory->removeElement($orderHistory);
+    }
 }
