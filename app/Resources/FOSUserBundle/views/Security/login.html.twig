@@ -25,4 +25,5 @@
 
         <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
     </form>
+    {{ 'fos.content.notRegistered'|trans({}, 'messages') }} <a href="{{ path('fos_user_registration_register') }}">{{ 'fos.link.here'|trans({}, 'messages') }}</a>
 {% endblock fos_user_content %}
