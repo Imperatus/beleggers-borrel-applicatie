@@ -347,4 +347,32 @@ class Stock
     {
         $this->updated = new \DateTime();
     }
+    /**
+     * @var \Liber\BeleggersBundle\Entity\OrderHistory
+     */
+    private $orderHistory;
+
+
+    /**
+     * Set orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @return Stock
+     */
+    public function setOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory = null)
+    {
+        $this->orderHistory = $orderHistory;
+    
+        return $this;
+    }
+
+    /**
+     * Get orderHistory
+     *
+     * @return \Liber\BeleggersBundle\Entity\OrderHistory 
+     */
+    public function getOrderHistory()
+    {
+        return $this->orderHistory;
+    }
 }

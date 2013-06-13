@@ -51,4 +51,9 @@ Liber\BeleggersBundle\Entity\Stock:
             inversedBy: stock
         user:
             targetEntity: Liber\UserBundle\Entity\User
+    oneToMany:
+        orderHistory:
+            targetEntity: OrderHistory
+            mappedBy: stock
+            cascade: [remove]
 

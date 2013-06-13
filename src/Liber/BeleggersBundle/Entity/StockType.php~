@@ -182,4 +182,42 @@ class StockType
     {
         return $this->magicToMaximum;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $orderHistory;
+
+
+    /**
+     * Add orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @return StockType
+     */
+    public function addOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory[] = $orderHistory;
+    
+        return $this;
+    }
+
+    /**
+     * Remove orderHistory
+     *
+     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     */
+    public function removeOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory->removeElement($orderHistory);
+    }
+
+    /**
+     * Get orderHistory
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrderHistory()
+    {
+        return $this->orderHistory;
+    }
 }
