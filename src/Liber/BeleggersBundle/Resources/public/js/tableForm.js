@@ -8,7 +8,7 @@ var Liber =  Liber || {};
 
 Liber.TableForm = function() {
     "use strict";
-    var collectionHolder, addLink, removeLink, removeExisting, addForm, getIntensityLabel;
+    var collectionHolder, addLink, removeLink, removeExisting, addForm, getIntensityLabel, deleteCount = 0;
 
     this.init = function() {
         collectionHolder = $('tbody.stockCollection');
@@ -23,8 +23,24 @@ Liber.TableForm = function() {
                 e.preventDefault();
                 var message = confirm('Are you sure?');
                 if(message) {
-                    // add a new tag form (see next code block)
-                    $(this).closest('tr').remove();
+                    var thisTr = $(this).closest('tr');
+                    thisTr.hide();
+                    thisTr.find('input').val(null);
+                    thisTr.find('input').attr('disabled', 'disabled');
+                    thisTr.find('select').attr('disabled', 'disabled');
+                    thisTr.find('select').val(null);
+
+                    deleteCount++;
+                    if(deleteCount > 0) {
+                        if($('.alert-error').length <= 0) {
+                            $('ul.nav-tabs').after('<div class="alert alert-error">' +
+                                Translator.get('form.control.general.removePending') + ': ' + deleteCount +
+                            '</div>');
+                        } else {
+                            $('.alert-error').html(Translator.get('form.control.general.removePending') + ': ' + deleteCount);
+                        }
+                    }
+
                 }
             });
         });
