@@ -26,6 +26,7 @@ form:
     general:
       remove: Verwijder
       addition: toevoeging
+      removePending: Te verwijderen
     stock:
       removeExisting: Verwijder bestaande voorraad
     stockType:

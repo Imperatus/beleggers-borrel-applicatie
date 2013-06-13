@@ -26,6 +26,7 @@ form:
     general:
       remove: Remove
       addition: addition
+      removePending: Pending for removal
     stock:
       removeExisting: Remove existing stock
     stockType:
