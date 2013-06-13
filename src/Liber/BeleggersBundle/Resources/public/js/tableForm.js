@@ -143,9 +143,7 @@ Liber.TableForm = function() {
         var newFormTr = $('<tr></tr>').append(newForm);
         $('.stockCollection').append(newFormTr);
 
-
         // SLIDERS
-
         // Init sliders if present
         var newMinuteSlider = newFormTr.find('.formMinutesSlider');
 
@@ -160,6 +158,7 @@ Liber.TableForm = function() {
             }
 
             minuteResultContainer.text(Math.floor(minuteInitial/60)+'h '+minuteInitial%60+'m');
+            minuteInputField.val(minuteInitial);
 
             newMinuteSlider.slider({
                 min: 10,
@@ -185,6 +184,8 @@ Liber.TableForm = function() {
             if(initial.length <= 0) {
                 initial = 0.1;
             }
+
+            inputField.val(initial);
 
             resultHtml = getIntensityLabel(initial);
 
