@@ -146,3 +146,9 @@ general:
 link:
   dashboard:
     globalSettings: Global Settings
+
+fos:
+  content:
+    notRegistered: No account? Register
+  link:
+    here: here
