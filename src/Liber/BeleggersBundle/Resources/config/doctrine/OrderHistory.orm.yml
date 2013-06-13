@@ -14,19 +14,13 @@ Liber\BeleggersBundle\Entity\OrderHistory:
             type: decimal
             precision: 4
             scale: 2
-        amount:
-            type: integer
-            nullable: true
         time:
             type: datetime
-        increase:
-            type: decimal
-            precision: 4
-            scale: 2
+
 
     manyToOne:
         stock:
             targetEntity: Stock
-            inversedBy: orderHistory
+#            inversedBy: orderHistory
         user:
             targetEntity: Liber\UserBundle\Entity\User
