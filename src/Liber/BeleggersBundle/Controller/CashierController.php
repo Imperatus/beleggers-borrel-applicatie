@@ -37,14 +37,16 @@ class CashierController extends LocaleController {
                 array_push($stockIds, $stockId);
 
                 if($this->updateStockAmount($stock, $amount)) {
-                    $this->updateHistory($stock, $amount, $now);
                     $this->updateIncreasedStockPrice($stock);
-
                 } else {
                     //SCREAM!!!
                 }
             }
             $this->updateDecreasedStockPrice($stockIds);
+
+            // Update history for all stock items
+            $this->updateHistory();
+
             $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.order.success'));
             $this->em->flush();
         }
@@ -130,7 +132,7 @@ class CashierController extends LocaleController {
             $currentPrice = $stock->getCurrentPrice();
             $minPrice = $stock->getMinPrice();
 
-            $this->updateHistory($stock, null, new \DateTime(), self::DECREASE);
+//            $this->updateHistory($stock, null, new \DateTime(), self::DECREASE);
 
             $voodoo = $this->calculateDecrease($stock);
 
@@ -165,22 +167,20 @@ class CashierController extends LocaleController {
         return true;
     }
 
-    private function updateHistory(Stock $stock, $amount, \DateTime $now, $type = self::INCREASE) {
-        if($type === self::INCREASE) {
-            $voodoo = $this->calculateIncrease($stock);
-        } else if ($type === self::DECREASE) {
-            $voodoo = $this->calculateDecrease($stock);
+    private function updateHistory() {
+        $stock = $this->em->getRepository('LiberBeleggersBundle:Stock')->findByUser($this->user);
+        $now = new \DateTime();
+
+        /** @var Stock $item */
+        foreach($stock as $item) {
+            $history = new OrderHistory();
+
+            $history->setStock($item);
+            $history->setUser($this->user);
+            $history->setPrice($item->getCurrentPrice());
+            $history->setTime($now);
+
+            $this->em->persist($history);
         }
-
-        $history = new OrderHistory();
-
-        $history->setStock($stock);
-        $history->setUser($this->user);
-        $history->setPrice($stock->getCurrentPrice());
-        $history->setAmount($amount);
-        $history->setTime($now);
-        $history->setIncrease($voodoo);
-
-        $this->em->persist($history);
     }
 }
