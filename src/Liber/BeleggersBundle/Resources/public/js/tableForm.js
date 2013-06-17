@@ -91,7 +91,7 @@ Liber.TableForm = function() {
         $('.formMultiplierSlider').each(function() {
             var inputField = $(this).parent().parent().find('input'),
                 resultContainer =  $(this).parent().find('.sliderValueContainer'),
-                initial = inputField.val(),
+                initial = inputField.val().toString().replace(',','.'),
                 resultHtml;
 
             if(initial.length <= 0) {
@@ -100,11 +100,12 @@ Liber.TableForm = function() {
 
             resultHtml = getIntensityLabel(initial);
 
+
             resultContainer.html(resultHtml);
 
             $(this).slider({
                 min: 0.1,
-                max: 1,
+                max:1,
                 step: 0.1,
                 value: initial,
                 slide: function(e, ui) {
