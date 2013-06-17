@@ -20,7 +20,12 @@
                             <li><a href="{{ path('liber_beleggers_history_test') }}">{{ 'menu.history'|trans }}</a></li>
                         </ul>
                     {% endblock %}
-                    {% include 'LiberUserBundle::Components/language_selector.html.twig' %}
+                    <div class="clearfix">
+                        <div class="pull-right" style="margin-left: 16px; margin-top:  10px;">
+                            <a href="{{ path('fos_user_security_logout') }}" >{{ 'fos.link.logout'|trans }}: {{ app.user.username }}</a>
+                        </div>
+                        {% include 'LiberUserBundle::Components/language_selector.html.twig' %}
+                    </div>
                 </div>
             </div>
         </div>
