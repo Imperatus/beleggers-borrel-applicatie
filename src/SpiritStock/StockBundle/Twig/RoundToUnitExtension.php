@@ -22,8 +22,10 @@ class RoundToUnitExtension extends \Twig_Extension
     {
         if(!empty($signed)) {
             if($price > 0) {
+                $price = trim(str_replace('+','', $price));
                 $char = '+ ';
             } else if ($price < 0) {
+                $price = trim(str_replace('-','', $price));
                 $char = '- ';
             } else {
                 $char = '';
