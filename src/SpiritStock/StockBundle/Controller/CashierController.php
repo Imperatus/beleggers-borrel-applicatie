@@ -135,7 +135,6 @@ class CashierController extends LocaleController {
 
         /** @var Stock $stock */
         foreach($notOrdered as $stock) {
-            // Refresh because ordered products just got commited and we don't want to decrease these again...
             $currentPrice = $stock->getCurrentPrice();
             $minPrice = $stock->getMinPrice();
 
