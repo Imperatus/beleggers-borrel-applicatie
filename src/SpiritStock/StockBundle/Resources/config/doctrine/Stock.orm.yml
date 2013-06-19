@@ -40,6 +40,10 @@ SpiritStock\StockBundle\Entity\Stock:
             type: datetime
         updated:
             type: datetime
+        changeType:
+            type: string
+            length: 255
+            nullable: true
 
     lifecycleCallbacks:
         prePersist: [setInitialTimestamp]

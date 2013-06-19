@@ -192,4 +192,60 @@ class OrderHistory
     {
         return $this->increase;
     }
+    /**
+     * @var string
+     */
+    private $type;
+
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return OrderHistory
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+    /**
+     * @var string
+     */
+    private $changeType;
+
+
+    /**
+     * Set changeType
+     *
+     * @param string $changeType
+     * @return OrderHistory
+     */
+    public function setChangeType($changeType)
+    {
+        $this->changeType = $changeType;
+    
+        return $this;
+    }
+
+    /**
+     * Get changeType
+     *
+     * @return string 
+     */
+    public function getChangeType()
+    {
+        return $this->changeType;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Liber\BeleggersBundle\Entity;
+namespace SpiritStock\StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -30,12 +30,12 @@ class OrderHistory
     private $time;
 
     /**
-     * @var \Liber\BeleggersBundle\Entity\Stock
+     * @var \SpiritStock\StockBundle\Entity\Stock
      */
     private $stock;
 
     /**
-     * @var \Liber\UserBundle\Entity\User
+     * @var \SpiritStock\UserBundle\Entity\User
      */
     private $user;
 
@@ -122,10 +122,10 @@ class OrderHistory
     /**
      * Set stock
      *
-     * @param \Liber\BeleggersBundle\Entity\Stock $stock
+     * @param \SpiritStock\StockBundle\Entity\Stock $stock
      * @return OrderHistory
      */
-    public function setStock(\Liber\BeleggersBundle\Entity\Stock $stock = null)
+    public function setStock(\SpiritStock\StockBundle\Entity\Stock $stock = null)
     {
         $this->stock = $stock;
     
@@ -135,7 +135,7 @@ class OrderHistory
     /**
      * Get stock
      *
-     * @return \Liber\BeleggersBundle\Entity\Stock 
+     * @return \SpiritStock\StockBundle\Entity\Stock
      */
     public function getStock()
     {
@@ -145,10 +145,10 @@ class OrderHistory
     /**
      * Set user
      *
-     * @param \Liber\UserBundle\Entity\User $user
+     * @param \SpiritStock\UserBundle\Entity\User $user
      * @return OrderHistory
      */
-    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    public function setUser(\SpiritStock\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
     
@@ -158,7 +158,7 @@ class OrderHistory
     /**
      * Get user
      *
-     * @return \Liber\UserBundle\Entity\User 
+     * @return \SpiritStock\UserBundle\Entity\User
      */
     public function getUser()
     {
@@ -191,5 +191,33 @@ class OrderHistory
     public function getIncrease()
     {
         return $this->increase;
+    }
+    /**
+     * @var string
+     */
+    private $type;
+
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return OrderHistory
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

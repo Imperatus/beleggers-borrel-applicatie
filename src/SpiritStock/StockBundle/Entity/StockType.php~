@@ -1,6 +1,6 @@
 <?php
 
-namespace Liber\BeleggersBundle\Entity;
+namespace SpiritStock\StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -26,7 +26,7 @@ class StockType
     private $stock;
 
     /**
-     * @var \Liber\UserBundle\Entity\User
+     * @var \SpiritStock\UserBundle\Entity\User
      */
     private $user;
 
@@ -74,10 +74,10 @@ class StockType
     /**
      * Add stock
      *
-     * @param \Liber\BeleggersBundle\Entity\Stock $stock
+     * @param \SpiritStock\StockBundle\Entity\Stock $stock
      * @return StockType
      */
-    public function addStock(\Liber\BeleggersBundle\Entity\Stock $stock)
+    public function addStock(\SpiritStock\StockBundle\Entity\Stock $stock)
     {
         $this->stock[] = $stock;
     
@@ -87,9 +87,9 @@ class StockType
     /**
      * Remove stock
      *
-     * @param \Liber\BeleggersBundle\Entity\Stock $stock
+     * @param \SpiritStock\StockBundle\Entity\Stock $stock
      */
-    public function removeStock(\Liber\BeleggersBundle\Entity\Stock $stock)
+    public function removeStock(\SpiritStock\StockBundle\Entity\Stock $stock)
     {
         $this->stock->removeElement($stock);
     }
@@ -107,10 +107,10 @@ class StockType
     /**
      * Set user
      *
-     * @param \Liber\UserBundle\Entity\User $user
+     * @param \SpiritStock\UserBundle\Entity\User $user
      * @return StockType
      */
-    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    public function setUser(\SpiritStock\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
     
@@ -120,7 +120,7 @@ class StockType
     /**
      * Get user
      *
-     * @return \Liber\UserBundle\Entity\User 
+     * @return \SpiritStock\UserBundle\Entity\User
      */
     public function getUser()
     {
@@ -191,10 +191,10 @@ class StockType
     /**
      * Add orderHistory
      *
-     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @param \SpiritStock\StockBundle\Entity\OrderHistory $orderHistory
      * @return StockType
      */
-    public function addOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    public function addOrderHistory(\SpiritStock\StockBundle\Entity\OrderHistory $orderHistory)
     {
         $this->orderHistory[] = $orderHistory;
     
@@ -204,9 +204,9 @@ class StockType
     /**
      * Remove orderHistory
      *
-     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @param \SpiritStock\StockBundle\Entity\OrderHistory $orderHistory
      */
-    public function removeOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory)
+    public function removeOrderHistory(\SpiritStock\StockBundle\Entity\OrderHistory $orderHistory)
     {
         $this->orderHistory->removeElement($orderHistory);
     }
