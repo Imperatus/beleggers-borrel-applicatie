@@ -1,0 +1,29 @@
+{# TODO - Lift to own template #}
+<div class="marquee">
+    {% for item in stock %}
+        {% if item.changeType == 'increase' %}
+            {% set indicator = '<span class="arrow-increase"></span>' %}
+        {% elseif item.changeType == 'decrease' %}
+            {% set indicator = '<span class="arrow-decrease"></span>' %}
+        {% else %}
+            {% set indicator = '<span></span>' %}
+        {% endif %}
+
+        {{ item.name }} - {{ item.currentPrice|roundToUnit(settings.unitPrice) }} {{ indicator|raw }} ({{ (item.currentPrice - item.startingPrice)|roundToUnit(settings.unitPrice, 1) }}){% if not loop.last %}&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;{% endif %}
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.marquee').marquee({
+            //speed in milliseconds of the marquee
+            speed: 15000,
+            //gap in pixels between the tickers
+            gap: 50,
+            //gap in pixels between the tickers
+            delayBeforeStart: 0,
+            //'left' or 'right'
+            direction: 'left'
+        });
+    });
+</script>

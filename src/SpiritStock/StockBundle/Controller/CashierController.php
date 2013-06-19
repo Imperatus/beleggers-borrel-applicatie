@@ -92,6 +92,7 @@ class CashierController extends LocaleController {
 
         $stock->setCurrentPrice($newPrice);
         $stock->setChangeType(self::INCREASE);
+        $stock->setPriceChange('+ '.number_format($voodoo,2));
 
         $this->em->persist($stock);
     }
@@ -99,10 +100,12 @@ class CashierController extends LocaleController {
     private function calculateDecrease(Stock $stock) {
         $type = $stock->getStockType();
 
+        /* Not used for current alg. */
         $currentPrice = $stock->getCurrentPrice();
-        $startingPrice = $stock->getStartingPrice();
         $startingStock = $stock->getStartingStock();
         $currentStock = $stock->getCurrentStock();
+
+        $startingPrice = $stock->getStartingPrice();
         $minPrice = $stock->getMinPrice();
         $updated = $stock->getUpdated();
 
@@ -146,6 +149,7 @@ class CashierController extends LocaleController {
 
             $stock->setCurrentPrice($newPrice);
             $stock->setChangeType(self::DECREASE);
+            $stock->setPriceChange('- '.number_format($voodoo,2));
             $this->em->persist($stock);
         }
 

@@ -44,6 +44,10 @@ SpiritStock\StockBundle\Entity\Stock:
             type: string
             length: 255
             nullable: true
+        priceChange:
+            type: string
+            length: 255
+            nullable: true
 
     lifecycleCallbacks:
         prePersist: [setInitialTimestamp]

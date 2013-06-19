@@ -146,6 +146,7 @@ class SettingsController extends LocaleController
             $stock->setCurrentStock($stock->getStartingStock());
             $stock->setCurrentPrice($stock->getStartingPrice());
             $stock->setChangeType(null);
+            $stock->setPriceChange(null);
             $this->em->persist($stock);
         }
 

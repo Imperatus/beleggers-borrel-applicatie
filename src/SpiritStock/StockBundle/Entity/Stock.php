@@ -433,4 +433,60 @@ class Stock
     {
         return $this->changeType;
     }
+    /**
+     * @var string
+     */
+    private $change;
+
+
+    /**
+     * Set change
+     *
+     * @param string $change
+     * @return Stock
+     */
+    public function setChange($change)
+    {
+        $this->change = $change;
+    
+        return $this;
+    }
+
+    /**
+     * Get change
+     *
+     * @return string 
+     */
+    public function getChange()
+    {
+        return $this->change;
+    }
+    /**
+     * @var string
+     */
+    private $priceChange;
+
+
+    /**
+     * Set priceChange
+     *
+     * @param string $priceChange
+     * @return Stock
+     */
+    public function setPriceChange($priceChange)
+    {
+        $this->priceChange = $priceChange;
+    
+        return $this;
+    }
+
+    /**
+     * Get priceChange
+     *
+     * @return string 
+     */
+    public function getPriceChange()
+    {
+        return $this->priceChange;
+    }
 }

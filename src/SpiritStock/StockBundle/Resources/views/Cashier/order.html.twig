@@ -3,23 +3,9 @@
 {% use 'SpiritStockStockBundle::Cashier\\orderform.html.twig' %}
 
 {%  block content %}
-    <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
+    {% include 'SpiritStockStockBundle::Cashier\\marquee.html.twig' %}
 
-    {# TODO - Lift to own template #}
-    <div class="marquee">
-        {% for item in stock %}
-            {% if item.changeType == 'increase' %}
-                {% set indicator = '<span class="arrow-increase"></span>' %}
-            {% elseif item.changeType == 'decrease' %}
-                {% set indicator = '<span class="arrow-decrease"></span>' %}
-            {% else %}
-                {% set indicator = '<span></span>' %}
-            {% endif %}
-            <p>
-                {{ indicator|raw }}{{ item.name }} - {{ item.currentPrice }}{{ indicator|raw }}
-            </p>
-        {% endfor %}
-    </div>
+    <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
 
     {% for flashMessage in app.session.flashbag.get('error') %}
         <div class="alert alert-error">
@@ -42,19 +28,7 @@
                                 <td class="itemName">{{ item.name }}</td>
                                 <td class="itemStock">{{ item.currentStock }}</td>
 
-                                {% if settings.unitPrice is defined %}
-                                    {% set unitInt = settings.unitPrice * 100 %}
-                                    {% set currentInt =  (item.currentPrice*100) %}
-                                    {% set remainer = currentInt % unitInt  %}
-                                    {%  if remainer < (unitInt / 2) %}
-                                        {% set rounded = (currentInt - remainer) / 100  %}
-                                    {% else %}
-                                        {% set rounded = ((currentInt - remainer + unitInt) / 100) %}
-                                    {% endif %}
-                                    <td class="itemPrice" data-price="{{ rounded|number_format(2)  }}" style="text-align: right;">&euro; {{ rounded|number_format(2)  }}</td>
-                                {% else %}
-                                    <td class="itemPrice" data-price="{{ item.currentPrice }}" style="text-align: right;">&euro; {{ item.currentPrice }}</td>
-                                {% endif %}
+                                <td class="itemPrice" data-price="{{ item.currentPrice|roundToUnit(settings.unitPrice) }}" style="text-align: right;">&euro; {{ item.currentPrice|roundToUnit(settings.unitPrice) }}</td>
 
                                 <td style="text-align: center;">
                                     <a href="#" data-stocktype="{{ type.id }}" data-item="{{ item.id }}">
