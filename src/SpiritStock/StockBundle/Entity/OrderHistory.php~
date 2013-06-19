@@ -220,6 +220,7 @@ class OrderHistory
     {
         return $this->type;
     }
+<<<<<<< HEAD
     /**
      * @var string
      */
@@ -248,4 +249,6 @@ class OrderHistory
     {
         return $this->changeType;
     }
+=======
+>>>>>>> c832a2e37c68933acece1a0bdc92a70520e0bd63
 }

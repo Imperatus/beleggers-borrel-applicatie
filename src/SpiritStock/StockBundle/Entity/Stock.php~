@@ -405,6 +405,7 @@ class Stock
     {
         $this->orderHistory->removeElement($orderHistory);
     }
+<<<<<<< HEAD
     /**
      * @var string
      */
@@ -461,4 +462,6 @@ class Stock
     {
         return $this->change;
     }
+=======
+>>>>>>> c832a2e37c68933acece1a0bdc92a70520e0bd63
 }
