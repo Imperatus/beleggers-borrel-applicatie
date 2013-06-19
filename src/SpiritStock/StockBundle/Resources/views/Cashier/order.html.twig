@@ -4,6 +4,23 @@
 
 {%  block content %}
     <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
+
+    {# TODO - Lift to own template #}
+    <div class="marquee">
+        {% for item in stock %}
+            {% if item.changeType == 'increase' %}
+                {% set indicator = '<span class="arrow-increase"></span>' %}
+            {% elseif item.changeType == 'decrease' %}
+                {% set indicator = '<span class="arrow-decrease"></span>' %}
+            {% else %}
+                {% set indicator = '<span></span>' %}
+            {% endif %}
+            <p>
+                {{ indicator|raw }}{{ item.name }} - {{ item.currentPrice }}{{ indicator|raw }}
+            </p>
+        {% endfor %}
+    </div>
+
     {% for flashMessage in app.session.flashbag.get('error') %}
         <div class="alert alert-error">
             {{ flashMessage }}

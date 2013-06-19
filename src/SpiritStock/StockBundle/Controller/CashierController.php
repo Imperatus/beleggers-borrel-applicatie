@@ -13,19 +13,21 @@ class CashierController extends LocaleController {
     const DECREASE = 'decrease';
 
     public function orderAction() {
-        $settings = $this->em->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
         $types = $this->em->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
+        $stock = $this->em->getRepository('SpiritStockStockBundle:Stock')->findByUser($this->user);
+
+        $settings = $this->em->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
 
         return $this->render('SpiritStockStockBundle:Cashier:order.html.twig', array(
-            'settings' => $settings,
-            'types' => $types,
+            'settings'  => $settings,
+            'types'     => $types,
+            'stock'     => $stock,
         ));
     }
 
     public function handleOrderAction() {
-        $now = new \DateTime();
-
         $request = $this->getRequest();
+
         if($request->getMethod() === 'POST') {
             $stocks = $request->request->all();
 
@@ -89,6 +91,8 @@ class CashierController extends LocaleController {
         }
 
         $stock->setCurrentPrice($newPrice);
+        $stock->setChangeType(self::INCREASE);
+
         $this->em->persist($stock);
     }
 
@@ -132,8 +136,6 @@ class CashierController extends LocaleController {
             $currentPrice = $stock->getCurrentPrice();
             $minPrice = $stock->getMinPrice();
 
-//            $this->updateHistory($stock, null, new \DateTime(), self::DECREASE);
-
             $voodoo = $this->calculateDecrease($stock);
 
             $newPrice = $currentPrice - $voodoo;
@@ -143,6 +145,7 @@ class CashierController extends LocaleController {
             }
 
             $stock->setCurrentPrice($newPrice);
+            $stock->setChangeType(self::DECREASE);
             $this->em->persist($stock);
         }
 
@@ -179,6 +182,8 @@ class CashierController extends LocaleController {
             $history->setUser($this->user);
             $history->setPrice($item->getCurrentPrice());
             $history->setTime($now);
+
+            $history->setChangeType($item->getChangeType());
 
             $this->em->persist($history);
         }

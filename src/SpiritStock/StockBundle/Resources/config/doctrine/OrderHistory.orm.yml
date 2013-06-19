@@ -16,7 +16,10 @@ SpiritStock\StockBundle\Entity\OrderHistory:
             scale: 2
         time:
             type: datetime
-
+        changeType:
+            type: string
+            length: 255
+            nullable: true
 
     manyToOne:
         stock:

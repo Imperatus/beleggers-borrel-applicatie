@@ -1,6 +1,6 @@
 <?php
 
-namespace Liber\BeleggersBundle\Entity;
+namespace SpiritStock\StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -60,12 +60,12 @@ class Stock
     private $updated;
 
     /**
-     * @var \Liber\BeleggersBundle\Entity\StockType
+     * @var \SpiritStock\StockBundle\Entity\StockType
      */
     private $stockType;
 
     /**
-     * @var \Liber\UserBundle\Entity\User
+     * @var \SpiritStock\UserBundle\Entity\User
      */
     private $user;
 
@@ -290,10 +290,10 @@ class Stock
     /**
      * Set stockType
      *
-     * @param \Liber\BeleggersBundle\Entity\StockType $stockType
+     * @param \SpiritStock\StockBundle\Entity\StockType $stockType
      * @return Stock
      */
-    public function setStockType(\Liber\BeleggersBundle\Entity\StockType $stockType = null)
+    public function setStockType(\SpiritStock\StockBundle\Entity\StockType $stockType = null)
     {
         $this->stockType = $stockType;
     
@@ -303,7 +303,7 @@ class Stock
     /**
      * Get stockType
      *
-     * @return \Liber\BeleggersBundle\Entity\StockType 
+     * @return \SpiritStock\StockBundle\Entity\StockType
      */
     public function getStockType()
     {
@@ -313,10 +313,10 @@ class Stock
     /**
      * Set user
      *
-     * @param \Liber\UserBundle\Entity\User $user
+     * @param \SpiritStock\UserBundle\Entity\User $user
      * @return Stock
      */
-    public function setUser(\Liber\UserBundle\Entity\User $user = null)
+    public function setUser(\SpiritStock\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
     
@@ -326,7 +326,7 @@ class Stock
     /**
      * Get user
      *
-     * @return \Liber\UserBundle\Entity\User 
+     * @return \SpiritStock\UserBundle\Entity\User
      */
     public function getUser()
     {
@@ -348,7 +348,7 @@ class Stock
         $this->updated = new \DateTime();
     }
     /**
-     * @var \Liber\BeleggersBundle\Entity\OrderHistory
+     * @var \SpiritStock\StockBundle\Entity\OrderHistory
      */
     private $orderHistory;
 
@@ -356,10 +356,10 @@ class Stock
     /**
      * Set orderHistory
      *
-     * @param \Liber\BeleggersBundle\Entity\OrderHistory $orderHistory
+     * @param \SpiritStock\StockBundle\Entity\OrderHistory $orderHistory
      * @return Stock
      */
-    public function setOrderHistory(\Liber\BeleggersBundle\Entity\OrderHistory $orderHistory = null)
+    public function setOrderHistory(\SpiritStock\StockBundle\Entity\OrderHistory $orderHistory = null)
     {
         $this->orderHistory = $orderHistory;
     
@@ -369,10 +369,40 @@ class Stock
     /**
      * Get orderHistory
      *
-     * @return \Liber\BeleggersBundle\Entity\OrderHistory 
+     * @return \SpiritStock\StockBundle\Entity\OrderHistory
      */
     public function getOrderHistory()
     {
         return $this->orderHistory;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orderHistory = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add orderHistory
+     *
+     * @param SpiritStock\StockBundle\Entity\OrderHistory $orderHistory
+     * @return Stock
+     */
+    public function addOrderHistory(\SpiritStock\StockBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory[] = $orderHistory;
+    
+        return $this;
+    }
+
+    /**
+     * Remove orderHistory
+     *
+     * @param \SpiritStock\StockBundle\Entity\OrderHistory $orderHistory
+     */
+    public function removeOrderHistory(\SpiritStock\StockBundle\Entity\OrderHistory $orderHistory)
+    {
+        $this->orderHistory->removeElement($orderHistory);
     }
 }

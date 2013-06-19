@@ -405,4 +405,32 @@ class Stock
     {
         $this->orderHistory->removeElement($orderHistory);
     }
+    /**
+     * @var string
+     */
+    private $changeType;
+
+
+    /**
+     * Set changeType
+     *
+     * @param string $changeType
+     * @return Stock
+     */
+    public function setChangeType($changeType)
+    {
+        $this->changeType = $changeType;
+    
+        return $this;
+    }
+
+    /**
+     * Get changeType
+     *
+     * @return string 
+     */
+    public function getChangeType()
+    {
+        return $this->changeType;
+    }
 }
