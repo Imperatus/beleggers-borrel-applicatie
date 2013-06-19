@@ -1,0 +1,67 @@
+# src/SpiritStock/StockBundle/Resources/config/doctrine/Stock.orm.yml
+SpiritStock\StockBundle\Entity\Stock:
+    type:  entity
+    table: stock
+    repositoryClass: SpiritStock\StockBundle\Repository\StockRepository
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        name:
+            type: string
+            length: 255
+        startingPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+        currentPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+        maxPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+            nullable: true
+        minPrice:
+            type: decimal
+            precision: 4
+            scale: 2
+            nullable: true
+        startingStock:
+            type: integer
+        currentStock:
+            type: integer
+        created:
+            type: datetime
+        updated:
+            type: datetime
+        changeType:
+            type: string
+            length: 255
+            nullable: true
+        priceChange:
+            type: string
+            length: 255
+            nullable: true
+
+    lifecycleCallbacks:
+        prePersist: [setInitialTimestamp]
+        preUpdate:  [setUpdatedValue]
+
+    manyToOne:
+        stockType:
+            targetEntity: StockType
+            inversedBy: stock
+        user:
+            targetEntity: SpiritStock\UserBundle\Entity\User
+    oneToMany:
+        orderHistory:
+            targetEntity: OrderHistory
+            mappedBy: stock
+            cascade: [remove]
+

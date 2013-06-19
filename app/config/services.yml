@@ -1,0 +1,5 @@
+services:
+    stock.twig.round_to_unit_extension:
+        class: SpiritStock\StockBundle\Twig\RoundToUnitExtension
+        tags:
+            - { name: twig.extension }

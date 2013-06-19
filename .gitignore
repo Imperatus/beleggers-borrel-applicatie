@@ -15,6 +15,7 @@ web/js/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+app/config/config.yml
 
 # IDE files
 .idea/workspace.xml

@@ -1,0 +1,52 @@
+spiritstock_stock_settings:
+    pattern:  /settings/
+    defaults: { _controller: SpiritStockStockBundle:Settings:overview }
+
+spiritstock_stock_settings_overview:
+    pattern: /settings/overview
+    defaults: { _controller: SpiritStockStockBundle:Settings:overview }
+
+spiritstock_stock_settings_stock:
+    pattern: /settings/stock
+    defaults: { _controller: SpiritStockStockBundle:Settings:editStock }
+
+spiritstock_stock_settings_types:
+    pattern: /settings/types
+    defaults: { _controller: SpiritStockStockBundle:Settings:editTypes }
+
+spiritstock_stock_settings_global:
+    pattern: /settings/global
+    defaults: { _controller: SpiritStockStockBundle:Settings:editGlobal }
+
+spiritstock_stock_settings_reset:
+    pattern: /settings/reset
+    defaults: { _controller: SpiritStockStockBundle:Settings:reset }
+
+spiritstock_stock_cashier_register:
+    pattern: /cashier/register
+    defaults: { _controller: SpiritStockStockBundle:Cashier:order }
+
+spiritstock_stock_cashier_handleOrder:
+    pattern: /cashier/handleOrder
+    defaults: { _controller: SpiritStockStockBundle:Cashier:handleOrder }
+    methods: [POST]
+
+spiritstock_stock_history_test:
+    pattern: /history/test
+    defaults: { _controller: SpiritStockStockBundle:History:testGraph }
+
+spiritstock_stock_dashboard:
+    pattern: /dashboard
+    defaults: { _controller: SpiritStockStockBundle:Dashboard:home }
+
+SpiritStock_user_homepage:
+    pattern:  /
+    defaults:
+      _controller: FrameworkBundle:Redirect:redirect
+      route: spiritstock_stock_dashboard
+      permanent: true
+
+spiritstock_stock_locale_languageSelect:
+    pattern: /locale/languageSelect/{locale}
+    defaults: { _controller: SpiritStockStockBundle:Locale:setLanguage, locale: en}
+    methods: [GET]

@@ -1,0 +1,30 @@
+{% extends "SpiritStockStockBundle::layout.html.twig" %}
+
+{% block spanOverride %}
+    <div class="span12">
+{% endblock %}
+
+{% block content_header %}
+    <ul class="nav">
+        {% if not missingSettings %}
+            <li><a href="{{ path('spiritstock_stock_settings') }}">{{ 'menu.settings'|trans }}</a></li>
+            <li><a href="{{ path('spiritstock_stock_cashier_register') }}">{{ 'menu.cashier'|trans }}</a></li>
+            <li><a href="{{ path('spiritstock_stock_history_test') }}">{{ 'menu.history'|trans }}</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+        <h1>{{ 'headers.dashboard.welcome'|trans }}, {{ user|capitalize }}</h1>
+        {% if missingSettings == true %}
+            {{ 'help.texts.dashboard'|trans|raw }}
+            <p>
+                <a href="{{ path('spiritstock_stock_settings_global') }}">{{ 'link.dashboard.globalSettings'|trans }}</a>
+            </p>
+        {% endif %}
+        <div>
+
+        </div>
+
+{% endblock %}

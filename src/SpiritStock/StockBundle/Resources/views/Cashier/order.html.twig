@@ -1,0 +1,61 @@
+{% extends "SpiritStockStockBundle::Cashier\\register.html.twig" %}
+
+{% use 'SpiritStockStockBundle::Cashier\\orderform.html.twig' %}
+
+{%  block content %}
+    {% include 'SpiritStockStockBundle::Cashier\\marquee.html.twig' %}
+
+    <h4>{{ 'headers.cashier.order.priceList'|trans }}</h4>
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-error">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {% for type in types %}
+        {% if loop.first %}
+            <div class="container-fluid">
+        {% endif %}
+
+            <div class="span4">
+                <div class="well">
+                    <h5>{{ type.name }}</h5>
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            {% for item in type.stock %}
+                            <tr id="{{ item.name }}-{{ item.id }}">
+                                <td class="itemName">{{ item.name }}</td>
+                                <td class="itemStock">{{ item.currentStock }}</td>
+
+                                <td class="itemPrice" data-price="{{ item.currentPrice|roundToUnit(settings.unitPrice) }}" style="text-align: right;">&euro; {{ item.currentPrice|roundToUnit(settings.unitPrice) }}</td>
+
+                                <td style="text-align: center;">
+                                    <a href="#" data-stocktype="{{ type.id }}" data-item="{{ item.id }}">
+                                        <span class="icon-plus-sign" style="margin-top: 2px;"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        {% if loop.index is divisibleby(3) and not loop.last %}
+            </div>
+            <div class="container-fluid">
+        {% elseif loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var register = new SpiritStock.Register();
+            register.init();
+        });
+    </script>
+{% endblock %}
+

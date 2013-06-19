@@ -1,0 +1,6 @@
+#SpiritStock_user_homepage:
+#    pattern:  /
+#    defaults:
+#      _controller: FrameworkBundle:Redirect:redirect
+#      route: fos_user_security_login
+#      permanent: true

@@ -1,0 +1,104 @@
+body {
+    background: #333;
+}
+
+#mainContainer {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    margin-top:15px;
+}
+
+form td.form_control {
+    text-align: center;
+    line-height: 40px;
+}
+
+.sliderValueContainer {
+    text-align: center;
+    font-weight: bold;
+    width: 50px;
+    margin-top: -6px;
+    /*border: 1px solid silver;*/
+    margin-left: 16px;
+    padding: 3px;
+}
+
+
+span.arrow-decrease {
+    position: relative;
+    top: 14px;
+
+    margin-left: 4px;
+    margin-right: 8px;
+
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid rgba(197, 0, 10, 1);
+}
+
+span.arrow-increase {
+    position: relative;
+    top: -15px;
+
+    margin-left: 4px;
+    margin-right: 8px;
+
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-bottom: 10px solid #009a00;
+}
+
+.marquee {
+    font-weight: bold;
+    background-color: #333333;
+    color: white;
+
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    overflow: hidden;
+
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+    box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.75);
+}
+
+/* Crap */
+/*tr:nth-child(odd).setForDelete td {*/
+    /*background-color: transparent !important;*/
+/*}*/
+
+/*tr:nth-child(odd).setForDelete {*/
+    /*background: repeating-linear-gradient(-45deg, #F9F9F9 25%, #bb0000 25%, #bb0000 50%,*/
+    /*#F9F9F9 50%, #F9F9F9 75%,*/
+    /*#bb0000 75%);*/
+    /*background-size:15px 15px;*/
+/*}*/
+
+/*tr:nth-child(even).setForDelete td {*/
+    /*background-color: transparent !important;*/
+    /*background-color: #6d6d6d !important;*/
+/*}*/
+
+/*tr:nth-child(even).setForDelete {*/
+    /*background: repeating-linear-gradient(-45deg, #F5F5F5 25%, #bb0000 25%, #bb0000 50%,*/
+    /*#F5F5F5 50%, #F5F5F5 75%,*/
+    /*#bb0000 75%);*/
+    /*background-size:15px 15px;*/
+    /*background-position: -10px;*/
+/*}*/
+
+table input[type="text"] {
+    margin-top: 4px;
+    margin-bottom: 0px !important;
+}
+
