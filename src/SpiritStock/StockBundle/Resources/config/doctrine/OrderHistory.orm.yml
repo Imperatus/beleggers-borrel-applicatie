@@ -1,0 +1,26 @@
+# src/SpiritStock/StockBundle/Resources/config/doctrine/OrderHistory.orm.yml
+SpiritStock\StockBundle\Entity\OrderHistory:
+    type:  entity
+    table: orderHistory
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        price:
+            type: decimal
+            precision: 4
+            scale: 2
+        time:
+            type: datetime
+
+
+    manyToOne:
+        stock:
+            targetEntity: Stock
+            inversedBy: orderHistory
+        user:
+            targetEntity: SpiritStock\UserBundle\Entity\User

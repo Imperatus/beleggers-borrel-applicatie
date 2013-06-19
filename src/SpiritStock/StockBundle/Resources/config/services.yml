@@ -1,0 +1,7 @@
+parameters:
+#    spiritstock_stock.example.class: SpiritStock\StockBundle\Example
+
+services:
+#    spiritstock_stock.example:
+#        class: %spiritstock_stock.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

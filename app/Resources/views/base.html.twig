@@ -4,7 +4,7 @@
         <title>{% block title %}{% endblock %} - {{ 'titles.general.appName'|trans }} {{ version }}</title>
         {% stylesheets
             '../app/Resources/public/bootstrap/css/*'
-            '../app/Resources/public/liber/css/*'
+            '../app/Resources/public/spiritstock/css/*'
         %}
         <link rel="stylesheet" href="{{ asset_url }}">
         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/overcast/jquery-ui.css" type="text/css" rel="stylesheet" />
@@ -27,7 +27,7 @@
 
         {% javascripts
             "../app/Resources/public/bootstrap/js/bootstrap.js"
-            "../src/Liber/BeleggersBundle/Resources/public/js/*"
+            "../src/SpiritStock/StockBundle/Resources/public/js/*"
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

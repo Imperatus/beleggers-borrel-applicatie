@@ -1,0 +1,18 @@
+{% block languageSelector %}
+    <div class="pull-right" style="position: relative; top: 5px;">
+            <select id="languageSelector">
+                <option {% if testLocale == 'nl' %} selected='selected'{% endif %} value="nl_NL">Nederlands</option>
+                <option {% if testLocale == 'en' %} selected='selected'{% endif %} value="en_US">English</option>
+            </select>
+    </div>
+    <script type="text/javascript">
+        $('#languageSelector').on('change', function() {
+            var param, result;
+
+            result = $(this).val();
+            param = result.split('_', 1);
+
+            window.location.href = "{{ path('spiritstock_stock_locale_languageSelect') }}/"+param;
+        });
+    </script>
+{% endblock %}

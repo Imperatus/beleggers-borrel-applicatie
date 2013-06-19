@@ -1,0 +1,67 @@
+{% extends "SpiritStockStockBundle::layout.html.twig" %}
+{% use 'SpiritStockStockBundle::Settings/tabs.html.twig' %}
+{% use 'SpiritStockStockBundle::helpbar.html.twig' %}
+
+{% block title %}
+    {{ 'titles.settings.types'|trans }} - {{ 'titles.settings.general'|trans }}
+{% endblock %}
+
+{% form_theme form 'SpiritStockStockBundle::form_tablerow_layout.html.twig' %}
+
+{% block content %}
+    <div id="jPageType" class="hidden">type</div>
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="alert alert-error">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <form action="" method="post" {{ form_enctype(form) }}>
+        {{ form_start(form) }}
+
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <td>{{ 'table.header.name'|trans }}</td>
+                <td>{{ 'table.stockType.header.timeToMinimum'|trans }}</td>
+                <td>{{ 'table.stockType.header.magicToMaximum'|trans }}</td>
+            </tr>
+            </thead>
+            <tbody class="stockCollection" data-prototype="{{ form_widget(form.stockTypes.vars.prototype)|e }}">
+            {% for type in form.stockTypes %}
+                <tr>
+                    {{ form_row(type.name) }}
+                    {{ form_row(type.startToMinimum) }}
+                    {{ form_row(type.magicToMaximum) }}
+                    <td class="form_control">
+                        <a href="#" class="stock_remove_existing" data-toggle="tooltip" title="{{ 'form.control.stockType.removeExisting'|trans }}">
+                            <span class="icon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="clearfix">
+            <input class="btn btn-primary" type="submit" value="{{ 'form.button.general.confirm'|trans }}" />
+            <a href="#" class="pull-right btn btn-info add_stock_link">{{ 'form.button.stockType.add'|trans }}</a>
+        </div>
+
+        {{ form_end(form) }}
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var tableForm = new SpiritStock.TableForm();
+            tableForm.init();
+        });
+    </script>
+
+{% endblock %}
+

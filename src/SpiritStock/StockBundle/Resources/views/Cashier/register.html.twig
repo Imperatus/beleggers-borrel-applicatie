@@ -1,0 +1,15 @@
+{% extends "SpiritStockStockBundle::layout.html.twig" %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}{{ 'titles.cashier.register'|trans }}{% endblock %}
+
+{% block content_header %}
+    <ul class="nav">
+        <li><a href="{{ path('spiritstock_stock_settings') }}">{{ 'menu.settings'|trans }}</a></li>
+        <li class="active"><a href="{{ path('spiritstock_stock_cashier_register') }}">{{ 'menu.cashier'|trans }}</a></li>
+        <li><a href="{{ path('spiritstock_stock_history_test') }}">{{ 'menu.history'|trans }}</a></li>
+    </ul>
+{% endblock %}

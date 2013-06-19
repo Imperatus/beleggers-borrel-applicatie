@@ -23,12 +23,12 @@ fos_user_change_password:
     prefix: /profile
 
 # App routing
-liber_user:
-    resource: "@LiberUserBundle/Resources/config/routing.yml"
+SpiritStock_user:
+    resource: "@SpiritStockUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-liber_beleggers:
-    resource: "@LiberBeleggersBundle/Resources/config/routing.yml"
+spiritstock_stock:
+    resource: "@SpiritStockStockBundle/Resources/config/routing.yml"
     prefix:   /
 
 

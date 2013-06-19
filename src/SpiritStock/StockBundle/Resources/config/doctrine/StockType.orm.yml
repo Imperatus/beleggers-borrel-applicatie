@@ -1,0 +1,30 @@
+# src/SpiritStock/StockBundle/Resources/config/doctrine/StockType.orm.yml
+SpiritStock\StockBundle\Entity\StockType:
+    type:  entity
+    table: stockType
+
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        startToMinimum:
+            type: integer
+            length: 11
+        magicToMaximum:
+            type: decimal
+            precision: 4
+            scale: 2
+
+    oneToMany:
+        stock:
+            targetEntity: Stock
+            mappedBy: stockType
+            cascade: [remove]
+    manyToOne:
+        user:
+            targetEntity: SpiritStock\UserBundle\Entity\User
