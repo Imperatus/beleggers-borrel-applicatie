@@ -25,12 +25,13 @@
                         <tbody>
                             {% for item in type.stock %}
 
+                            {# Color coding for good and bad deals #}
                             {% if item.currentPrice|roundToUnit(settings.unitPrice) > item.startingPrice|roundToUnit(settings.unitPrice) %}
                                 {% set colorCode = '#C5000A' %}
                             {% elseif item.currentPrice|roundToUnit(settings.unitPrice) < item.startingPrice|roundToUnit(settings.unitPrice) %}
                                 {% set colorCode = 'green' %}
                             {% else %}
-                                {% set colorCode = '' %}
+                                {% set colorCode = 'black' %}
                             {% endif %}
 
                             <tr id="{{ item.name }}-{{ item.id }}">
