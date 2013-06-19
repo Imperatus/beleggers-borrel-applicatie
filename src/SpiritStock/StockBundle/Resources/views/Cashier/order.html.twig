@@ -24,8 +24,17 @@
                     <table class="table table-bordered table-striped">
                         <tbody>
                             {% for item in type.stock %}
+
+                            {% if item.currentPrice|roundToUnit(settings.unitPrice) > item.startingPrice|roundToUnit(settings.unitPrice) %}
+                                {% set colorCode = '#C5000A' %}
+                            {% elseif item.currentPrice|roundToUnit(settings.unitPrice) < item.startingPrice|roundToUnit(settings.unitPrice) %}
+                                {% set colorCode = 'green' %}
+                            {% else %}
+                                {% set colorCode = '' %}
+                            {% endif %}
+
                             <tr id="{{ item.name }}-{{ item.id }}">
-                                <td class="itemName">{{ item.name }}</td>
+                                <td class="itemName" style="color:{{ colorCode }};">{{ item.name }}</td>
                                 <td class="itemStock">{{ item.currentStock }}</td>
 
                                 <td class="itemPrice" data-price="{{ item.currentPrice|roundToUnit(settings.unitPrice) }}" style="text-align: right;">&euro; {{ item.currentPrice|roundToUnit(settings.unitPrice) }}</td>
