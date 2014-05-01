@@ -1,6 +1,6 @@
 # Bazinga expose translations routing
 _bazinga_exposetranslation:
-    resource: "@BazingaExposeTranslationBundle/Resources/config/routing/routing.yml"
+    resource: "@BazingaJsTranslationBundle/Resources/config/routing/routing.yml"
 
 # FOS UserBundle Routing
 fos_user_security:

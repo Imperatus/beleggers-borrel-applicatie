@@ -15,7 +15,7 @@ SpiritStock.TableForm = function() {
 
         // TODO - Change to bootstrap + / -
         addLink = $('.add_stock_link');
-        removeLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="'+ Translator.get('form.control.general.remove')+ ' ' + Translator.get('form.control.stockType.type') + ' ' + Translator.get('form.control.general.addition') + '"><span class="icon-remove"></spam></a>');
+        removeLink = $('<a href="#" class="remove_stock_link" data-toggle="tooltip" title="'+ Translator.trans('form.control.general.remove')+ ' ' + Translator.trans('form.control.stockType.type') + ' ' + Translator.trans('form.control.general.addition') + '"><span class="icon-remove"></spam></a>');
         removeExisting = $('.stock_remove_existing');
 
         removeExisting.each(function() {
@@ -34,10 +34,10 @@ SpiritStock.TableForm = function() {
                     if(deleteCount > 0) {
                         if($('.alert-error').length <= 0) {
                             $('ul.nav-tabs').after('<div class="alert alert-error">' +
-                                Translator.get('form.control.general.removePending') + ': ' + deleteCount +
+                                Translator.trans('form.control.general.removePending') + ': ' + deleteCount +
                             '</div>');
                         } else {
-                            $('.alert-error').html(Translator.get('form.control.general.removePending') + ': ' + deleteCount);
+                            $('.alert-error').html(Translator.trans('form.control.general.removePending') + ': ' + deleteCount);
                         }
                     }
 
@@ -47,7 +47,7 @@ SpiritStock.TableForm = function() {
 
         $('.remove_entire_stock').on('click', function(e) {
             e.preventDefault();
-            var message = confirm(Translator.get('form.confirm.stock.remove'));
+            var message = confirm(Translator.trans('form.confirm.stock.remove'));
             if(message) {
                 // add a new tag form (see next code block)
                 $('tbody').remove();

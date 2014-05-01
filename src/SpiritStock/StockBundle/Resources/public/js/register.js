@@ -36,7 +36,7 @@ SpiritStock.Register = function() {
         clearButton.on('click', function(e) {
             e.preventDefault();
 
-            if(confirm(Translator.get('form.confirm.cashier.order'))) {
+            if(confirm(Translator.trans('form.confirm.cashier.order'))) {
 
                 formContainer.empty();
                 container.empty();

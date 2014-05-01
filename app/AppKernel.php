@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new SpiritStock\StockBundle\SpiritStockStockBundle(),
             new SpiritStock\UserBundle\SpiritStockUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
+            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
         );
 
