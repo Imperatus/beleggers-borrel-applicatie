@@ -1,3 +1,7 @@
+spirit_stock_admin:
+    resource: "@SpiritStockAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # Bazinga expose translations routing
 _bazinga_exposetranslation:
     resource: "@BazingaJsTranslationBundle/Resources/config/routing/routing.yml"

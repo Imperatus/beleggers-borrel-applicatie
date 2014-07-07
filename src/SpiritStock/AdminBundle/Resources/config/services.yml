@@ -1,0 +1,7 @@
+parameters:
+#    spirit_stock_admin.example.class: SpiritStock\AdminBundle\Example
+
+services:
+#    spirit_stock_admin.example:
+#        class: %spirit_stock_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

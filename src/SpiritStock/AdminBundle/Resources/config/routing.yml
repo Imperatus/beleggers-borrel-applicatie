@@ -1,0 +1,3 @@
+spirit_stock_admin_index:
+    pattern:  /admin
+    defaults: { _controller: SpiritStockAdminBundle:Default:index }

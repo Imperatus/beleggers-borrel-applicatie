@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new SpiritStock\AdminBundle\SpiritStockAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
