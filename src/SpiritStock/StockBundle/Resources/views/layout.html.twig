@@ -12,7 +12,7 @@
         <div class="span12">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <a class="brand" href="{{ path('spiritstock_stock_dashboard') }}">{{ 'titles.general.appName'|trans }} {{ version }}</a>
+                    {% block brand %}<a class="brand" href="{{ path('spiritstock_stock_dashboard') }}">{{ 'titles.general.appName'|trans }} {{ version }}</a>{% endblock %}
                     {% block content_header %}
                         <ul class="nav">
                             <li class="active"><a href="{{ path('spiritstock_stock_settings') }}">{{ 'menu.settings'|trans }}</a></li>

@@ -102,3 +102,9 @@ table input[type="text"] {
     margin-bottom: 0px !important;
 }
 
+ul.noBullets {
+    list-style-type: none;
+    position: relative;
+    margin-left: 0;
+}
+

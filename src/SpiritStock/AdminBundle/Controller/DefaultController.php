@@ -2,12 +2,14 @@
 
 namespace SpiritStock\AdminBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use SpiritStock\StockBundle\Controller\LocaleController;
 
-class DefaultController extends Controller
+class DefaultController extends LocaleController
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('SpiritStockAdminBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('SpiritStockAdminBundle:Default:index.html.twig', array(
+            'user' => $this->user,
+        ));
     }
 }

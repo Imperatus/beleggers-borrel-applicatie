@@ -1,0 +1,7 @@
+admin:
+  headers:
+    welcome: Welcome to the Administration Center
+  menu:
+    users: Users
+  texts:
+    main: Welcome screen

@@ -1,0 +1,98 @@
+{% extends "SpiritStockStockBundle::layout.html.twig" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block brand %}<a class="brand" href="{{ path('spirit_stock_admin_index') }}">{{ 'titles.general.appName'|trans }} {{ version }}</a>{% endblock %}
+
+{% block spanOverride %}
+    <div class="span12">
+{% endblock %}
+
+{% block content_header %}
+    <ul class="nav">
+        <li><a href="{{ path('spirit_stock_admin_user') }}">{{ 'admin.menu.users'|trans }}</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h1>User</h1>
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ entity.username }}</td>
+            </tr>
+            <tr>
+                <th>Username Canonical</th>
+                <td>{{ entity.usernameCanonical }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Email Canonical</th>
+                <td>{{ entity.emailCanonical }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{{ entity.enabled }}</td>
+            </tr>
+            <tr>
+                <th>Last Login</th>
+                <td>{{ entity.lastLogin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Locked</th>
+                <td>{{ entity.locked }}</td>
+            </tr>
+            <tr>
+                <th>Expired</th>
+                <td>{{ entity.expired }}</td>
+            </tr>
+            <tr>
+                <th>Expires At</th>
+                <td>{% if entity.expiresAt is defined %}{{ entity.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Password Requested At</th>
+                <td>{{ entity.passwordRequestedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>
+                    <ul class="noBullets">
+                        {% for role in entity.roles %}
+                            <li><span class="label{% if role == 'ROLE_ADMIN' %} label-important{% endif %}">{{ role }}</span></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Credentials Expired</th>
+                <td>{{ entity.credentialsExpired }}</td>
+            </tr>
+            <tr>
+                <th>Credentials Expire At</th>
+                <td>{% if entity.credentialsExpireAt is defined %}{{ entity.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Locale</th>
+                <td><span class="label label-info"><img src="blank.gif" class="flag flag-{{entity.locale}}"  /> {{ entity.locale|upper }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions noBullets">
+    <li>
+        <a href="{{ path('spirit_stock_admin_user') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

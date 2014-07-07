@@ -1,3 +1,11 @@
 spirit_stock_admin_index:
     pattern:  /admin
     defaults: { _controller: SpiritStockAdminBundle:Default:index }
+
+spirit_stock_admin_user:
+    pattern:  /admin/user
+    defaults: { _controller: SpiritStockAdminBundle:User:index }
+
+spirit_stock_admin_user_show:
+    pattern:  /admin/user/{id}
+    defaults: { _controller: SpiritStockAdminBundle:User:Show }
