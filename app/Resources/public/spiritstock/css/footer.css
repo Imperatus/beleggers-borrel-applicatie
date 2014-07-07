@@ -1,0 +1,42 @@
+
+/* Set the fixed height of the footer here */
+#push ,
+#footer {
+    height: 40px;
+}
+#footer {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #F5F5F5;
+
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+
+    position: relative;
+    z-index: 999;
+}
+
+#footer .container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 12px;
+
+    color: #aaa;
+}
+
+#footer .container a {
+    color: #aaa;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+/* Custom page CSS
+-------------------------------------------------- */

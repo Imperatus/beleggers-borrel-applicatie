@@ -1,12 +1,16 @@
-body {
+html, body {
+    height: 100%;
     background: #333 /*url("/img/bg-flower.png")*/;
 }
 
 #mainContainer {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+
     position: relative;
     width: 90%;
-    margin: 0 auto;
-    margin-top:15px;
+    margin: 15px auto -60px;
 }
 
 form td.form_control {
@@ -71,31 +75,6 @@ span.arrow-increase {
 
     box-shadow: 2px 2px 2px rgba(50, 50, 50, 0.75);
 }
-
-/* Crap */
-/*tr:nth-child(odd).setForDelete td {*/
-    /*background-color: transparent !important;*/
-/*}*/
-
-/*tr:nth-child(odd).setForDelete {*/
-    /*background: repeating-linear-gradient(-45deg, #F9F9F9 25%, #bb0000 25%, #bb0000 50%,*/
-    /*#F9F9F9 50%, #F9F9F9 75%,*/
-    /*#bb0000 75%);*/
-    /*background-size:15px 15px;*/
-/*}*/
-
-/*tr:nth-child(even).setForDelete td {*/
-    /*background-color: transparent !important;*/
-    /*background-color: #6d6d6d !important;*/
-/*}*/
-
-/*tr:nth-child(even).setForDelete {*/
-    /*background: repeating-linear-gradient(-45deg, #F5F5F5 25%, #bb0000 25%, #bb0000 50%,*/
-    /*#F5F5F5 50%, #F5F5F5 75%,*/
-    /*#bb0000 75%);*/
-    /*background-size:15px 15px;*/
-    /*background-position: -10px;*/
-/*}*/
 
 table input[type="text"] {
     margin-top: 4px;
