@@ -20,3 +20,4 @@ app/config/config.yml
 # IDE files
 .idea/workspace.xml
 .idea/tasks.xml
+.idea/*

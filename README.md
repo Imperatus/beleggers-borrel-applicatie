@@ -1,174 +1,78 @@
-Symfony Standard Edition
-========================
+SpiritStock (Beleggersborrel) Application
+=========================================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+This web application, with Symfony2 as a basis, emulates a stock market, fluctuating prices based on supply and
+demand each time a purchase is done via the in-app cashier.
+The application was originally developed for a student society in the Netherlands (Liber Amsterdam), and has been used for over three
+iterations of their yearly event.
 
-This document contains information on how to download, install, and start
-using Symfony. For a more detailed explanation, see the [Installation][1]
-chapter of the Symfony Documentation.
+Currently, the application is in beta nearing an official release. Currently a road map for the 1.0 version is being drawn out,
+and we expect to share a complete app at the end of the year.
 
-1) Installing the Standard Edition
-----------------------------------
+1) Installation
+---------------
 
-When it comes to installing the Symfony Standard Edition, you have the
-following options.
+Refer to the Symfony2 installation guide to set up a Symfony2 environment.
+Pull this repository over your Symfony2 (2.3.0) installation and do a composer install.
 
-### Use Composer (*recommended*)
-
-As Symfony uses [Composer][2] to manage its dependencies, the recommended way
-to create a new project is to use it.
-
-If you don't have Composer yet, download it following the instructions on
-http://getcomposer.org/ or just run the following command:
-
-    curl -s http://getcomposer.org/installer | php
-
-Then, use the `create-project` command to generate a new Symfony application:
-
-    php composer.phar create-project symfony/framework-standard-edition path/to/install
-
-Composer will install Symfony and all its dependencies under the
-`path/to/install` directory.
-
-### Download an Archive File
-
-To quickly test Symfony, you can also download an [archive][3] of the Standard
-Edition and unpack it somewhere under your web server root directory.
-
-If you downloaded an archive "without vendors", you also need to install all
-the necessary dependencies. Download composer (see above) and run the
-following command:
-
-    php composer.phar install
-
-2) Checking your System Configuration
+2) Configuration
 -------------------------------------
 
-Before starting coding, make sure that your local system is properly
-configured for Symfony.
+First off, you need to make an account to use the application. Simply create an account via the web interface and verify it via e-mail.
+Make sure your email is correctly configured according to the Symfony2 standard, and possibly check your spam folder.
 
-Execute the `check.php` script from the command line:
+After logging in, you are possibly prompted to set some global settings. If not, select the Settings option from the main menu and select the Global tab.
+Here, select your desired currency (only Euro currently), and fill in a unit name and price. Units are used to represent custom forms of currency like bar slips, etc.
+Even though you define a unit, prices will still be shown in your currency as well.
 
-    php app/check.php
+After defining your Global settings, you will need to define some Types to keep the Cashier tidy. For instance, you can define the Type Draft Beer, Soda, Wine, etc.
+In the interface, stock items will be sorted under the corresponding Type. Furthermore, on the Type tab, you can define the speed at which prices drop when items are not ordered,
+or the speed in which prices increase. The best way to describe the algorithm is "fuzzy", so there isn't a single good setting. If you want a specific type to fluctuate wildly,
+set both sliders to their opposite extremes.
 
-Access the `config.php` script from a browser:
+Q: "Why is the price decrease slider specific in its description, while price increase is fuzzy?"
+A: Short answer is it sorta happened during the development process...
+Long answer: As people tend not to like making a loss, I wanted it to be clear what the slider exactly did. The increase, however, didn't have this requirement.
+I did want to make it a bit unpredictable, so there's an element of chance there. The slider represents the factor in which the calculated random increase is applied.
 
-    http://localhost/path/to/symfony/app/web/config.php
+For instance, a random increase of 2 Euros is calculated, and the slider is set halfway. In that case the price will "probably" increase by 1 Euro. The higher the slider,
+the bigger the price difference "can" be, depending on supply, demand, chance, Venus and Saturn, and the God of Hellfire.
 
-If you get any warnings or recommendations, fix them before moving on.
+Last but far from least, you should define your Stock. Here, you create items such as Duff Beer, give them a starting, current, minimum and maximum price.
+If you don't want to make a net loss, make sure you don't set your minimum prices under the cost price! (though people will hate you for it)
+Make sure you fill in your starting stock and current stock as precisely as possible, as this determines most of the price fluctuation! If you fill in you only start with
+6 beers, but in reality you have over 300, you're gonna have a bad time! (or good time, if you enjoy seeing prices go all over the place)
 
-3) Browsing the Demo Application
---------------------------------
+Make sure each item falls under the correct type.
 
-Congratulations! You're now ready to use Symfony.
+When all's set, DON'T FORGET TO CONFIRM YOUR CHANGES! I realise the system should be a tad more user-friendly and less error-prone, but as long as the XML/CSV/Excel import
+feature is not yet implemented, I'm afraid you'll just have to be careful ;)
 
-From the `config.php` page, click the "Bypass configuration and go to the
-Welcome page" link to load up your first Symfony page.
 
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the `config.php` page.
-
-To see a real-live Symfony page in action, access the following page:
-
-    web/app_dev.php/demo/hello/Fabien
-
-4) Getting started with Symfony
--------------------------------
-
-This distribution is meant to be the starting point for your Symfony
-applications, but it also contains some sample code that you can learn from
-and play with.
-
-A great way to start learning Symfony is via the [Quick Tour][4], which will
-take you through all the basic features of Symfony2.
-
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book][5].
-
-A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
-
-  * delete the `src/Acme` directory;
-
-  * remove the routing entries referencing AcmeBundle in
-    `app/config/routing_dev.yml`;
-
-  * remove the AcmeBundle from the registered bundles in `app/AppKernel.php`;
-
-  * remove the `web/bundles/acmedemo` directory;
-
-  * remove the `security.providers`, `security.firewalls.login` and
-    `security.firewalls.secured_area` entries in the `security.yml` file or
-    tweak the security configuration to fit your needs.
 
 What's inside?
 ---------------
 
-The Symfony Standard Edition is configured with the following defaults:
+A settings page:
 
-  * Twig is the only configured template engine;
+  * Create Stock items and define their current, minimum and maximum prices! Also keeps track of your stock!
 
-  * Doctrine ORM/DBAL is configured;
+  * Define Stock Types to group your items by for a clutter-free interface! (BETA)
 
-  * Swiftmailer is configured;
+  * Overview page for all your settings!
 
-  * Annotations for everything are enabled.
+  * Global settings supporting one whole currency type (Euro) and custom currencies! (Whatever you wish!)
 
-It comes pre-configured with the following bundles:
+A cashier page:
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+  * Let your barkeeps use the cashier interface to select ordered items and calculate the price in currency and custom units for them!
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+  * Prices fluctuate on each order depending on Science and horoscopes!
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+  * A fancy news ticker displaying all (recent) price changes!
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+A history page:
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * [**JMSSecurityExtraBundle**][13] - Allows security to be added via
-    annotations
-
-  * [**JMSDiExtraBundle**][14] - Adds more powerful dependency injection
-    features
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][15] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
-    code
+  * Woo your audience with a lame graph that shows all price fluctuations of the past century!
 
 Enjoy!
-
-[1]:  http://symfony.com/doc/2.1/book/installation.html
-[2]:  http://getcomposer.org/
-[3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.1/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.1/index.html
-[6]:  http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.1/book/doctrine.html
-[8]:  http://symfony.com/doc/2.1/book/templating.html
-[9]:  http://symfony.com/doc/2.1/book/security.html
-[10]: http://symfony.com/doc/2.1/cookbook/email.html
-[11]: http://symfony.com/doc/2.1/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html
-[13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
-[14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
-[15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
