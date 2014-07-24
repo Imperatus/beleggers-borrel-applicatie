@@ -3,6 +3,8 @@
 namespace SpiritStock\StockBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use SpiritStock\StockBundle\Entity\Stock;
+use SpiritStock\UserBundle\Entity\User;
 
 /**
  * StockRepository
@@ -12,13 +14,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class StockRepository extends EntityRepository
 {
+    /**
+     * Gets all entities not referred to in ID array
+     *
+     * @param array $ids
+     * @param User  $user
+     *
+     * @return Stock[]
+     */
     public function inverseFindToBeUpdatedByIdsAndUser($ids, $user) {
+        $qb   = $this->getEntityManager()->createQueryBuilder();
+        $ids  = implode(',', $ids);
         $time = new \DateTime('-5 minutes');
+
         $time->format('c');
 
-        $ids = implode(',', $ids);
-
-        $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select('s')
            ->from('SpiritStock\StockBundle\Entity\Stock', 's')
            ->andWhere($qb->expr()->notIn('s.id', ':ids'))
@@ -30,7 +40,7 @@ class StockRepository extends EntityRepository
                     'user'=> $user,
                 )
             );
+
         return $qb->getQuery()->execute();
     }
-
 }

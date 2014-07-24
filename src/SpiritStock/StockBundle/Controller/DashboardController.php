@@ -1,33 +1,36 @@
 <?php
 namespace SpiritStock\StockBundle\Controller;
 
-use Doctrine\ORM\EntityManager;
-
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Validator\Constraints\Collection;
-use SpiritStock\StockBundle\Controller\LocaleController;
+
 use SpiritStock\StockBundle\Entity\GlobalSettings;
 
-class DashboardController extends LocaleController {
-
+class DashboardController extends LocaleController
+{
+    /**
+     * Just renders the Dashboard
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function homeAction() {
         /** @var GlobalSettings $settings */
         $settings = $this->em->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
 
+        // Get the preferred currency if there are settings
         if(!empty($settings)) {
             $currency = $settings->getCurrency();
         }
 
-        if(empty($settings) || empty($currency)) {
+        // Check if all required settings are there. If not, notify front-end (not elegant, but time pressure)
+        if (empty($settings) || empty($currency)) {
             $missingSettings = true;
         } else {
             $missingSettings = false;
         }
 
         return $this->render('SpiritStockStockBundle:Dashboard:welcome.html.twig', array(
-            'user' => $this->user,
+            'user'            => $this->user,
             'missingSettings' => $missingSettings,
         ));
     }
-
 }

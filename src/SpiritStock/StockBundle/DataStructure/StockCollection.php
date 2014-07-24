@@ -33,7 +33,8 @@ class StockCollection {
     }
 
     /**
-     * @param $stocks
+     * @param $stockTypes
+     *
      * @return mixed
      */
     public function setStockTypes($stockTypes)

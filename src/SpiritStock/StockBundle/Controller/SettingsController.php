@@ -2,8 +2,6 @@
 
 namespace SpiritStock\StockBundle\Controller;
 
-use Doctrine\ORM\EntityManager;
-
 use SpiritStock\StockBundle\DataStructure\StockCollection;
 use SpiritStock\StockBundle\Entity\GlobalSettings;
 use SpiritStock\StockBundle\Form\Type\GlobalSettingsType;
@@ -11,39 +9,45 @@ use SpiritStock\StockBundle\Form\Type\StockCollectionType;
 use SpiritStock\StockBundle\Form\Type\StockTypeCollectionType;
 use SpiritStock\StockBundle\Entity\Stock;
 
-use SpiritStock\StockBundle\Controller\LocaleController;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Validator\Constraints\Collection;
 
 class SettingsController extends LocaleController
 {
+    /**
+     *  Renders quick overview page of all the settings and stocks
+     */
     public function overviewAction()
     {
-        $settings = $this->getDoctrine()->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
-        $stock = $this->getDoctrine()->getRepository('SpiritStockStockBundle:Stock')->findByUser($this->user);
-        $types = $this->getDoctrine()->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
-
+        $settings  = $this->getDoctrine()->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
+        $stock     = $this->getDoctrine()->getRepository('SpiritStockStockBundle:Stock')->findByUser($this->user);
+        $types     = $this->getDoctrine()->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
         $activeTab = 'tabOverview';
 
         return $this->render('SpiritStockStockBundle:Settings:overview.html.twig', array(
-            'settings' => $settings,
-            'stock' => $stock,
-            'types' => $types,
+            'settings'  => $settings,
+            'stock'     => $stock,
+            'types'     => $types,
             'activeTab' => $activeTab,
-            'help' => array(
+            'help'      => array(
                 'pageName' => $this->get('translator')->trans('help.headers.overview'),
                 'helpText' => $this->get('translator')->trans('help.texts.overview'),
             ),
         ));
     }
 
-    public function editStockAction() {
+    /**
+     * Renders page to edit or create specific stock items and their attributes
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editStockAction()
+    {
         $stocks = $this->getDoctrine()->getRepository('SpiritStockStockBundle:Stock')->findByUser($this->user);
-        $types = $this->getDoctrine()->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
+        $types  = $this->getDoctrine()->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
 
-        if(empty($types)) {
+        if (empty($types)) {
             $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));
         }
 
@@ -60,18 +64,23 @@ class SettingsController extends LocaleController
         $formView = $form->createView();
 
         return $this->render('SpiritStockStockBundle:Settings:stock.html.twig', array(
-            'form' => $formView,
+            'form'      => $formView,
             'activeTab' => $activeTab,
-            'help' => array(
+            'help'      => array(
                 'pageName' => $this->get('translator')->trans('help.headers.edit'),
                 'helpText' => $this->get('translator')->trans('help.texts.edit'),
             ),
         ));
     }
 
-    public function editTypesAction() {
-        $activeTab = 'tabTypes';
-
+    /**
+     * Renders page to edit or create specific stock types and their attributes
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editTypesAction()
+    {
+        $activeTab  = 'tabTypes';
         $stockTypes = $this->getDoctrine()->getRepository('SpiritStockStockBundle:StockType')->findByUser($this->user);
 
         // Mock collection object to get the form working... TODO - Fix this so it does it correctly
@@ -84,44 +93,52 @@ class SettingsController extends LocaleController
 
         return $this->render('SpiritStockStockBundle:Settings:types.html.twig', array(
             'activeTab' => $activeTab,
-            'form' => $form->createView(),
-            'help' => array(
+            'form'      => $form->createView(),
+            'help'      => array(
                 'pageName' => $this->get('translator')->trans('help.headers.types'),
                 'helpText' => $this->get('translator')->trans('help.texts.types'),
             ),
         ));
     }
 
-    public function editGlobalAction() {
+    /**
+     * Renders page to edit Global settings like units and currency
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editGlobalAction()
+    {
         $activeTab = 'tabGlobal';
+        /** @var GlobalSettings $settings */
         $settings = $this->em->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
+        $currency = false;
 
-        if(empty($settings)) {
+        if (!$settings) {
             $settings = new GlobalSettings();
             $settings->setCurrency('&euro;');
         } else {
             $currency = $settings->getCurrency();
         }
 
-        if(empty($settings) || empty($currency)) {
+        if (!$settings || !$currency) {
             $missingSettings = true;
         } else {
             $missingSettings = false;
         }
 
-
-        $form = $this->createForm(new GlobalSettingsType(), $settings);
-
+        $form    = $this->createForm(new GlobalSettingsType(), $settings);
         $request = $this->getRequest();
 
-        if($request->getMethod() === 'POST') {
+        // Handle submitted form
+        if ($request->getMethod() === LocaleController::REQUEST_METHOD_POST) {
             $form->submit($request);
 
-            if($form->isValid()) {
+            if ($form->isValid()) {
                 $settings->setUser($this->user);
 
                 $this->em->persist($settings);
                 $this->em->flush();
+
                 $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));
             } else {
                 $this->get('session')->getFlashBag()->add('error', $this->get('translator')->trans('form.submit.error'));
@@ -129,69 +146,83 @@ class SettingsController extends LocaleController
         }
 
         return $this->render('SpiritStockStockBundle:Settings:global.html.twig', array(
-            'activeTab' => $activeTab,
-            'form' => $form->createView(),
-            'help' => array(
+            'activeTab'       => $activeTab,
+            'form'            => $form->createView(),
+            'missingSettings' => $missingSettings,
+            'help'            => array(
                 'pageName' => $this->get('translator')->trans('help.headers.global'),
                 'helpText' => $this->get('translator')->trans('help.texts.global'),
             ),
-            'missingSettings' => $missingSettings,
         ));
     }
 
-    public function resetAction() {
+    /**
+     * Reset everything to the initial state
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function resetAction()
+    {
         /** @var Stock $stock */
         $stocks = $this->em->getRepository('SpiritStockStockBundle:Stock')->findByUser($this->user);
-        foreach($stocks as $stock) {
+        foreach ($stocks as $stock) {
             $stock->setCurrentStock($stock->getStartingStock());
             $stock->setCurrentPrice($stock->getStartingPrice());
             $stock->setChangeType(null);
             $stock->setPriceChange(null);
+
             $this->em->persist($stock);
         }
 
         $history = $this->em->getRepository('SpiritStockStockBundle:OrderHistory')->findByUser($this->user);
-        foreach($history as $entry) {
+        foreach ($history as $entry) {
             $this->em->remove($entry);
         }
-
 
         $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.reset'));
         $this->em->flush();
 
         $url = $this->generateUrl('spiritstock_stock_settings_global');
+        
         return $this->redirect($url);
     }
 
-    private function processForm($form, $entityName, $entityNamespace) {
+    /**
+     * @param $form
+     * @param $entityName
+     * @param $entityNamespace
+     */
+    private function processForm($form, $entityName, $entityNamespace)
+    {
         $request = $this->getRequest();
-        if($request->getMethod() === 'POST') {
+        if ($request->getMethod() === LocaleController::REQUEST_METHOD_POST) {
             /** @var Form $form */
             $form->submit($request);
 
-            if($entityName === 'stockTypes') {
+            if ($entityName === 'stockTypes') {
+                /** @var \SpiritStock\StockBundle\Entity\StockType[] $data */
                 $data = $form->get($entityName)->getData();
-                foreach($data as $item) {
-                    if($item->getMagicToMaximum() <= 0 || $item->getMagicToMaximum() > 1) {
+                foreach ($data as $item) {
+                    if ($item->getMagicToMaximum() <= 0 || $item->getMagicToMaximum() > 1) {
                         $form->get($entityName)->addError(new FormError('Invalid Magic Number'));
                         break;
                     }
 
-                    if($item->getStartToMinimum() <= 0 || $item->getStartToMinimum() > 480) {
+                    if ($item->getStartToMinimum() <= 0 || $item->getStartToMinimum() > 480) {
                         $form->get($entityName)->addError(new FormError('Invalid Time To Minimum'));
                         break;
                     }
                 }
             }
 
-            if($form->isValid()) {
+            if ($form->isValid()) {
                 $editedItems = $form->get($entityName)->getData();
-                $idArray = array();
+                $idArray     = array();
 
                 $items = $this->getDoctrine()->getRepository($entityNamespace)->findByUser($this->user);
 
                 // Save all stocks that have been edited
-                foreach($editedItems as $item) {
+                foreach ($editedItems as $item) {
                     /** @var Stock $item */
                     $item->setUser($this->user);
                     $this->em->persist($item);
@@ -199,8 +230,8 @@ class SettingsController extends LocaleController
                 }
 
                 // Remove all stocks that are missing in the form (not done symfony way because I'm messing with it...
-                foreach($items as $item) {
-                    if(!in_array($item->getId(), $idArray)) {
+                foreach ($items as $item) {
+                    if (!in_array($item->getId(), $idArray)) {
                         $this->em->remove($item);
                     }
                 }

@@ -13,8 +13,7 @@ class UserController extends LocaleController
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
+        $em       = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('SpiritStockUserBundle:User')->findAll();
 
         return $this->render('SpiritStockAdminBundle:User:index.html.twig', array(
@@ -25,8 +24,7 @@ class UserController extends LocaleController
 
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
+        $em     = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('SpiritStockUserBundle:User')->find($id);
 
         if (!$entity) {
@@ -34,7 +32,7 @@ class UserController extends LocaleController
         }
 
         return $this->render('SpiritStockAdminBundle:User:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
         ));
     }
 }
