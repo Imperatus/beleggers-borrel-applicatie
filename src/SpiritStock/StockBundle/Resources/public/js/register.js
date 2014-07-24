@@ -11,6 +11,9 @@ SpiritStock.Register = function() {
     "use strict";
     var stockItems, addToOrderList, findItemRow, addItemRow, updateItemRow, calculateTotal, container, formContainer, submitButton, clearButton;
 
+    /**
+     * Initialization
+     */
     this.init = function() {
         var addLink;
 
@@ -45,6 +48,13 @@ SpiritStock.Register = function() {
         })
     };
 
+    /**
+     * Adds order to the list of ordered items
+     *
+     * @param stockType
+     * @param item
+     * @param data
+     */
     addToOrderList = function(stockType, item, data) {
         if(findItemRow(stockType, item)) {
             updateItemRow(stockType, item);
@@ -59,15 +69,29 @@ SpiritStock.Register = function() {
         calculateTotal();
     };
 
+    /**
+     * Is the item already added to the overview?
+     *
+     * @param stockType
+     * @param item
+     * @returns {boolean}
+     */
     findItemRow = function(stockType, item) {
         var row = $('#list-'+stockType+'-'+item);
 
-        if(row.length <= 0) {
+        if (row.length <= 0) {
             return false;
         }
         return true;
     };
 
+    /**
+     * Add item to the overview
+     *
+     * @param stockType
+     * @param item
+     * @param data
+     */
     addItemRow = function(stockType, item, data) {
         var row = $('' +
                 '<tr id="list-'+stockType+'-'+item+'">' +
@@ -114,6 +138,12 @@ SpiritStock.Register = function() {
         formContainer.append(formRow);
     };
 
+    /**
+     * Update the row of the item
+     *
+     * @param stockType
+     * @param item
+     */
     updateItemRow = function(stockType, item) {
         var cell, amount, newAmount,
             updateRow = $('#list-'+stockType+'-'+item),
@@ -129,6 +159,9 @@ SpiritStock.Register = function() {
         cell.text('x ' + newAmount);
     };
 
+    /**
+     * Calculate total price
+     */
     calculateTotal = function() {
         var rows = container.find('tr'),
             totalContainer = $('#totalPrice'),
@@ -149,5 +182,4 @@ SpiritStock.Register = function() {
         totalContainer.text(total.toFixed(2));
         unitContainer.text(Math.ceil(units));
     };
-
 };

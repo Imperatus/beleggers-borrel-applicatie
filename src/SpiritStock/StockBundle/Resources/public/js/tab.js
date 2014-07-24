@@ -7,6 +7,11 @@
  */
 var SpiritStock =  SpiritStock || {};
 
+/**
+ * Tab functionality to set correct tab as active
+ *
+ * @constructor
+ */
 SpiritStock.Tabs = function() {
     "use strict";
 
