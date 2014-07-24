@@ -5,12 +5,21 @@ namespace SpiritStock\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 
-
+/**
+ * Used to add custom attributes to the base user class
+ *
+ * Class User
+ *
+ * @package SpiritStock\UserBundle\Entity
+ */
 class User extends BaseUser
 {
-
+    /** @var int id */
     protected $id;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         parent::__construct();

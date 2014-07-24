@@ -183,7 +183,7 @@ class SettingsController extends LocaleController
         $this->em->flush();
 
         $url = $this->generateUrl('spiritstock_stock_settings_global');
-        
+
         return $this->redirect($url);
     }
 
