@@ -188,6 +188,8 @@ class SettingsController extends LocaleController
     }
 
     /**
+     * Processes form information and persists settings to the database
+     *
      * @param $form
      * @param $entityName
      * @param $entityNamespace
@@ -221,7 +223,7 @@ class SettingsController extends LocaleController
 
                 $items = $this->getDoctrine()->getRepository($entityNamespace)->findByUser($this->user);
 
-                // Save all stocks that have been edited
+                // Save all Stocks that have been edited
                 foreach ($editedItems as $item) {
                     /** @var Stock $item */
                     $item->setUser($this->user);
@@ -229,12 +231,13 @@ class SettingsController extends LocaleController
                     $idArray[$item->getId()] = $item->getId();
                 }
 
-                // Remove all stocks that are missing in the form (not done symfony way because I'm messing with it...
+                // Remove all Stocks that are missing in the form (not done Symfony way because I'm messing with it...
                 foreach ($items as $item) {
                     if (!in_array($item->getId(), $idArray)) {
                         $this->em->remove($item);
                     }
                 }
+
                 // Persist to database
                 $this->em->flush();
                 $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('form.submit.success'));

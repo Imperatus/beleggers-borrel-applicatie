@@ -15,14 +15,15 @@ class DashboardController extends LocaleController
     public function homeAction() {
         /** @var GlobalSettings $settings */
         $settings = $this->em->getRepository('SpiritStockStockBundle:GlobalSettings')->findOneByUser($this->user);
+        $currency = false;
 
         // Get the preferred currency if there are settings
-        if(!empty($settings)) {
+        if ($settings) {
             $currency = $settings->getCurrency();
         }
 
         // Check if all required settings are there. If not, notify front-end (not elegant, but time pressure)
-        if (empty($settings) || empty($currency)) {
+        if (!$settings || !$currency) {
             $missingSettings = true;
         } else {
             $missingSettings = false;

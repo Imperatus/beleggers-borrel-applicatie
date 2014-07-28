@@ -9,6 +9,7 @@ use Zend\Json\Expr;
 
 /**
  * TODO - Work in progress! Current state of code is abominable as this was literally a last minute hack... :'/
+ *        (not critical for the working/maintainability of the app though)
  *
  * Class HistoryController
  *

@@ -6,3 +6,11 @@ services:
         class: SpiritStock\StockBundle\Twig\RoundToUnitExtension
         tags:
             - { name: twig.extension }
+
+    stock.service.stock_service:
+        class: SpiritStock\StockBundle\Service\StockService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    stock.service.history_service:
+        class: SpiritStock\StockBundle\Service\HistoryService
+        arguments: ["@doctrine.orm.entity_manager"]
