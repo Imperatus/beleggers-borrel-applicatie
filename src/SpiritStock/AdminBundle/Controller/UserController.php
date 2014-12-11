@@ -11,6 +11,11 @@ use SpiritStock\UserBundle\Entity\User;
  */
 class UserController extends LocaleController
 {
+    /**
+     * Index page for users
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction()
     {
         $em       = $this->getDoctrine()->getManager();
@@ -22,6 +27,15 @@ class UserController extends LocaleController
         ));
     }
 
+    /**
+     * Show user with given ID
+     * TODO - Generate CRUD via command line tool
+     *
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
     public function showAction($id)
     {
         $em     = $this->getDoctrine()->getManager();
